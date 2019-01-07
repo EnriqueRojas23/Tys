@@ -26,8 +26,7 @@ namespace Web.TYS.Areas.Facturacion.Controllers
         //
         // GET: /Facturacion/Facturacion/
 
-            // hola que tal
-
+            
         #region PartialView
 
         public PartialViewResult GenerarComprobante()
