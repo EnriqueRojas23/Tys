@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Pago.Parameters" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Pago.Parameters" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50030/TYS?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common" />
+  <xs:complexType name="EliminarAsignacionParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q1:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idasignacion" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EliminarAsignacionParameter" nillable="true" type="tns:EliminarAsignacionParameter" />
+  <xs:complexType name="CargarMonedasParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q2:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idetapa" type="xs:int" />
+          <xs:element minOccurs="0" name="idproveedor" type="xs:int" />
+          <xs:element minOccurs="0" name="idtipocomprobante" type="xs:int" />
+          <xs:element minOccurs="0" name="idtipotransporte" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CargarMonedasParameter" nillable="true" type="tns:CargarMonedasParameter" />
+  <xs:complexType name="CargarTipoComprobanteParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q3:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idetapa" type="xs:int" />
+          <xs:element minOccurs="0" name="idproveedor" type="xs:int" />
+          <xs:element minOccurs="0" name="idtipotransporte" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CargarTipoComprobanteParameter" nillable="true" type="tns:CargarTipoComprobanteParameter" />
+  <xs:complexType name="CargarTipoTransporteParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q4:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idetapa" type="xs:int" />
+          <xs:element minOccurs="0" name="idproveedor" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CargarTipoTransporteParameter" nillable="true" type="tns:CargarTipoTransporteParameter" />
+  <xs:complexType name="CargarEtapasParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q5:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idproveedor" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CargarEtapasParameter" nillable="true" type="tns:CargarEtapasParameter" />
+  <xs:complexType name="ExportarReporteGerencialParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q6:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="fechafin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="fechaini" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="iddestino" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idproveedor" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExportarReporteGerencialParameters" nillable="true" type="tns:ExportarReporteGerencialParameters" />
+  <xs:complexType name="ListarExportarAsignacionParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q7:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="criterio" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarExportarAsignacionParameters" nillable="true" type="tns:ListarExportarAsignacionParameters" />
+  <xs:complexType name="ListarPlacaParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q8:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idproveedor" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarPlacaParameters" nillable="true" type="tns:ListarPlacaParameters" />
+  <xs:complexType name="ListarReporteGerencialParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q9:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="fechafin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="fechaini" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="iddestino" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idproveedor" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarReporteGerencialParameters" nillable="true" type="tns:ListarReporteGerencialParameters" />
+  <xs:complexType name="ListarReporteGeneralParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q10:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="fechafin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="fechaini" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="iddestino" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idproveedor" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarReporteGeneralParameters" nillable="true" type="tns:ListarReporteGeneralParameters" />
+  <xs:complexType name="ListarDetalleComprobanteParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q11:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idcomprobante" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarDetalleComprobanteParameters" nillable="true" type="tns:ListarDetalleComprobanteParameters" />
+  <xs:complexType name="ListarUbigeoParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q12:QueryParameter">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarUbigeoParameters" nillable="true" type="tns:ListarUbigeoParameters" />
+  <xs:complexType name="ListarComprobanteParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q13:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="fechafin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="fechaini" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="serie" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarComprobanteParameters" nillable="true" type="tns:ListarComprobanteParameters" />
+  <xs:complexType name="ListarAsignacionParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q14:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="criterio" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarAsignacionParameters" nillable="true" type="tns:ListarAsignacionParameters" />
+  <xs:complexType name="ListarTipoComprobanteParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q15:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="criterio" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarTipoComprobanteParameters" nillable="true" type="tns:ListarTipoComprobanteParameters" />
+  <xs:complexType name="ListarMonedaParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q16:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="criterio" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarMonedaParameters" nillable="true" type="tns:ListarMonedaParameters" />
+  <xs:complexType name="ListarTipoTransporteParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q17:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="criterio" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarTipoTransporteParameters" nillable="true" type="tns:ListarTipoTransporteParameters" />
+  <xs:complexType name="ListarEtapaParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q18:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="activo" type="xs:boolean" />
+          <xs:element minOccurs="0" name="criterio" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarEtapaParameters" nillable="true" type="tns:ListarEtapaParameters" />
+  <xs:complexType name="ListarProveedorParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q19:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="activo" type="xs:boolean" />
+          <xs:element minOccurs="0" name="criterio" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarProveedorParameters" nillable="true" type="tns:ListarProveedorParameters" />
+  <xs:complexType name="ObtenerComprobanteParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q20="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q20:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerComprobanteParameter" nillable="true" type="tns:ObtenerComprobanteParameter" />
+  <xs:complexType name="ObtenerTipoTransporteParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q21="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q21:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerTipoTransporteParameter" nillable="true" type="tns:ObtenerTipoTransporteParameter" />
+  <xs:complexType name="ObtenerEtapaParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q22="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q22:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerEtapaParameter" nillable="true" type="tns:ObtenerEtapaParameter" />
+  <xs:complexType name="ObtenerMonedaParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q23="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q23:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerMonedaParameter" nillable="true" type="tns:ObtenerMonedaParameter" />
+  <xs:complexType name="ObtenerTipoComprobanteParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q24="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q24:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerTipoComprobanteParameter" nillable="true" type="tns:ObtenerTipoComprobanteParameter" />
+  <xs:complexType name="ObtenerProveedorParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q25="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q25:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerProveedorParameters" nillable="true" type="tns:ObtenerProveedorParameters" />
+  <xs:complexType name="ValidaSerieParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q26="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q26:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idcomprobante" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="idetapa" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idproveedor" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idtipocomprobante" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="serie" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ValidaSerieParameters" nillable="true" type="tns:ValidaSerieParameters" />
+  <xs:complexType name="ValidaOtsParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q27="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q27:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:int" />
+          <xs:element minOccurs="0" name="idetapa" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ValidaOtsParameters" nillable="true" type="tns:ValidaOtsParameters" />
+</xs:schema>

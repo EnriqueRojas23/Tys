@@ -1,0 +1,88 @@
+﻿@model Web.TYS.Areas.Seguridad.Models.Usuarios.InsertarModificarUsuarioModel
+@section Styles{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/sweetalert/sweetalert.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/jqGrid/ui.jqgrid.css")" />
+    <link rel="stylesheet" type="text/css" media="screen" href="@Url.Content("~/Content/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/chosen/chosen.css")" />
+}
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/plugins/sweetalert/sweetalert.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/validate/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/jqGrid/jquery.jqGrid.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/jqGrid/i18n/grid.locale-es.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jsview/seguridad/seguridad.usuarios.listarusuarios.js")" type="text/javascript"></script>
+  
+
+}
+<form id="frmUsuarioNuevo" role="form" method="post"  class=" form-horizontal">
+    <div class="panel-primary">
+        <div class="panel-heading">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class=" panel-title">
+                Nuevo Usuario
+            </h4>
+        </div>
+    </div>
+    <div class="modal-body">
+
+        <div class="form-group">
+           
+            <p>
+                (*)
+                @Html.Label("Usuario:")
+                @Html.TextBoxFor(model => model.Usr_str_red, new { @class = "form-control", @required = "true", placeholder = "Usuario de acceso", name = "Password" })
+               
+            </p>
+            <p>
+                (*)
+                @Html.Label("Nombres:")
+                @Html.TextBoxFor(model => model.Usr_str_nombre, new { @class = "form-control", @required = "true", placeholder = "Nombres" })
+            </p>
+            <p>
+                (*)
+                @Html.Label("Apellidos:")
+                @Html.TextBoxFor(model => model.Usr_str_apellidos, new { @class = "form-control", @required = "true", placeholder = "Apellidos" })
+            </p>
+            <p>  (*)
+                @Html.Label("Email:")
+                @Html.TextBoxFor(model => model.Usr_str_email, new { type = "email", @class = "form-control", @required = "true", placeholder = "ejemplo@dominio.com" })
+            </p>
+            <p>
+                @Html.Label("Tipo Usuario:")
+                @Html.DropDownListFor(model => model.usr_str_tipoacceso, Model.ListaModoAutenticacion, new { @class = "form-control", @required = "true" })
+            </p>
+            <p>
+                @Html.Label("Cliente:")
+                @Html.DropDownListFor(model => model.idcliente, (SelectList)ViewData["ListadoClientes"], "[Todos los Clientes]", new { @class = "chosen-select form-control" })
+            </p>
+            <p>
+                @Html.Label("Estación:")
+                @Html.DropDownListFor(model => model.idestacionorigen, (SelectList)ViewData["ListaEstacion"], "[Todos las Sucursales]", new { @class = "form-control" })
+            </p>
+               @* <p>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">
+                            Accesos: <br />
+                        </label>
+
+                        <div class="col-sm-7">
+                            <div class="checkbox">
+                                <label>@Html.CheckBoxFor(model => model.Usr_bool_bloqueado) La cuenta esta bloqueada. </label>
+                            </div>
+                           <div class="clearfix"></div>
+                    <div class="checkbox">
+                        <label>@Html.CheckBoxFor(model => model.Usr_bool_cambiarpwd) El usuario puede cambiar la contraseña </label>
+                    </div>
+
+                </div>
+            </div>
+        </p>*@
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">Cancelar</button>
+                    <button id="btnRegistrar" data-url="@Url.Action("Insertar", "Usuarios")"  type="button" class="btn btn-primary">Registrar</button>
+                </div>
+</div>
+    </div>
+</form>
+

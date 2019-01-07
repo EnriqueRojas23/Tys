@@ -1,0 +1,23 @@
+0 --> 
+1.---> se puede editar la programacion de las guias...
+2.---> retirar en la orden de reparacion el destino final.???
+3. generar guia de traslado para proveedores.
+---> pantalla de cambio de guias.. en transito... Imprimir hoja de ruta.. (2) 
+---> Agregar el link para poder ver el detalle del documento.
+---> una vez que se recepciona un producto se ingresa al ofismart 
+---> crear un rol de edición (Rollback)
+
+
+
+
+
+coordinar con inventario que almancenes se puede usar para el movimiento de los productos
+relacion de fallas por producto o averias.
+relacion del detalle del trabajo realizaod.
+
+
+
+almacen Enviar lista de proveedores y negociados con garantia para cmabio
+
+
+

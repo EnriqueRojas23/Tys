@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="dea5b591-e351-42b6-a88d-5ed8717e954d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50040/Core" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Core.disco" MetadataType="Disco" ID="d749d27e-cc7b-422c-8053-0ce982cd478c" SourceId="1" SourceUrl="http://localhost:50040/Core?disco" />
+    <MetadataFile FileName="Core.xsd" MetadataType="Schema" ID="d754a77d-5aa8-4cff-98cf-3b000a91d8c9" SourceId="1" SourceUrl="http://localhost:50040/Core?xsd=xsd0" />
+    <MetadataFile FileName="Core1.xsd" MetadataType="Schema" ID="dcf90f93-916d-4f0a-a19f-0ce3144e55a4" SourceId="1" SourceUrl="http://localhost:50040/Core?xsd=xsd10" />
+    <MetadataFile FileName="Core2.xsd" MetadataType="Schema" ID="2891b347-520f-4d60-9587-0fb60685ad90" SourceId="1" SourceUrl="http://localhost:50040/Core?xsd=xsd2" />
+    <MetadataFile FileName="Core3.xsd" MetadataType="Schema" ID="95ae00f0-de2d-45e0-ab21-3fe6fb0bf666" SourceId="1" SourceUrl="http://localhost:50040/Core?xsd=xsd12" />
+    <MetadataFile FileName="Core4.xsd" MetadataType="Schema" ID="b64eb358-2682-479f-8bec-f719ea50f750" SourceId="1" SourceUrl="http://localhost:50040/Core?xsd=xsd13" />
+    <MetadataFile FileName="Core5.xsd" MetadataType="Schema" ID="9468db53-0804-4225-b657-666beb15f77d" SourceId="1" SourceUrl="http://localhost:50040/Core?xsd=xsd14" />
+    <MetadataFile FileName="Core6.xsd" MetadataType="Schema" ID="4e7ab1ce-7692-4183-b8b1-0c1e696499a6" SourceId="1" SourceUrl="http://localhost:50040/Core?xsd=xsd9" />
+    <MetadataFile FileName="Core7.xsd" MetadataType="Schema" ID="4a8ce069-8345-4085-b21c-6c36ded5cc0e" SourceId="1" SourceUrl="http://localhost:50040/Core?xsd=xsd15" />
+    <MetadataFile FileName="Core8.xsd" MetadataType="Schema" ID="cf6221d4-1b50-4541-bdf6-7917e9b1b4a9" SourceId="1" SourceUrl="http://localhost:50040/Core?xsd=xsd5" />
+    <MetadataFile FileName="Core9.xsd" MetadataType="Schema" ID="bc41a1ee-3abd-405e-ae0d-4097689962e5" SourceId="1" SourceUrl="http://localhost:50040/Core?xsd=xsd7" />
+    <MetadataFile FileName="Core10.xsd" MetadataType="Schema" ID="f9c04d02-9e07-4bf5-98aa-62647be01040" SourceId="1" SourceUrl="http://localhost:50040/Core?xsd=xsd11" />
+    <MetadataFile FileName="CoreBackendService.wsdl" MetadataType="Wsdl" ID="c874382a-9e20-41ad-831f-82dea095e9f1" SourceId="1" SourceUrl="http://localhost:50040/Core?wsdl" />
+    <MetadataFile FileName="Core11.xsd" MetadataType="Schema" ID="866adb71-2533-4a66-9eb5-29abdcc379bb" SourceId="1" SourceUrl="http://localhost:50040/Core?xsd=xsd1" />
+    <MetadataFile FileName="Core12.xsd" MetadataType="Schema" ID="7e2e2740-c696-4f1d-81ac-a4da8989a502" SourceId="1" SourceUrl="http://localhost:50040/Core?xsd=xsd3" />
+    <MetadataFile FileName="Core13.xsd" MetadataType="Schema" ID="4821d977-0baa-4581-8991-2f8f12e505f0" SourceId="1" SourceUrl="http://localhost:50040/Core?xsd=xsd8" />
+    <MetadataFile FileName="Core14.xsd" MetadataType="Schema" ID="a7dc1dc8-6a67-4889-8b6c-75ecdb9dd159" SourceId="1" SourceUrl="http://localhost:50040/Core?xsd=xsd4" />
+    <MetadataFile FileName="Core15.xsd" MetadataType="Schema" ID="94f81f5c-0607-424d-b4a1-cfca2afb185a" SourceId="1" SourceUrl="http://localhost:50040/Core?xsd=xsd6" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

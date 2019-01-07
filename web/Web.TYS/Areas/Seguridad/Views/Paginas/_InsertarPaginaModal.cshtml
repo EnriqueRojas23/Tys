@@ -1,0 +1,91 @@
+﻿@model Web.TYS.Areas.Seguridad.Models.Paginas.InsertarModificarPaginaModel
+@section Styles
+{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/sweetalert/sweetalert.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/dataTables/datatables.min.css")" />
+}
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/plugins/sweetalert/sweetalert.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jsview/seguridad/seguridad.usuarios.listarpaginas.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/dataTables/datatables.min.js")" type="text/javascript"></script>
+}
+<form id="frmPaginaNuevo" role="form" method="post" class=" form-horizontal">
+    <div class="panel-primary">
+        <div class="panel-heading">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class=" panel-title">
+                Nueva Página
+            </h4>
+        </div>
+    </div>
+    @*@using (Ajax.BeginForm("InsertarModificarSistemaModal", "Sistemas", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalcontent", OnComplete = "OnCompleteTransaction(xhr, status)", Confirm = "¿Esta seguro de guardar los cambios?" }, new { @class = "form-group" }))
+        {*@
+
+
+    <div class="modal-body">
+
+        <div class="form-group">
+            <p>(*)
+                @Html.Label("Sistema:")
+                @Html.DropDownListFor(model => model.pag_str_codmenu_padre, (SelectList)ViewData["listasistemas"], "[Elija uno]", new { @class = "form-control", @required = "true" })
+            </p>
+            <p>(*)
+                @Html.Label("Nombre:")
+                @Html.TextBoxFor(model => model.pag_str_nombre, new { @class = "form-control", @maxlength = "50", @required = "true", @placeholder = "Nombre" })
+            </p>
+            @*<p>(*)
+                @Html.Label("Controller:")
+                @Html.TextBoxFor(model => model.pag_str_controller, new { @class = "form-control", @maxlength = "20", @required = "true", @placeholder = "Controller" })
+
+            </p>*@
+            @*<p>(*)
+                @Html.Label("Action:")
+                @Html.TextBoxFor(model => model.pag_str_action, new { @class = "form-control", @maxlength = "20", @required = "true", @placeholder = "Action" })
+
+            </p>*@
+            @*<p>(*)
+                @Html.Label("Area:")
+                @Html.TextBoxFor(model => model.pag_str_attributes, new { @class = "form-control", @maxlength = "20", @required = "true", @placeholder = "Area" })
+
+            </p>*@
+            <p>(*)
+                @Html.Label("Url:")
+                @Html.TextBoxFor(model => model.pag_str_url, new { @class = "form-control", @maxlength = "100", @required = "true", @placeholder = "URL" })
+
+            </p>
+            @*<p>
+                @Html.Label("Orden:")
+                @Html.DropDownListFor(model => model.pag_int_secuencia, (SelectList)ViewData["ordenes"], "[Elija uno]", new { @class = "form-control", @required = "true" })
+            </p>*@
+            <p>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        Accesos: <br />
+                    </label>
+
+                    <div class="col-sm-7">
+
+                        @Html.CheckBoxFor(model => model.pag_bit_activo)<label> La pantalla está activa. </label>
+
+                        @*<div class="clearfix"></div>
+
+                        @Html.CheckBoxFor(model => model.pag_bit_externo)<label> La pantalla es externa. </label>*@
+
+                    </div>
+                </div>
+
+            </p>
+        
+
+
+        </div>
+
+
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-white" data-dismiss="modal">Cancelar</button>
+        <button id="btnAgregar" type="button" data-url="@Url.Action("InsertarModificarPaginaModal1", "Paginas")" class="btn btn-primary">Registrar</button>
+    </div>
+  </form>

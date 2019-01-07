@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/QueryContracts.Core.CRM.Result" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/QueryContracts.Core.CRM.Result" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50040/Core?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common" />
+  <xs:complexType name="ObtenerOrdenTransporteResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q1:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NumCp" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PKID" type="xs:int" />
+          <xs:element minOccurs="0" name="Precio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubTotal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Total" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalBultos" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalPeso" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ValorVenta" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerOrdenTransporteResult" nillable="true" type="tns:ObtenerOrdenTransporteResult" />
+  <xs:complexType name="ListarOrdenesTransporteResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q2:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarOrdenesTransporteDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarOrdenesTransporteResult" nillable="true" type="tns:ListarOrdenesTransporteResult" />
+  <xs:complexType name="ArrayOfListarOrdenesTransporteDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarOrdenesTransporteDto" nillable="true" type="tns:ListarOrdenesTransporteDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarOrdenesTransporteDto" nillable="true" type="tns:ArrayOfListarOrdenesTransporteDto" />
+  <xs:complexType name="ListarOrdenesTransporteDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NumCp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PKID" type="xs:int" />
+      <xs:element minOccurs="0" name="Precio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubTotal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Total" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalBultos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalPeso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValorVenta" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarOrdenesTransporteDto" nillable="true" type="tns:ListarOrdenesTransporteDto" />
+</xs:schema>

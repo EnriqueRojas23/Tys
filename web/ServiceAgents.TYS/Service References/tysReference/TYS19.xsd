@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Monitoreo.Results" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Monitoreo.Results" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50030/TYS?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common" />
+  <xs:complexType name="DuplicarGuiaResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q1:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idguia" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DuplicarGuiaResults" nillable="true" type="tns:DuplicarGuiaResults" />
+  <xs:complexType name="DuplicarOTResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q2:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DuplicarOTResults" nillable="true" type="tns:DuplicarOTResults" />
+  <xs:complexType name="InsertarDetalleEmbarqueResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q3:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="respuesta" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarDetalleEmbarqueResult" nillable="true" type="tns:InsertarDetalleEmbarqueResult" />
+  <xs:complexType name="InsertarIncidenciaResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q4:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="respuesta" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarIncidenciaResult" nillable="true" type="tns:InsertarIncidenciaResult" />
+  <xs:complexType name="ListarManifiestosAsignadosEmbarqueResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q5:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarManifiestosAsignadosEmbarqueDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarManifiestosAsignadosEmbarqueResults" nillable="true" type="tns:ListarManifiestosAsignadosEmbarqueResults" />
+  <xs:complexType name="ArrayOfListarManifiestosAsignadosEmbarqueDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarManifiestosAsignadosEmbarqueDto" nillable="true" type="tns:ListarManifiestosAsignadosEmbarqueDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarManifiestosAsignadosEmbarqueDto" nillable="true" type="tns:ArrayOfListarManifiestosAsignadosEmbarqueDto" />
+  <xs:complexType name="ListarManifiestosAsignadosEmbarqueDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="distrito" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechacontrolsunat" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechadescarga" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="iddestino" type="xs:int" />
+      <xs:element minOccurs="0" name="idmanifiesto" type="xs:long" />
+      <xs:element minOccurs="0" name="idordentrabajo" type="xs:int" />
+      <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nummanifiesto" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarManifiestosAsignadosEmbarqueDto" nillable="true" type="tns:ListarManifiestosAsignadosEmbarqueDto" />
+  <xs:complexType name="ListarManifiestosSinEmbarqueResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q6:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarManifiestosSinEmbarqueDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarManifiestosSinEmbarqueResults" nillable="true" type="tns:ListarManifiestosSinEmbarqueResults" />
+  <xs:complexType name="ArrayOfListarManifiestosSinEmbarqueDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarManifiestosSinEmbarqueDto" nillable="true" type="tns:ListarManifiestosSinEmbarqueDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarManifiestosSinEmbarqueDto" nillable="true" type="tns:ArrayOfListarManifiestosSinEmbarqueDto" />
+  <xs:complexType name="ListarManifiestosSinEmbarqueDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="distrito" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="iddestino" type="xs:int" />
+      <xs:element minOccurs="0" name="idmanifiesto" type="xs:long" />
+      <xs:element minOccurs="0" name="idordentrabajo" type="xs:int" />
+      <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nummanifiesto" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarManifiestosSinEmbarqueDto" nillable="true" type="tns:ListarManifiestosSinEmbarqueDto" />
+  <xs:complexType name="ListarDetalleEmbarqueResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q7:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarDetalleEmbarqueDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarDetalleEmbarqueResults" nillable="true" type="tns:ListarDetalleEmbarqueResults" />
+  <xs:complexType name="ArrayOfListarDetalleEmbarqueDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarDetalleEmbarqueDto" nillable="true" type="tns:ListarDetalleEmbarqueDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarDetalleEmbarqueDto" nillable="true" type="tns:ArrayOfListarDetalleEmbarqueDto" />
+  <xs:complexType name="ListarDetalleEmbarqueDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Peso" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Volumen" type="xs:decimal" />
+      <xs:element minOccurs="0" name="bulto" type="xs:int" />
+      <xs:element minOccurs="0" name="cantidad" type="xs:int" />
+      <xs:element minOccurs="0" name="distrito" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechadespacho" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idmanifiesto" type="xs:long" />
+      <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+      <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="numeroembarque" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nummanifiesto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="origen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="reintegrotributario" type="xs:boolean" />
+      <xs:element minOccurs="0" name="tipooperacion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarDetalleEmbarqueDto" nillable="true" type="tns:ListarDetalleEmbarqueDto" />
+  <xs:complexType name="EliminarEmbarqueFluvialResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q8:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idembarque" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EliminarEmbarqueFluvialResults" nillable="true" type="tns:EliminarEmbarqueFluvialResults" />
+  <xs:complexType name="ListarEventosResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q9:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarEventosDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarEventosResults" nillable="true" type="tns:ListarEventosResults" />
+  <xs:complexType name="ArrayOfListarEventosDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarEventosDto" nillable="true" type="tns:ListarEventosDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarEventosDto" nillable="true" type="tns:ArrayOfListarEventosDto" />
+  <xs:complexType name="ListarEventosDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="autogenerada" type="xs:boolean" />
+      <xs:element minOccurs="0" name="documento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="estacionorigen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="evento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaevento" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fecharegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idmaestroevento" type="xs:int" />
+      <xs:element minOccurs="0" name="idusuarioregistro" type="xs:int" />
+      <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="observacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ot" type="xs:long" />
+      <xs:element minOccurs="0" name="recurso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoevento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarEventosDto" nillable="true" type="tns:ListarEventosDto" />
+  <xs:complexType name="ListarOtsFluvialResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q10:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarOtsFluvialDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarOtsFluvialResults" nillable="true" type="tns:ListarOtsFluvialResults" />
+  <xs:complexType name="ArrayOfListarOtsFluvialDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarOtsFluvialDto" nillable="true" type="tns:ListarOtsFluvialDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarOtsFluvialDto" nillable="true" type="tns:ArrayOfListarOtsFluvialDto" />
+  <xs:complexType name="ListarOtsFluvialDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bulto" type="xs:int" />
+      <xs:element minOccurs="0" name="destinatario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="direcciondestino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="distritodestino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechadespacho" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="grr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="iddestino" type="xs:int" />
+      <xs:element minOccurs="0" name="idmanifiesto" type="xs:int" />
+      <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+      <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nummanifiesto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="origen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="peso" type="xs:decimal" />
+      <xs:element minOccurs="0" name="placa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="remitente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tienda" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipooperacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipotransporte" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="transporte" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ultimaetapa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ultimodocumento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ultimorecurso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="volumen" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarOtsFluvialDto" nillable="true" type="tns:ListarOtsFluvialDto" />
+  <xs:complexType name="ListarOtsMonitoreoEntregaResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q11:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarOtsMonitoreoEntregaDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarOtsMonitoreoEntregaResults" nillable="true" type="tns:ListarOtsMonitoreoEntregaResults" />
+  <xs:complexType name="ArrayOfListarOtsMonitoreoEntregaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarOtsMonitoreoEntregaDto" nillable="true" type="tns:ListarOtsMonitoreoEntregaDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarOtsMonitoreoEntregaDto" nillable="true" type="tns:ArrayOfListarOtsMonitoreoEntregaDto" />
+  <xs:complexType name="ListarOtsMonitoreoEntregaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Incidencia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="bulto" type="xs:int" />
+      <xs:element minOccurs="0" name="destinatario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="direcciondestino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="distritodestino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="entrega" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="estacionorigen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaarribo" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaconocimientoembarque" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechadesembarque" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechadespacho" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaembarque" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaentrega" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechallegadaalmacen" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechallegadapuerto" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fecharegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechasalidadepuerto" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="grr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="horadespacho" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="horaentrega" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="iddestino" type="xs:int" />
+      <xs:element minOccurs="0" name="idmaestroetapa" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="idmanifiesto" type="xs:int" />
+      <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+      <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="numeroconocimiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nummanifiesto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="origen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="peso" type="xs:decimal" />
+      <xs:element minOccurs="0" name="placa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="reintegro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="remitente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tienda" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipooperacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipotransporte" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ultimaetapa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ultimodocumento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ultimorecurso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="volumen" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarOtsMonitoreoEntregaDto" nillable="true" type="tns:ListarOtsMonitoreoEntregaDto" />
+  <xs:complexType name="ObtenerExisteCEResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q12:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cantidad" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerExisteCEResults" nillable="true" type="tns:ObtenerExisteCEResults" />
+  <xs:complexType name="ObtenerUltimoNumeroEmbarqueResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q13:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="numeroembarque" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerUltimoNumeroEmbarqueResults" nillable="true" type="tns:ObtenerUltimoNumeroEmbarqueResults" />
+  <xs:complexType name="ObtenerEmbarqueFluvialResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q14:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="conocimientoembarque" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="embarquecompleto" type="xs:boolean" />
+          <xs:element minOccurs="0" name="fechaatraque" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="fechafincarga" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="fechainiciocarga" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="fechallegada" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="fecharegistro" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="fechazarpe" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="idembarque" type="xs:long" />
+          <xs:element minOccurs="0" name="idpuerto" type="xs:int" />
+          <xs:element minOccurs="0" name="idtransporte" type="xs:int" />
+          <xs:element minOccurs="0" name="numeroembarque" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="transporte" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="usuarioregistro" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerEmbarqueFluvialResults" nillable="true" type="tns:ObtenerEmbarqueFluvialResults" />
+  <xs:complexType name="ListarEtapasMonitoreoResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q15:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarEtapasMonitoreoDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarEtapasMonitoreoResults" nillable="true" type="tns:ListarEtapasMonitoreoResults" />
+  <xs:complexType name="ArrayOfListarEtapasMonitoreoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarEtapasMonitoreoDto" nillable="true" type="tns:ListarEtapasMonitoreoDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarEtapasMonitoreoDto" nillable="true" type="tns:ArrayOfListarEtapasMonitoreoDto" />
+  <xs:complexType name="ListarEtapasMonitoreoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="autogenerada" type="xs:boolean" />
+      <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="etapaunica" type="xs:boolean" />
+      <xs:element minOccurs="0" name="grr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idmaestroetapa" type="xs:int" />
+      <xs:element minOccurs="0" name="tipoetapa" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarEtapasMonitoreoDto" nillable="true" type="tns:ListarEtapasMonitoreoDto" />
+  <xs:complexType name="InsertarEtapaResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q16:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="respuesta" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarEtapaResult" nillable="true" type="tns:InsertarEtapaResult" />
+  <xs:complexType name="ListarEmbarqueFluvialResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q17:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarEmbarqueFluvialDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarEmbarqueFluvialResults" nillable="true" type="tns:ListarEmbarqueFluvialResults" />
+  <xs:complexType name="ArrayOfListarEmbarqueFluvialDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarEmbarqueFluvialDto" nillable="true" type="tns:ListarEmbarqueFluvialDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarEmbarqueFluvialDto" nillable="true" type="tns:ArrayOfListarEmbarqueFluvialDto" />
+  <xs:complexType name="ListarEmbarqueFluvialDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="conocimientoembarque" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="embarquecompleto" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechaatraque" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechafincarga" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechainiciocarga" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechallegada" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fecharegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechazarpe" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idembarque" type="xs:long" />
+      <xs:element minOccurs="0" name="idusuarioregistro" type="xs:int" />
+      <xs:element minOccurs="0" name="numeroembarque" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="puerto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="transporte" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarEmbarqueFluvialDto" nillable="true" type="tns:ListarEmbarqueFluvialDto" />
+  <xs:complexType name="ListarOrdenesTrabajoResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q18:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarOrdenesTrabajoDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarOrdenesTrabajoResults" nillable="true" type="tns:ListarOrdenesTrabajoResults" />
+  <xs:complexType name="ArrayOfListarOrdenesTrabajoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarOrdenesTrabajoDto" nillable="true" type="tns:ListarOrdenesTrabajoDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarOrdenesTrabajoDto" nillable="true" type="tns:ArrayOfListarOrdenesTrabajoDto" />
+  <xs:complexType name="ListarOrdenesTrabajoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="destinatario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+      <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nummanifiesto" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarOrdenesTrabajoDto" nillable="true" type="tns:ListarOrdenesTrabajoDto" />
+  <xs:complexType name="ListarArchivosResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q19:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarArchivosDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarArchivosResults" nillable="true" type="tns:ListarArchivosResults" />
+  <xs:complexType name="ArrayOfListarArchivosDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarArchivosDto" nillable="true" type="tns:ListarArchivosDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarArchivosDto" nillable="true" type="tns:ArrayOfListarArchivosDto" />
+  <xs:complexType name="ListarArchivosDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idarchivo" type="xs:long" />
+      <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+      <xs:element minOccurs="0" name="nombrearchivo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rutaacceso" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarArchivosDto" nillable="true" type="tns:ListarArchivosDto" />
+  <xs:complexType name="ListarLiquidacionOperacionesResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q20="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q20:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarLiquidacionOperacionesDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarLiquidacionOperacionesResults" nillable="true" type="tns:ListarLiquidacionOperacionesResults" />
+  <xs:complexType name="ArrayOfListarLiquidacionOperacionesDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarLiquidacionOperacionesDto" nillable="true" type="tns:ListarLiquidacionOperacionesDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarLiquidacionOperacionesDto" nillable="true" type="tns:ArrayOfListarLiquidacionOperacionesDto" />
+  <xs:complexType name="ListarLiquidacionOperacionesDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiasTranscurridos" type="xs:int" />
+      <xs:element minOccurs="0" name="LeadDocumentario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UltimaIncidencia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="conceptocobro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="coordinador" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="destinatario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="destino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechadespacho" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fecharecojo" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="guiatransportista" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+      <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="remitente" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarLiquidacionOperacionesDto" nillable="true" type="tns:ListarLiquidacionOperacionesDto" />
+  <xs:complexType name="ListarHelpResourcesResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q21="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q21:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarHelpResourcesDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarHelpResourcesResults" nillable="true" type="tns:ListarHelpResourcesResults" />
+  <xs:complexType name="ArrayOfListarHelpResourcesDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarHelpResourcesDto" nillable="true" type="tns:ListarHelpResourcesDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarHelpResourcesDto" nillable="true" type="tns:ArrayOfListarHelpResourcesDto" />
+  <xs:complexType name="ListarHelpResourcesDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="help" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idhelp" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarHelpResourcesDto" nillable="true" type="tns:ListarHelpResourcesDto" />
+  <xs:complexType name="ListarOrdenesxManifiestoResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q22="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q22:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarOrdenesxManifiestoDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarOrdenesxManifiestoResults" nillable="true" type="tns:ListarOrdenesxManifiestoResults" />
+  <xs:complexType name="ArrayOfListarOrdenesxManifiestoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarOrdenesxManifiestoDto" nillable="true" type="tns:ListarOrdenesxManifiestoDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarOrdenesxManifiestoDto" nillable="true" type="tns:ArrayOfListarOrdenesxManifiestoDto" />
+  <xs:complexType name="ListarOrdenesxManifiestoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idestado" type="xs:int" />
+      <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+      <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarOrdenesxManifiestoDto" nillable="true" type="tns:ListarOrdenesxManifiestoDto" />
+  <xs:complexType name="ListarIncidentesResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q23="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q23:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarIncidentesDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarIncidentesResults" nillable="true" type="tns:ListarIncidentesResults" />
+  <xs:complexType name="ArrayOfListarIncidentesDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarIncidentesDto" nillable="true" type="tns:ListarIncidentesDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarIncidentesDto" nillable="true" type="tns:ArrayOfListarIncidentesDto" />
+  <xs:complexType name="ListarIncidentesDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codincidencia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechainicio" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fecharegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idincidencia" type="xs:long" />
+      <xs:element minOccurs="0" name="idmaestroincidencia" type="xs:int" />
+      <xs:element minOccurs="0" name="incidencia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="movimiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="visible" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarIncidentesDto" nillable="true" type="tns:ListarIncidentesDto" />
+  <xs:complexType name="ListarMaestroIncidenteResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q24="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q24:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarMaestroIncidenteDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarMaestroIncidenteResults" nillable="true" type="tns:ListarMaestroIncidenteResults" />
+  <xs:complexType name="ArrayOfListarMaestroIncidenteDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarMaestroIncidenteDto" nillable="true" type="tns:ListarMaestroIncidenteDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarMaestroIncidenteDto" nillable="true" type="tns:ArrayOfListarMaestroIncidenteDto" />
+  <xs:complexType name="ListarMaestroIncidenteDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codincidencia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="esfecha" type="xs:boolean" />
+      <xs:element minOccurs="0" name="fechafin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idmaestroincidencia" type="xs:int" />
+      <xs:element minOccurs="0" name="seactualiza" type="xs:boolean" />
+      <xs:element minOccurs="0" name="tipo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarMaestroIncidenteDto" nillable="true" type="tns:ListarMaestroIncidenteDto" />
+  <xs:complexType name="ListarMonitoreoOperacionesExportarResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q25="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q25:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarMonitoreoOperacionesExportarDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarMonitoreoOperacionesExportarResults" nillable="true" type="tns:ListarMonitoreoOperacionesExportarResults" />
+  <xs:complexType name="ArrayOfListarMonitoreoOperacionesExportarDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarMonitoreoOperacionesExportarDto" nillable="true" type="tns:ListarMonitoreoOperacionesExportarDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarMonitoreoOperacionesExportarDto" nillable="true" type="tns:ArrayOfListarMonitoreoOperacionesExportarDto" />
+  <xs:complexType name="ListarMonitoreoOperacionesExportarDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bulto" type="xs:int" />
+      <xs:element minOccurs="0" name="coddirecciondestino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="coddireccionorigen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="descripciongeneral" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="destinatario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="destino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="documentos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechasalida" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fecregistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+      <xs:element minOccurs="0" name="nroguia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nummanifiesto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="origen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="peso" type="xs:decimal" />
+      <xs:element minOccurs="0" name="placa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="recursos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="remitente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipooperacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipotransporte" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="volumen" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarMonitoreoOperacionesExportarDto" nillable="true" type="tns:ListarMonitoreoOperacionesExportarDto" />
+  <xs:complexType name="ListarOtsMonitoreoResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q26="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q26:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarOtsMonitoreoDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarOtsMonitoreoResults" nillable="true" type="tns:ListarOtsMonitoreoResults" />
+  <xs:complexType name="ArrayOfListarOtsMonitoreoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarOtsMonitoreoDto" nillable="true" type="tns:ListarOtsMonitoreoDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarOtsMonitoreoDto" nillable="true" type="tns:ArrayOfListarOtsMonitoreoDto" />
+  <xs:complexType name="ListarOtsMonitoreoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Incidencia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="bulto" type="xs:int" />
+      <xs:element minOccurs="0" name="destinatario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="direcciondestino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="distritodestino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="entrega" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="estacionorigen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechadespacho" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="grr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="iddestino" type="xs:int" />
+      <xs:element minOccurs="0" name="idmanifiesto" type="xs:int" />
+      <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+      <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nummanifiesto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="origen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="peso" type="xs:decimal" />
+      <xs:element minOccurs="0" name="placa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="reintegro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="remitente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tienda" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipooperacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipotransporte" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ultimaetapa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ultimodocumento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ultimorecurso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="volumen" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarOtsMonitoreoDto" nillable="true" type="tns:ListarOtsMonitoreoDto" />
+  <xs:complexType name="ListarMonitoreoOperacionesResults">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q27="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q27:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarMonitoreoOperacionesDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarMonitoreoOperacionesResults" nillable="true" type="tns:ListarMonitoreoOperacionesResults" />
+  <xs:complexType name="ArrayOfListarMonitoreoOperacionesDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarMonitoreoOperacionesDto" nillable="true" type="tns:ListarMonitoreoOperacionesDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarMonitoreoOperacionesDto" nillable="true" type="tns:ArrayOfListarMonitoreoOperacionesDto" />
+  <xs:complexType name="ListarMonitoreoOperacionesDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UltimoDocumento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UltimoRecurso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="bulto" type="xs:int" />
+      <xs:element minOccurs="0" name="coddirecciondestino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="coddireccionorigen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="descripciongeneral" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="destinatario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="destino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="documentos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechasalida" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fecregistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idestado" type="xs:int" />
+      <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+      <xs:element minOccurs="0" name="nroguia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nummanifiesto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="origen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="peso" type="xs:decimal" />
+      <xs:element minOccurs="0" name="placa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="recursos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="remitente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipooperacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipotransporte" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="volumen" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarMonitoreoOperacionesDto" nillable="true" type="tns:ListarMonitoreoOperacionesDto" />
+  <xs:complexType name="ValidarOtsCerradasResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q28="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q28:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cantidad" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ValidarOtsCerradasResult" nillable="true" type="tns:ValidarOtsCerradasResult" />
+</xs:schema>

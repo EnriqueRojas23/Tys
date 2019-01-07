@@ -1,0 +1,151 @@
+﻿@model Web.TYS.Areas.Pago.Models.ComprobanteModel
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/jqGrid/ui.jqgrid.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jqgrid.extension.css")" />
+
+
+}
+@section scripts
+{
+
+
+
+}
+@using (Ajax.BeginForm("EditarComprobanteModal", "Facturacion", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalcontent", OnComplete = "OnCompleteTransaction(xhr, status)" }, new { @class = "form-horizontal" }))
+{
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <i class="fa fa-users fa-4x"></i>
+        <h4 class="modal-title">Editar Comprobante</h4>
+        <small class="font-bold">Digitar los datos necesarios para el registro.</small>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Origen :</label>
+                    <div class="col-md-4">
+                        @Html.HiddenFor(m=>m.idcomprobante)
+                        @Html.DropDownListFor(m => m.idorigen, (SelectList)ViewData["ListaUbigeo"], "--Seleccionar--", new { @class = "form-control input-sm", @required = "true" })
+                    </div>
+                    <label class="col-md-2 control-label">Destino :</label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(m => m.iddestino, (SelectList)ViewData["ListaUbigeo"], "--Seleccionar--", new { @class = "form-control input-sm", @required = "true" })
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">F. Comprobante :</label>
+                    <div class="col-md-4">
+                        <div class="input-group date" id='dtpfechacomp'>
+                            <div class="input-group date">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                @Html.TextBoxFor(model => model.fechacomprobante, "{0:dd/MM/yyyy}", new { @class = "form-control", @required = "true" })
+                            </div>
+                        </div>
+                    </div>
+                    <label class="col-md-2 control-label">Serie / Número :</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.serienumero, new { @class = "form-control input-sm", @required = "true" })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Proveedor :</label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(m => m.idproveedor, (SelectList)ViewData["ListaProveedor"], "--Seleccionar--", new { @class = "form-control input-sm", @required = "true" })
+                    </div>
+                    <label class="col-md-2 control-label">Etapa :</label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(m => m.idetapa, (SelectList)ViewData["ListaEtapa"], "--Sellecionar--", new { @class = "form-control input-sm", @required = "true" })
+                    </div>
+
+
+                </div>
+                <div class="form-group">
+                    
+                    <label class="col-md-2 control-label">Mod Transporte :</label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(m => m.idtipotransporte, (SelectList)ViewData["ListaTipoTransporte"], "--Seleccionar--", new { @class = "form-control input-sm", @required = "true" })
+                    </div>
+                    <label class="col-md-2 control-label">Tipo Comprobante :</label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(m => m.idtipocomprobante, (SelectList)ViewData["ListaTipoComprobante"], "--Seleccionar--", new { @class = "form-control input-sm", @required = "true" })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Moneda :</label>
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(m => m.idmoneda, (SelectList)ViewData["ListaMoneda"], "--Seleccionar--", new { @class = "form-control input-sm", @required = "true" })
+                    </div>
+                    <label class="col-md-2 control-label">Monto :</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.monto, new { @class = "form-control input-sm", @required = "true" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">N° OT :</label>
+                    <div class="col-md-2">
+                        <input type="text" id="txtnumcp" class="form-control input-sm">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" onclick="BuscarOTPopUp_onClick()" class="btn  btn-outline btn-primary btn-sm"><i class="fa fa-plus"></i></button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-4">
+                        <table id="gridlistaots" data-dataurl="@Url.Action("JsonGetListarOT", "Facturacion", new { area = "Facturacion" })"></table>
+                        <div id="gridlistaotspager"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Concepto :</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.Concepto, new { @class = "form-control input-sm", @required = "true" })
+                    </div>
+
+
+                </div>
+                @*<div class="form-group">
+                    <label class="col-md-2 control-label">OTs Asociadas :</label>
+                    <span class="input-group-btn col-md-3">
+                        <button type="button" id='btnBuscarPersona' data-url="@Url.Action("BuscarPersonaModal", "Incidencia")" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </span>
+                    <div class="col-md-3">
+                        @Html.ListBox("ots", (SelectList)ViewData["ListaDetalleComprobante"], new { @class = "form-control input-sm" })
+                    </div>
+                </div>*@
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Observaciones :</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.observacion, new { @class = "form-control input-sm" })
+                    </div>
+                    <label class="col-md-2 control-label">Placa :</label>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.placa, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn  btn-outline btn-primary btn-sm"><i class="fa fa-check-circle-o"></i> Guardar</button>
+                    <button type="button" onclick="" class="btn  btn-outline btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-times-circle-o"></i>  Cancelar</button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer"></div>
+    <div class="modal inmodal fade" id="modalcontainerot" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div id="modalcontentot" class="modal-content">
+
+            </div>
+        </div>
+    </div>
+}

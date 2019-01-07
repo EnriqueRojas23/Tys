@@ -1,0 +1,66 @@
+﻿@model Web.TYS.Areas.Seguimiento.Models.Seguimiento.valijaModel
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/jqGrid/ui.jqgrid.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jqgrid.extension.css")" />
+
+}
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Armar Valija</h4>
+        <small class="font-bold">Seleccionar los datos necesarios para el registro.</small>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-barcode"></i></span>
+                            @if(Model.cantidadordenes>0)
+                            {
+                                  @Html.TextBox("txtEscanDocumento", "", new { @disabled = "disabled",  @class = "form-control", @required = "true", @index = "1", @placeholder = "Escanear barra OT" })
+                            }
+                            else
+                            {
+                                @Html.TextBox("txtEscanDocumento", "", new { @class = "form-control", @required = "true", @index = "1", @placeholder = "Escanear barra OT" })
+                            }
+                    </div>
+                    @Html.HiddenFor(x => x.idvehiculo)
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 jqGrid_wrapper">
+                        <table id="griddetallepu"
+                               data-dataurl="@Url.Action("JsonGetListarDespachoDetalle", "Seguimiento")"></table>
+                        <div id="griddetallepupager"></div>
+                    </div>
+                </div>
+                    @*<div class="form-group">
+                        <div class="col-md-12 jqGrid_wrapper">
+                            <table id="tblDetallePU" class="table table-striped table-bordered table-hover dataTables-tblDetallePU" width="100%" data-url="@Url.Action("JsonGetListarDespachoDetalle", "Seguimiento")"></table>
+                        </div>
+                    </div>*@
+            </div>
+           
+        </div>
+    </div>
+    <div class="modal-footer">
+
+    @if (Model.cantidadordenes > 0)
+    {
+        @*<button id="btnGuardarValijas"  disabled type="button"   class="btn  btn-outline btn-default btn-sm"><i class="fa fa-check"></i>  Guardar</button>*@
+        <div class="col-md-offset-6 col-md-3">
+            <button id="btnGuardarValijas" disabled type="button" class="btn btn-block btn-primary"> Guardar</button>
+        </div>
+    }
+    else
+    {
+        <div class="col-md-offset-6 col-md-3">
+            <button id="btnGuardarValijas" type="button" class="btn btn-block btn-primary">Guardar</button>
+        </div>
+    }
+    <div class="col-md-3">
+        <button type="button" class="btn btn-block btn-inverse" data-dismiss="modal"> Cerrar</button>
+    </div>
+</div>
+

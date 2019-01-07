@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CommandContracts.TYS.Pago" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CommandContracts.TYS.Pago" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50030/TYS?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommandContracts.Common" />
+  <xs:complexType name="InsertarActualizarAsignacionCommand">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q1:Command">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idasignacion" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idetapa" type="xs:int" />
+          <xs:element minOccurs="0" name="idmoneda" type="xs:int" />
+          <xs:element minOccurs="0" name="idproveedor" type="xs:int" />
+          <xs:element minOccurs="0" name="idtipocomprobante" type="xs:int" />
+          <xs:element minOccurs="0" name="idtipotransporte" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarActualizarAsignacionCommand" nillable="true" type="tns:InsertarActualizarAsignacionCommand" />
+  <xs:complexType name="InsertarActualizarComprobanteProveedorCommand">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q2:Command">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="actainforme" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="activo" type="xs:boolean" />
+          <xs:element minOccurs="0" name="concepto" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="fechacomprobante" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="idcomprobante" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="iddestino" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idetapa" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idmoneda" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idorigen" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idproveedor" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idtipocomprobante" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idtipofacturacion" type="xs:int" />
+          <xs:element minOccurs="0" name="idtipotransporte" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idvehiculo" type="xs:int" />
+          <xs:element minOccurs="0" name="monto" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="observacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="placa" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="serienumero" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarActualizarComprobanteProveedorCommand" nillable="true" type="tns:InsertarActualizarComprobanteProveedorCommand" />
+  <xs:complexType name="InsertarActualizarComprobanteDetalleCommand">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q3:Command">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PKID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Precio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubTotal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Total" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalBultos" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalPeso" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ValorVenta" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="alledit" type="xs:boolean" />
+          <xs:element minOccurs="0" name="idcomprobante" type="xs:long" />
+          <xs:element minOccurs="0" name="idcomprobantedetalle" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="manifiesto" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="nroguia" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarActualizarComprobanteDetalleCommand" nillable="true" type="tns:InsertarActualizarComprobanteDetalleCommand" />
+  <xs:complexType name="InsertarActualizarEtapaCommand">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q4:Command">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="activo" type="xs:boolean" />
+          <xs:element minOccurs="0" name="etapa" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="idetapa" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="requiereot" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarActualizarEtapaCommand" nillable="true" type="tns:InsertarActualizarEtapaCommand" />
+  <xs:complexType name="InsertarActualizarMonedaCommand">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q5:Command">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="activo" type="xs:boolean" />
+          <xs:element minOccurs="0" name="idmoneda" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="moneda" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarActualizarMonedaCommand" nillable="true" type="tns:InsertarActualizarMonedaCommand" />
+  <xs:complexType name="InsertarActualizarProveedorCommand">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q6:Command">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="activo" type="xs:boolean" />
+          <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="idproveedor" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="placaasociada" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="razonsocial" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ruc" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarActualizarProveedorCommand" nillable="true" type="tns:InsertarActualizarProveedorCommand" />
+  <xs:complexType name="InsertarActualizarTipoComprobanteCommand">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q7:Command">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="activo" type="xs:boolean" />
+          <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="idtipocomprobante" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="tipocomprobante" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarActualizarTipoComprobanteCommand" nillable="true" type="tns:InsertarActualizarTipoComprobanteCommand" />
+  <xs:complexType name="InsertarActualizarTipoTransporteCommand">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q8:Command">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="activo" type="xs:boolean" />
+          <xs:element minOccurs="0" name="idtipotransporte" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="tipotransporte" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarActualizarTipoTransporteCommand" nillable="true" type="tns:InsertarActualizarTipoTransporteCommand" />
+</xs:schema>

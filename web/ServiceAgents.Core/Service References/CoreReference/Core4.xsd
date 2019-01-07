@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/QueryContracts.Core.SGCW.Results" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/QueryContracts.Core.SGCW.Results" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50040/Core?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common" />
+  <xs:complexType name="ListarProductosResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q1:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarProductosDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarProductosResult" nillable="true" type="tns:ListarProductosResult" />
+  <xs:complexType name="ArrayOfListarProductosDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarProductosDto" nillable="true" type="tns:ListarProductosDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarProductosDto" nillable="true" type="tns:ArrayOfListarProductosDto" />
+  <xs:complexType name="ListarProductosDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarProductosDto" nillable="true" type="tns:ListarProductosDto" />
+  <xs:complexType name="ListarSubProductosResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q2:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarSubProductosDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarSubProductosResult" nillable="true" type="tns:ListarSubProductosResult" />
+  <xs:complexType name="ArrayOfListarSubProductosDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarSubProductosDto" nillable="true" type="tns:ListarSubProductosDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarSubProductosDto" nillable="true" type="tns:ArrayOfListarSubProductosDto" />
+  <xs:complexType name="ListarSubProductosDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarSubProductosDto" nillable="true" type="tns:ListarSubProductosDto" />
+  <xs:complexType name="ObtenerServicioGateOutResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q3:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfObtenerServicioGateOutDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerServicioGateOutResult" nillable="true" type="tns:ObtenerServicioGateOutResult" />
+  <xs:complexType name="ArrayOfObtenerServicioGateOutDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ObtenerServicioGateOutDto" nillable="true" type="tns:ObtenerServicioGateOutDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfObtenerServicioGateOutDto" nillable="true" type="tns:ArrayOfObtenerServicioGateOutDto" />
+  <xs:complexType name="ObtenerServicioGateOutDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodigoServicioNS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoServicioUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ident_ServicioNS" type="xs:int" />
+      <xs:element minOccurs="0" name="Ident_ServicioUS" type="xs:int" />
+      <xs:element minOccurs="0" name="NombreNS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreUS" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObtenerServicioGateOutDto" nillable="true" type="tns:ObtenerServicioGateOutDto" />
+</xs:schema>

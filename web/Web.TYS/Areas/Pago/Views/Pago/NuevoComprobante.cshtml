@@ -1,0 +1,269 @@
+﻿@model Web.TYS.Areas.Pago.Models.ComprobanteModel
+@{
+    ViewBag.Title = "TipoComprobante";
+}
+@section Styles
+{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/jqGrid/ui.jqgrid.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jqgrid.extension.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/datapicker/datepicker3.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/jasny/jasny-bootstrap.min.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/sweetalert/sweetalert.css")" />
+    <link rel="stylesheet" type="text/css" media="screen" href="@Url.Content("~/Content/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css")" />
+    <link rel="stylesheet" type="text/css" media="screen" href="@Url.Content("~/Content/plugins/touchspin/jquery.bootstrap-touchspin.min.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/dataTables/datatables.min.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/datatables-checkboxes/dataTables.checkboxes.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/chosen/chosen.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/dualListBox/bootstrap-duallistbox.css")" />
+}
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jsview/facturacion/facturacion.nuevocomprobante.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/jqGrid/jquery.jqGrid.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/jqGrid/i18n/grid.locale-es.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/base.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/datapicker/bootstrap-datepicker.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/jasny/jasny-bootstrap.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/sweetalert/sweetalert.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/touchspin/jquery.bootstrap-touchspin.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/dataTables/datatables.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/datatables-checkboxes/dataTables.checkboxes.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/chosen/chosen.jquery.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/dualListBox/jquery.bootstrap-duallistbox.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Agregar Comprobante</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Comprobante", "Facturacion")">Listado de Comprobantes</a>
+            </li>
+            <li>
+                <a><strong>Registrar/Editar Comprobantes</strong></a>
+            </li>
+          
+       </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    @using (Ajax.BeginForm("AgregarComprobanteModal", "Pago", new { area = "Pago" }, new AjaxOptions { HttpMethod = "POST", OnComplete = "OnCompleteTransaction(xhr, status)" }, new { @role = "form", @id = "frmRegistrar", @class = "form-horizontal" }))
+    {
+        <div class="row ">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5><i class="fa fa-info-circle"></i> Datos Generales</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="form-horizontal">
+                            <div class="c form-group">
+                                <label class=" col-md-2 control-label">Tipo Facturación :</label>
+                                <div class="col-md-4">
+                                    @Html.DropDownListFor(m => m.idtipofacturacion, (SelectList)ViewData["ListaTiposFacturacion"], "--Seleccionar--", new { @class = "form-control input-sm", @required = "true" })
+                                </div>
+
+
+                                <label class="col-md-2 control-label">F. Comprobante :</label>
+                                <div class="col-md-4">
+                                    <div class="input-group date" id='dtpfechacomp'>
+                                        <div class="input-group date">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            @Html.TextBoxFor(model => model.fechacomprobante, "{0:dd/MM/yyyy}", new { @placeholder = "Fecha Comprobante", @class = "form-control", @required = "true" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Origen :</label>
+                                <div class="col-md-4">
+                                    @Html.DropDownListFor(model => model.idorigen, (SelectList)ViewData["listaubigeos"], "[Ubigeo]", new { @id = "ddlUbigeo", @class = "chosen-select form-control input-sm", @data_url = @Url.Action("JsonGetDatosDireccion", "Seguimiento") })
+                                </div>
+                                    <label class="col-md-2 control-label">Destino :</label>
+                                <div class="col-md-4">
+                                    @Html.DropDownListFor(model => model.iddestino, (SelectList)ViewData["listaubigeos"], "[Ubigeo]", new { @id = "ddlUbigeo", @class = "chosen-select form-control input-sm", @data_url = @Url.Action("JsonGetDatosDireccion", "Seguimiento") })
+                                </div>
+
+                             </div>
+                            <div id="divacta" class="form-group" style="display:none">
+                                <label class="col-md-2 control-label">Acta / Informe :</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(model => model.actainforme, new { @class = "form-control input-sm", @required = "true" })
+
+                                </div>
+
+                            </div>
+                            <div id="divfecvencimiento" class="form-group" style="display:none">
+                                <label class="col-md-2 control-label">Fecha Vencimiento:</label>
+                                <div class="col-md-4">
+                                    <div class="input-group date" id='dtpfechaven'>
+                                        <div class="input-group date">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            @Html.TextBoxFor(model => model.fechavencimiento, "{0:dd/MM/yyyy}", new { @placeholder = "Fecha Vencimiento", @class = "form-control"})
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                          </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    <div class="row ">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5><i class="fa fa-info-circle"></i>  Detalle del Comprobante</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Proveedor :</label>
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(m => m.idproveedor, (SelectList)ViewData["ListaProveedor"], "--Seleccionar--", new { @class = "form-control input-sm", @required = "true" })
+                        </div>
+
+                        <label class="col-md-2 control-label">Serie / Número :</label>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.serienumero, new { @class = "form-control", @required = "true" })
+
+                        </div>
+                    </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Etapa :</label>
+                            <div class="col-md-4">
+                                @*@Html.DropDownListFor(m => m.idetapa, Enumerable.Empty<SelectListItem>(), "[Etapa]", new { @class = "form-control input-sm", @required = "true" })*@
+                                @Html.DropDownListFor(m => m.idetapa, (SelectList)ViewData["ListaEtapa"], "[Etapa]", new { @class = "form-control input-sm", @required = "true" })
+                            </div>
+
+                   
+                          
+                                <label class="col-md-2 control-label">Mod Transporte :</label>
+                                <div class="col-md-4">
+                                    @Html.DropDownListFor(m => m.idtipotransporte, Enumerable.Empty<SelectListItem>(), "[Modo Transporte]", new { @class = "form-control input-sm", @required = "true" })
+                                </div>
+                            </div>
+                       <div class="form-group">
+                            <label class="col-md-2 control-label">Tipo Comprobante :</label>
+                            <div class="col-md-4">
+                                @Html.DropDownListFor(m => m.idtipocomprobante, Enumerable.Empty<SelectListItem>(), "[Tipo Comprobante]", new { @class = "form-control input-sm", @required = "true" })
+                            </div>
+                           <label class="col-md-2 control-label">Placa :</label>
+                           <div class="col-md-4">
+                               @Html.DropDownListFor(m => m.idvehiculo, Enumerable.Empty<SelectListItem>(), "[Placas]", new { @class = "form-control input-sm", @required = "true" })
+                           </div>
+                   
+                     
+                    </div>
+                    <div id="divot" class="form-group">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">N° OT/GR/Manifiesto :</label>
+                            <div class="col-md-2">
+                                <input type="text" id="txtnumcp" class="form-control">
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" onclick="BuscarOTPopUp_onClick()" class="btn  btn-outline btn-primary btn-sm"><i class="fa fa-plus"></i></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-10">
+                                <table id="gridlistaots" data-dataurl="@Url.Action("JsonGetListarOT", "Pago", new { area = "Pago" })"></table>
+                                <div id="gridlistaotspager"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Peso Total :</label>
+                            <div class="col-md-2">
+                                <input type="text" id="txtpesototal" disabled class="form-control">
+                            </div>
+                            <label class="col-md-2 control-label">Valorizado Total :</label>
+                            <div class="col-md-2">
+                                <input type="text" id="txtvalorizadototal" disabled class="form-control">
+                            </div>
+                            <label class="col-md-2 control-label">Cantidad:</label>
+                            <div class="col-md-2">
+                                <input type="text" id="txtcantidad" disabled class="form-control">
+                            </div>
+
+                                </div>
+                        </div>
+                  </div>
+            </div>
+        </div>
+
+   </div>
+        <div class="row ">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5><i class="fa fa-info-circle"></i>  Detalle del Pago</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Moneda :</label>
+                            <div class="col-md-4">
+                                @Html.DropDownListFor(m => m.idmoneda, Enumerable.Empty<SelectListItem>(), "[Moneda]", new { @class = "form-control input-sm", @required = "true" })
+                            </div>
+                            <label class="col-md-2 control-label">Monto :</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(model => model.monto, new { @class = "form-control input-sm", @required = "true" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Concepto :</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(model => model.Concepto, new { @maxlength = "50", @class = "form-control input-sm", @required = "true" })
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Observaciones :</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(model => model.observacion, new { @class = "form-control input-sm" })
+                            </div>
+
+                        </div>
+                    </div>
+                        <div class="ibox-footer">
+                            <div class="form-group">
+                                <div class="col-md-9">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button type="submit" id="btnNuevoComprobante" class="btn ladda-button btn-line btn-primary" data-style="expand-right"><i class="fa fa-check-circle-o"></i>  Registrar y Continuar</button>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <button type="button" id="btnregresar" onclick="cancelar()" class="btn btn-line btn-danger pull-right"><i class="fa fa-arrow-circle-right"></i> Regresar </button>
+                                    </div>
+                                </div>
+                         </div>
+                  </div>
+
+                </div>
+            </div>
+        
+    }
+</div>

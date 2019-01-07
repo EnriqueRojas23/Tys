@@ -1,0 +1,293 @@
+﻿@model string
+
+
+@if (@Model == "razonsocial")
+{   
+    @Html.DropDownList("cbo_bf_int_estado", (SelectList)ViewData["ListaProveedor"], new { @class = "cbo_bf_int_estado" })
+}
+
+@if (@Model == "departamento")
+{
+    @Html.DropDownList("ddldepartamento", (SelectList)ViewData["ListaDepartamento"],"[Departamento]", new { @class = "cbo_bf_int_estado" })
+}
+@if (@Model == "origenprovincia")
+{
+    @Html.DropDownList("ddlprovincia", (SelectList)ViewData["ListaProvincia"], "[Provincia]", new { @class = "cbo_bf_int_estado" })
+}
+@if (@Model == "provincia")
+{
+    @Html.DropDownList("ddlprovincia", (SelectList)ViewData["ListaProvincia"],"[Provincia]", new { @class = "cbo_bf_int_estado" })
+}
+@if (@Model == "provinciavacia")
+{
+    @Html.DropDownList("cbo_bf_int_estado", Enumerable.Empty<SelectListItem>(),"[Provincia]", new  {  @class = "cbo_bf_int_estado" })
+}
+@if (@Model == "distrito")
+{
+    @Html.DropDownList("ddldistrito", (SelectList)ViewData["ListaDistrito"], "[Distrito]", new { @class = "cbo_bf_int_estado" })
+}
+@if (@Model == "origendistrito")
+{
+    @Html.DropDownList("ddldistrito", (SelectList)ViewData["ListaDistrito"], "[Distrito]", new { @class = "cbo_bf_int_estado" })
+}
+@if (@Model == "idcobrarpor")
+{
+    @Html.DropDownList("ddldistrito", (SelectList)ViewData["ListaConceptoCobro"], new { @style = "width:140px", @class = "cbo_bf_int_estado" })
+}
+@if (@Model == "zona")
+{
+    @Html.DropDownList("ddldistrito", (SelectList)ViewData["ListaZona"], "[Zona]", new { @class = "cbo_bf_int_estado" })
+}
+@if (@Model == "formula")
+{
+    @Html.DropDownList("ddldistrito", (SelectList)ViewData["ListaFormula"], "[Formula]", new { @class = "cbo_bf_int_estado" })
+}
+@if (@Model == "tipotransporte")
+{
+    @Html.DropDownList("ddltipotransporte", (SelectList)ViewData["ListaTipoTransporte"], "[Mod Transporte]", new { @class = "cbo_bf_int_estado", style = "width: 50px;" })
+}
+@if (@Model == "tipounidad")
+{
+    @Html.DropDownList("ddldistrito", (SelectList)ViewData["ListaTipoUnidad"], "[Tip Unidad]", new { @class = "cbo_bf_int_estado" })
+}
+@if (@Model == "moneda")
+{
+    @Html.DropDownList("ddldistrito", (SelectList)ViewData["ListaMoneda"], "[Moneda]", new { @class = "cbo_bf_int_estado" })
+}
+@if (@Model == "idetapa")
+{
+    @Html.DropDownList("cbo_bf_str_codEstablecimiento", (SelectList)ViewData["ListaEtapa"], new { @class = "cbo_bf_int_estado" })
+}
+@if (@Model == "idservicio")
+{
+    @Html.DropDownList("cbo_servicio", (SelectList)ViewData["ListaServicio"], new { @class = "cbo_bf_int_estado" })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

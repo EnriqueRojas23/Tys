@@ -1,0 +1,56 @@
+﻿    @model Web.TYS.Areas.Liquidacion.Models.LiquidacionModel
+
+@using (Ajax.BeginForm("EditarLiquidacion", "Liquidacion", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalcontent", OnComplete = "OnCompleteTransaction(xhr, status)" }, new { @class = "form-horizontal" }))
+{
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Confirmar Liquidación</h4>
+        <small class="font-bold">Digitar los datos necesarios para la confirmación de la liquidación.</small>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Fecha de Entrega Conciliación:</label>
+                    <div class="col-md-4">
+                        <div class="input-group date" id='dtpfechaentrega'>
+                            <div class="input-group date">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                @Html.TextBoxFor(model => model.fechaentregaconciliacion, "{0:dd/MM/yyyy}", new { @placeholder = "Fecha Incidente", @class = "form-control", @required = "true" })
+                            </div>
+                        </div>
+                    </div>
+                    <label class="col-md-2 control-label">Hora:</label>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.horaentregaconciliacion, new { @placeholder = "00:00hrs", @class = "form-control", @required = "true" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Archivado:</label>
+                    <div class="col-md-2 checkbox abc-checkbox abc-checkbox-primary">
+                        <input id="archivado" name="archivado" type="checkbox">
+                        <label for="archivado" name="archivado">
+
+                        </label>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+      </div>
+        
+    </div>
+    <div class="modal-footer">
+        @Html.HiddenFor(x => x.idordentrabajo)
+        <div class="col-md-offset-6 col-md-3">
+            <button id="btnEditarLiquidacion" type="button" class="btn  btn-block btn-primary"> Guardar</button>
+        </div>
+        <div class="col-md-3">
+            <button type="button" class="btn  btn-block btn-inverse" data-dismiss="modal"> Cerrar</button>
+        </div>
+    </div>
+}

@@ -1,0 +1,30 @@
+﻿@model string
+
+@if (@Model == "idtipotransporte") 
+{
+    @Html.DropDownList("cbo_bf_int_estado", (SelectList)ViewData["ListaTipoTransporte"], new { @class = "cbo_bf_int_estado" })
+}
+@if (@Model == "idproveedor")
+{   
+    @Html.DropDownList("cbo_bf_int_estado", (SelectList)ViewData["ListaProveedor"], new { @class = "cbo_bf_int_estado" })
+}
+
+@if (@Model == "idetapa")
+{
+    @Html.DropDownList("cbo_bf_str_codEstablecimiento", (SelectList)ViewData["ListaEtapa"], new { @class = "cbo_bf_int_estado" })
+}
+
+@if (@Model == "idtipocomprobante")
+{
+    @Html.DropDownList("cbo_bf_str_codtipoTransaccion", (SelectList)ViewData["ListaTipoComprobante"], new { @class = "cbo_bf_int_estado" })
+}
+
+@if (@Model == "idmoneda")
+{
+    @Html.DropDownList("cbo_bf_str_codpresentacion", (SelectList)ViewData["ListaMoneda"], new { @class = "cbo_bf_int_estado" })
+}
+
+@if (@Model == "td_str_codigo")
+{
+    @Html.DropDownList("cbo_td_str_descripcion", (SelectList)ViewData["listatipodocumento"]);
+}

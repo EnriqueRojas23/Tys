@@ -1,0 +1,26 @@
+﻿@using MvcReportViewer;
+
+<div class="modal-header">
+    <h4 class="modal-title">Reporte de Documentos</h4>
+</div>
+<div class="pane-body text-center">
+    <div class="col-md-12 text-center">
+        @Html.MvcReportViewer("" + TempData["Reporte"] + "", new
+                               {
+                                   fechaini = TempData["fechaini"]
+                                   ,
+                                   fechafin = TempData["fechafin"]
+                                   ,
+                                   idproveedor = TempData["idproveedor"]
+                                   ,
+                                   iddestino = TempData["iddestino"]
+                               }, new { Height = 500, Width = 850, style = "border: none" })
+
+
+
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn  btn-outline btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times-circle-o"></i>  Cancelar</button>
+
+</div>

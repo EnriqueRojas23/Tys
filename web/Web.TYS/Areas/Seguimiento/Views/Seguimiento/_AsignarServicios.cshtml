@@ -1,0 +1,65 @@
+﻿@model Web.TYS.Areas.Seguimiento.Models.Seguimiento.CargaModel
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/jqGrid/ui.jqgrid.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jqgrid.extension.css")" />
+
+}
+<script type="text/javascript">
+
+
+        var fcnUrlControlGrid = function (str, id)
+        {
+            var urlprincipal = '@Url.Action("GetControlDetailsGrid", "Seguimiento", new  { area = "Seguimiento" })';
+            return urlprincipal + "?control=" + str + "&id=" + id;
+        };
+
+
+
+</script>
+@using (Ajax.BeginForm("AsignarServicios", "Seguimiento", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalcontent", OnComplete = "OnCompleteTransaction(xhr, status)" }, new { @class = "form-horizontal" }))
+{
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Asignar Servicios a Carga</h4>
+        <small class="font-bold">Ingresar los datos necesarios para el registro.</small>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label col-md-1">Carga:</label>
+                        <label class="control-label col-md-3">@Model.numcarga</label>
+                        <label class="control-label col-md-2">Peso:</label>
+                        <label class="control-label col-md-1">@Model.peso</label>
+                        <label class="control-label col-md-2">Volumen:</label>
+                        <label class="control-label col-md-1">@Model.vol</label>
+                        @Html.HiddenFor(x => x.idcarga);
+                    </div>
+                    <div class="form-group">
+                        <button id="addrow" type="button" class="btn btn-primary"> <i class="fa fa-plus"></i> </button>
+                    </div>
+                    <div class="form-group">
+                     
+                            <table id="gridservicios"
+                                   data-dataurl="@Url.Action("JsonGetServicios", "Seguimiento")"
+                                   data-editurl="@Url.Action("GridSaveServicios", "Seguimiento")"
+                                   data-datalink="@Url.Action("JsonGetListarBienes", "Bienes")"></table>
+                            <div id="gridserviciospager"></div>
+                     
+                    </div>
+                 </div>
+
+
+
+                        
+      </div>
+           
+        
+    </div>
+    <div class="modal-footer">
+        <div class="col-md-offset-9 col-md-3">
+            <button type="button" class="btn  btn-block btn-inverse btn-sm" data-dismiss="modal"><i class="fa fa-times-circle-o"></i>  Cerrar</button>
+        </div>
+    </div>
+}

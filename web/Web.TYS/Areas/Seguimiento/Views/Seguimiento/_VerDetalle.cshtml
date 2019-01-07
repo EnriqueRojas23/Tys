@@ -1,0 +1,146 @@
+﻿@model Web.TYS.Areas.Seguimiento.Models.Seguimiento.CargaModel
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/jqGrid/ui.jqgrid.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jqgrid.extension.css")" />
+
+}
+<script type="text/javascript">
+
+
+        var fcnUrlControlGrid = function (str, id)
+        {
+            var urlprincipal = '@Url.Action("GetControlDetailsGrid", "Seguimiento", new  { area = "Seguimiento" })';
+            return urlprincipal + "?control=" + str + "&id=" + id;
+        };
+
+
+
+</script>
+@using (Ajax.BeginForm("AsignarServicios", "Seguimiento", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalcontent", OnComplete = "OnCompleteTransaction(xhr, status)" }, new { @class = "form-horizontal" }))
+{
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        @*<i class="fa fa-users fa-4x"></i>*@
+        <h4 class="modal-title">Detalle de la Carga</h4>
+        <small class="font-bold">Muestra el detalle de la carga por camión y los porcentajes de la capacidad.</small>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-8">
+                <section class="widget widget-chart-changes">
+                    <div class="widget-body">
+                        <div class="chart bg-danger btlr btrr">
+                            <p class="chart-value"><i class="fa fa-caret-up"></i> @Model.placa</p>
+                            <p class="chart-value-change">@Model.proveedor</p>
+                        </div>
+
+                        <h4 class="chart-title"><span class="fw-normal">@Model.nombrechofer</span></h4>
+                        <p class="deemphasize">Chofer</p>
+
+
+                        <div class="mt">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <p class="h4 no-margin">@Model.tipo</p>
+                                    <p class="deemphasize">Tipo Vehículo</p>
+                                </div>
+                                <div class="col-xs-3">
+                                    <p class="h4 no-margin">@Model.cargautil kg.</p>
+                                    <p class="deemphasize">Carga Util Vehículo</p>
+                                </div>
+                                <div class="col-xs-3 text-align-right">
+                                    <p class="h4 no-margin">@Model.volumenvehiculo m3</p>
+                                    <p class="deemphasize">Volumen Vehículo</p>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="mt">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                </div>
+                                <div class="col-xs-3">
+                                    <p class="h4 no-margin">@Model.peso kg.</p>
+                                    <p class="deemphasize">Peso Total</p>
+                                </div>
+                                <div class="col-xs-3 text-align-right">
+                                    <p class="h4 no-margin">@Model.vol m3</p>
+                                    <p class="deemphasize">Volumen Total</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                @*
+
+
+
+
+
+                <label class="col-md-1">Tipo:</label>
+                <label class="col-md-2">@Model.tipo</label>*@
+
+                @Html.HiddenFor(x => x.idcarga)
+            </div>
+            <div class="col-md-4">
+                <section class="widget widget-chart-changes">
+                    <div class="widget-body">
+                        <div class="chart bg-success btlr btrr">
+                            <p class="chart-value"><i class="fa fa-caret-up"></i> % Porcentajes / Servicios Adicionales</p>
+
+                        </div>
+                    </div>
+                    <div class="mt">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <p class="h4 no-margin text-success fw-semi-bold">@Model.pesoporcentaje</p>
+                                <p class="deemphasize">Peso %</p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p class="h4 no-margin text-success fw-semi-bold">@Model.volporcentaje</p>
+                                <p class="deemphasize">Volumen %</p>
+                            </div>
+                            @*<div class="col-xs-6 text-align-right">
+                                <span id="chart-changes-year"></span>
+                                <p class="deemphasize">GOOG</p>
+                            </div>*@
+                        </div>
+                    </div>
+                    <div class="mt">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p class="h4 no-margin text-success fw-semi-bold">@Model.serviciosadicionales</p>
+                                <p class="deemphasize">Servicios Adicionales</p>
+                            </div>
+                            @*<div class="col-xs-6">
+                                <p class="h3 no-margin text-success fw-semi-bold">@Model.volporcentaje</p>
+                                <p class="deemphasize">Volumen %</p>
+                            </div>*@
+                            @*<div class="col-xs-6 text-align-right">
+                    <span id="chart-changes-year"></span>
+                    <p class="deemphasize">GOOG</p>
+                </div>*@
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @Html.HiddenFor(x => x.idcarga)
+                <table id="griddetallepu"
+                       data-dataurl="@Url.Action("JsonGetListarOperacionDetalleVehiculo", "Seguimiento")"></table>
+                <div id="griddetallepupager"></div>
+            </div>
+            </div>
+        </div>
+            <div class="modal-footer">
+                <div class="col-md-offset-9 col-md-3">
+                    <button type="button" class="btn  btn-block btn-primary" data-dismiss="modal"><i class="fa fa-times-circle-o"></i>  Cerrar</button>
+                </div>
+            </div>
+}

@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Facturacion.Results" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Facturacion.Results" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50030/TYS?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common" />
+  <xs:complexType name="ListarComprobanteDetallesResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q1:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarComprobanteDetallesDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarComprobanteDetallesResult" nillable="true" type="tns:ListarComprobanteDetallesResult" />
+  <xs:complexType name="ArrayOfListarComprobanteDetallesDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarComprobanteDetallesDto" nillable="true" type="tns:ListarComprobanteDetallesDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarComprobanteDetallesDto" nillable="true" type="tns:ArrayOfListarComprobanteDetallesDto" />
+  <xs:complexType name="ListarComprobanteDetallesDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idcomprobantepago" type="xs:int" />
+      <xs:element minOccurs="0" name="iddetallecomprobante" type="xs:long" />
+      <xs:element minOccurs="0" name="igv" type="xs:decimal" />
+      <xs:element minOccurs="0" name="recargo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="subtotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="total" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarComprobanteDetallesDto" nillable="true" type="tns:ListarComprobanteDetallesDto" />
+  <xs:complexType name="ListarPreliquidacionResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q2:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarPreliquidacionDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarPreliquidacionResult" nillable="true" type="tns:ListarPreliquidacionResult" />
+  <xs:complexType name="ArrayOfListarPreliquidacionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarPreliquidacionDto" nillable="true" type="tns:ListarPreliquidacionDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarPreliquidacionDto" nillable="true" type="tns:ArrayOfListarPreliquidacionDto" />
+  <xs:complexType name="ListarPreliquidacionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaemision" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idcomprobantepago" type="xs:long" />
+      <xs:element minOccurs="0" name="idpreliquidacion" type="xs:long" />
+      <xs:element minOccurs="0" name="numerocomprobante" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="numeropreliquidacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="recargo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="subtotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="tipocomprobantepago" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="total" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalbulto" type="xs:int" />
+      <xs:element minOccurs="0" name="totalpeso" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalvolumen" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarPreliquidacionDto" nillable="true" type="tns:ListarPreliquidacionDto" />
+  <xs:complexType name="ListarDocumentosResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q3:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarDocumentosDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarDocumentosResult" nillable="true" type="tns:ListarDocumentosResult" />
+  <xs:complexType name="ArrayOfListarDocumentosDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarDocumentosDto" nillable="true" type="tns:ListarDocumentosDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarDocumentosDto" nillable="true" type="tns:ArrayOfListarDocumentosDto" />
+  <xs:complexType name="ListarDocumentosDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="estacionorigen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idestacion" type="xs:int" />
+      <xs:element minOccurs="0" name="idnumerodocumento" type="xs:int" />
+      <xs:element minOccurs="0" name="idtipocomprobante" type="xs:int" />
+      <xs:element minOccurs="0" name="idusuarioautorizado" type="xs:int" />
+      <xs:element minOccurs="0" name="primernumero" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="serie" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipodocumento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ultimonumero" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarDocumentosDto" nillable="true" type="tns:ListarDocumentosDto" />
+  <xs:complexType name="ListarComprobantesResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q4:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarComprobantesDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarComprobantesResult" nillable="true" type="tns:ListarComprobantesResult" />
+  <xs:complexType name="ArrayOfListarComprobantesDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarComprobantesDto" nillable="true" type="tns:ListarComprobantesDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarComprobantesDto" nillable="true" type="tns:ArrayOfListarComprobantesDto" />
+  <xs:complexType name="ListarComprobantesDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaemision" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idcomprobantepago" type="xs:long" />
+      <xs:element minOccurs="0" name="idpreliquidacion" type="xs:long" />
+      <xs:element minOccurs="0" name="numerocomprobante" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="numeropreliquidacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="recargo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="subtotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="tipocomprobantepago" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="total" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalbulto" type="xs:int" />
+      <xs:element minOccurs="0" name="totalpeso" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalvolumen" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarComprobantesDto" nillable="true" type="tns:ListarComprobantesDto" />
+  <xs:complexType name="ListarCompletadoPreliquidacionResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q5:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarCompletadoPreliquidacionDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarCompletadoPreliquidacionResult" nillable="true" type="tns:ListarCompletadoPreliquidacionResult" />
+  <xs:complexType name="ArrayOfListarCompletadoPreliquidacionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarCompletadoPreliquidacionDto" nillable="true" type="tns:ListarCompletadoPreliquidacionDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarCompletadoPreliquidacionDto" nillable="true" type="tns:ArrayOfListarCompletadoPreliquidacionDto" />
+  <xs:complexType name="ListarCompletadoPreliquidacionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="base1" type="xs:decimal" />
+      <xs:element minOccurs="0" name="bulto" type="xs:int" />
+      <xs:element minOccurs="0" name="conceptocobro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="destinatario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="destino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fecharegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="guiatransportista" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idcliente" type="xs:int" />
+      <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+      <xs:element minOccurs="0" name="modotransporte" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="origen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="peso" type="xs:decimal" />
+      <xs:element minOccurs="0" name="recargo" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="remitente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="subtotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="tarifa" type="xs:decimal" />
+      <xs:element minOccurs="0" name="tipooperacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="total" type="xs:decimal" />
+      <xs:element minOccurs="0" name="volumen" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarCompletadoPreliquidacionDto" nillable="true" type="tns:ListarCompletadoPreliquidacionDto" />
+  <xs:complexType name="ObtenerNumeroComprobanteResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q6:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idnumerodocumento" type="xs:int" />
+          <xs:element minOccurs="0" name="primernumero" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="serie" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ultimonumero" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerNumeroComprobanteResult" nillable="true" type="tns:ObtenerNumeroComprobanteResult" />
+  <xs:complexType name="ObtenerComprobanteResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q7:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="emisionrapida" type="xs:int" />
+          <xs:element minOccurs="0" name="fechaemision" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="idcliente" type="xs:int" />
+          <xs:element minOccurs="0" name="idcomprobantepago" type="xs:long" />
+          <xs:element minOccurs="0" name="idpreliquidacion" type="xs:long" />
+          <xs:element minOccurs="0" name="idtipocomprobante" type="xs:int" />
+          <xs:element minOccurs="0" name="idusuarioregistro" type="xs:int" />
+          <xs:element minOccurs="0" name="igv" type="xs:decimal" />
+          <xs:element minOccurs="0" name="motivo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="numerocomprobante" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="razonsocial" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ruc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="subtotal" type="xs:decimal" />
+          <xs:element minOccurs="0" name="tipocomprobantepago" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="total" type="xs:decimal" />
+          <xs:element minOccurs="0" name="totalbulto" type="xs:int" />
+          <xs:element minOccurs="0" name="totalpeso" type="xs:decimal" />
+          <xs:element minOccurs="0" name="totalvolumen" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerComprobanteResult" nillable="true" type="tns:ObtenerComprobanteResult" />
+  <xs:complexType name="ObtenerFactElectronicaResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q8:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocEntry" type="xs:long" />
+          <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="fechaRegistro" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tipo_de_nota_de_credito" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tipo_de_nota_de_debito" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerFactElectronicaResult" nillable="true" type="tns:ObtenerFactElectronicaResult" />
+  <xs:complexType name="ObtenerUltimaPreliquidacionResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q9:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="numeropreliquidacion" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerUltimaPreliquidacionResult" nillable="true" type="tns:ObtenerUltimaPreliquidacionResult" />
+  <xs:complexType name="ObtenerPreliquidacionResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q10:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfObtenerPreliquidacionDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerPreliquidacionResult" nillable="true" type="tns:ObtenerPreliquidacionResult" />
+  <xs:complexType name="ArrayOfObtenerPreliquidacionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ObtenerPreliquidacionDto" nillable="true" type="tns:ObtenerPreliquidacionDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfObtenerPreliquidacionDto" nillable="true" type="tns:ArrayOfObtenerPreliquidacionDto" />
+  <xs:complexType name="ObtenerPreliquidacionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fecharegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="guiasrr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idcliente" type="xs:int" />
+      <xs:element minOccurs="0" name="idcomprobantepago" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="idestado" type="xs:int" />
+      <xs:element minOccurs="0" name="idpreliquidacion" type="xs:long" />
+      <xs:element minOccurs="0" name="idusuarioregistro" type="xs:int" />
+      <xs:element minOccurs="0" name="igv" type="xs:decimal" />
+      <xs:element minOccurs="0" name="numeropreliquidacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ordenes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="placas" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="razonsocial" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="recargo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ruc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="subtotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="total" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalbulto" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalpeso" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalvolumen" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObtenerPreliquidacionDto" nillable="true" type="tns:ObtenerPreliquidacionDto" />
+  <xs:complexType name="ListarOTSxIdsResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q11:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarOTSxIdsDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarOTSxIdsResult" nillable="true" type="tns:ListarOTSxIdsResult" />
+  <xs:complexType name="ArrayOfListarOTSxIdsDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarOTSxIdsDto" nillable="true" type="tns:ListarOTSxIdsDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarOTSxIdsDto" nillable="true" type="tns:ArrayOfListarOTSxIdsDto" />
+  <xs:complexType name="ListarOTSxIdsDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bulto" type="xs:decimal" />
+      <xs:element minOccurs="0" name="camioncompleto" type="xs:boolean" />
+      <xs:element minOccurs="0" name="idcliente" type="xs:int" />
+      <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+      <xs:element minOccurs="0" name="igv" type="xs:decimal" />
+      <xs:element minOccurs="0" name="peso" type="xs:decimal" />
+      <xs:element minOccurs="0" name="recargo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="subtotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="total" type="xs:decimal" />
+      <xs:element minOccurs="0" name="volumen" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarOTSxIdsDto" nillable="true" type="tns:ListarOTSxIdsDto" />
+  <xs:complexType name="VincularPreliquidacionOTResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q12:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idordentrabajo" nillable="true" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VincularPreliquidacionOTResult" nillable="true" type="tns:VincularPreliquidacionOTResult" />
+  <xs:complexType name="ListarPendientePreliquidacionResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q13:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarPendientePreliquidacionDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarPendientePreliquidacionResult" nillable="true" type="tns:ListarPendientePreliquidacionResult" />
+  <xs:complexType name="ArrayOfListarPendientePreliquidacionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarPendientePreliquidacionDto" nillable="true" type="tns:ListarPendientePreliquidacionDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarPendientePreliquidacionDto" nillable="true" type="tns:ArrayOfListarPendientePreliquidacionDto" />
+  <xs:complexType name="ListarPendientePreliquidacionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="base1" type="xs:decimal" />
+      <xs:element minOccurs="0" name="bulto" type="xs:int" />
+      <xs:element minOccurs="0" name="conceptocobro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="destinatario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="destino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fecharegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="guiatransportista" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+      <xs:element minOccurs="0" name="igv" type="xs:decimal" />
+      <xs:element minOccurs="0" name="modotransporte" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="origen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="peso" type="xs:decimal" />
+      <xs:element minOccurs="0" name="pesovol" type="xs:decimal" />
+      <xs:element minOccurs="0" name="recargo" type="xs:decimal" />
+      <xs:element minOccurs="0" name="remitente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="subtotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="tarifa" type="xs:decimal" />
+      <xs:element minOccurs="0" name="tipooperacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="total" type="xs:decimal" />
+      <xs:element minOccurs="0" name="volumen" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarPendientePreliquidacionDto" nillable="true" type="tns:ListarPendientePreliquidacionDto" />
+  <xs:complexType name="ActualizarOTConfirmacionResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q14:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idordentrabajo" nillable="true" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActualizarOTConfirmacionResult" nillable="true" type="tns:ActualizarOTConfirmacionResult" />
+  <xs:complexType name="ActualizarOTPlanificacionResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q15:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idordentrabajo" nillable="true" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActualizarOTPlanificacionResult" nillable="true" type="tns:ActualizarOTPlanificacionResult" />
+</xs:schema>

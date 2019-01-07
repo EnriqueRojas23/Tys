@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="93b6595e-4f2c-4771-8b35-5b78a9756351" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50030/TYS" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TYS.xsd" MetadataType="Schema" ID="1e39e128-0c4a-40bf-a1da-23b1e038f6d2" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd20" />
+    <MetadataFile FileName="TYS1.xsd" MetadataType="Schema" ID="32a1b50e-4e22-4d71-b15b-4c975bda210d" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd7" />
+    <MetadataFile FileName="TYS2.xsd" MetadataType="Schema" ID="426adf1d-b4d9-4576-829d-06b885e1037f" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd4" />
+    <MetadataFile FileName="TYS3.xsd" MetadataType="Schema" ID="36ed0d97-2924-4846-a45f-439a78b8e922" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd5" />
+    <MetadataFile FileName="TYS.disco" MetadataType="Disco" ID="17cacd94-71b0-4b7b-8912-b1116cd0d096" SourceId="1" SourceUrl="http://localhost:50030/TYS?disco" />
+    <MetadataFile FileName="TYS19.xsd" MetadataType="Schema" ID="010d1b51-3b11-4c9a-9f51-741b1ccfe6ea" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd26" />
+    <MetadataFile FileName="TYS5.xsd" MetadataType="Schema" ID="d222d694-d17c-47ca-a05d-b0c0454191f8" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd17" />
+    <MetadataFile FileName="TYS6.xsd" MetadataType="Schema" ID="43bfc158-c85c-4461-8ccb-846560cc07ff" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd3" />
+    <MetadataFile FileName="TYS28.xsd" MetadataType="Schema" ID="8cafd696-55f8-46de-b167-586ba5fa87f5" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd31" />
+    <MetadataFile FileName="TYS7.xsd" MetadataType="Schema" ID="aa83a53c-7e97-40d1-8b9b-56d5376b9c3d" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd0" />
+    <MetadataFile FileName="TYS8.xsd" MetadataType="Schema" ID="5ea3edd8-5b7e-4fec-84c3-40a55c29fc32" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd1" />
+    <MetadataFile FileName="TYS9.xsd" MetadataType="Schema" ID="4a3bd5d0-e6fd-46c7-844c-800a38ca3770" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd11" />
+    <MetadataFile FileName="TYS10.xsd" MetadataType="Schema" ID="d8d09be7-674e-4740-8ac9-92a1c5886874" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd15" />
+    <MetadataFile FileName="TYS11.xsd" MetadataType="Schema" ID="5bede6db-0a2f-46dd-b587-0f876bc788a6" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd10" />
+    <MetadataFile FileName="TYS23.xsd" MetadataType="Schema" ID="60131efd-1f3f-4265-a777-96bc581ecb44" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd27" />
+    <MetadataFile FileName="TYS281.xsd" MetadataType="Schema" ID="837f3eb6-141e-4936-8d6e-87b3ae3349d9" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd32" />
+    <MetadataFile FileName="TYS12.xsd" MetadataType="Schema" ID="a135009e-4cfb-41d3-ba83-ef86db2006e8" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd2" />
+    <MetadataFile FileName="TYS13.xsd" MetadataType="Schema" ID="92e4e305-6829-46b6-b817-973fbfe19cec" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd21" />
+    <MetadataFile FileName="TYS14.xsd" MetadataType="Schema" ID="70f3f7ad-bcb4-4294-a8a9-515626a2282e" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd12" />
+    <MetadataFile FileName="TYS15.xsd" MetadataType="Schema" ID="ab27ce6f-95ae-4fd0-90d3-de9922385181" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd8" />
+    <MetadataFile FileName="TYS16.xsd" MetadataType="Schema" ID="70ca2f57-8529-47d2-a2a6-ecc8a76919e3" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd9" />
+    <MetadataFile FileName="TysBackendService.wsdl" MetadataType="Wsdl" ID="920b64ed-6bec-4208-8fcb-c632f2056328" SourceId="1" SourceUrl="http://localhost:50030/TYS?wsdl" />
+    <MetadataFile FileName="TYS17.xsd" MetadataType="Schema" ID="3564bbce-5c5e-449d-9d77-a1a08138148b" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd22" />
+    <MetadataFile FileName="TYS18.xsd" MetadataType="Schema" ID="45e29a5e-5c6d-4598-8ecb-b5a4bd5c09d1" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd13" />
+    <MetadataFile FileName="TYS27.xsd" MetadataType="Schema" ID="bf4fbe73-fb96-4f69-9c4e-1cddf1a37235" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd30" />
+    <MetadataFile FileName="TYS231.xsd" MetadataType="Schema" ID="c06c9f0c-8f22-4140-8c50-b0f1778bb638" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd28" />
+    <MetadataFile FileName="TYS4.xsd" MetadataType="Schema" ID="f12f4c18-4219-48cc-8caf-f5d3cfdbef25" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd24" />
+    <MetadataFile FileName="TYS20.xsd" MetadataType="Schema" ID="9957ccfb-5943-42a3-a6ff-8058c632ff84" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd18" />
+    <MetadataFile FileName="TYS21.xsd" MetadataType="Schema" ID="3cff462b-84fa-4150-9c89-47a872e39226" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd23" />
+    <MetadataFile FileName="TYS22.xsd" MetadataType="Schema" ID="23517ba7-9bfa-4f98-a244-0ab3ea948842" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd14" />
+    <MetadataFile FileName="TYS271.xsd" MetadataType="Schema" ID="0529808c-a6a8-47fb-9843-1c9b367fd7c3" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd29" />
+    <MetadataFile FileName="TYS191.xsd" MetadataType="Schema" ID="3dc083b0-7a4a-4a19-b05a-502d6a2ae312" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd25" />
+    <MetadataFile FileName="TYS24.xsd" MetadataType="Schema" ID="92bb282b-6ba2-422f-961c-39e8ada5f263" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd16" />
+    <MetadataFile FileName="TYS25.xsd" MetadataType="Schema" ID="57892786-48eb-4fab-a2bb-d047111cc6ac" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd19" />
+    <MetadataFile FileName="TYS26.xsd" MetadataType="Schema" ID="fd27f135-ae4d-45ee-9628-0e20aa15658a" SourceId="1" SourceUrl="http://localhost:50030/TYS?xsd=xsd6" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

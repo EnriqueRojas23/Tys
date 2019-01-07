@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{823C27F3-893E-40A7-9649-1C78DE330275}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QueryContracts.Core</RootNamespace>
+    <AssemblyName>QueryContracts.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contenedores\Parameters\ActualizarPagoParameter.cs" />
+    <Compile Include="Contenedores\Parameters\EliminarDocumentoSolportParameter.cs" />
+    <Compile Include="Contenedores\Parameters\EliminarDetalleSolportParameter.cs" />
+    <Compile Include="Contenedores\Parameters\ListarClavesAplicacionParameter.cs" />
+    <Compile Include="Contenedores\Parameters\ListarDepotParameter.cs" />
+    <Compile Include="Contenedores\Parameters\InsertarDocumentosSolportParameter.cs" />
+    <Compile Include="Contenedores\Parameters\ListarTransportistasSearchParameter.cs" />
+    <Compile Include="Contenedores\Parameters\ListarItemSearchParameter.cs" />
+    <Compile Include="Contenedores\Parameters\ListarOficinaParameter.cs" />
+    <Compile Include="Contenedores\Parameters\ListarTamanyoContenedoresParameter.cs" />
+    <Compile Include="Contenedores\Parameters\ListarTiposContenedoresParameter.cs" />
+    <Compile Include="Contenedores\Parameters\ObtenerCIFParameter.cs" />
+    <Compile Include="Contenedores\Parameters\ObtenerReservaCabeceraParameter.cs" />
+    <Compile Include="Contenedores\Parameters\Results\ActualizarPagoResult.cs" />
+    <Compile Include="Contenedores\Parameters\Results\EliminarDocumentoSolportResult.cs" />
+    <Compile Include="Contenedores\Parameters\Results\EliminarDetalleSolportResult.cs" />
+    <Compile Include="Contenedores\Parameters\Results\ListarClavesAplicacionResult.cs" />
+    <Compile Include="Contenedores\Parameters\Results\ListarDepotResult.cs" />
+    <Compile Include="Contenedores\Parameters\Results\insertarDocumentosSolportResult.cs" />
+    <Compile Include="Contenedores\Parameters\Results\ListarTransportistasSearchResult.cs" />
+    <Compile Include="Contenedores\Parameters\Results\ListarItemSearchResult.cs" />
+    <Compile Include="Contenedores\Parameters\Results\ListarOficinaResult.cs" />
+    <Compile Include="Contenedores\Parameters\Results\ListarTamanyoContenedoresResult.cs" />
+    <Compile Include="Contenedores\Parameters\Results\ListarTiposContenedoresResult.cs" />
+    <Compile Include="Contenedores\Parameters\Results\ObtenerCIFResult.cs" />
+    <Compile Include="Contenedores\Parameters\Results\ObtenerReservaCabeceraResult.cs" />
+    <Compile Include="tosc\Parameters\ObtenerOrdenTransporteParameters.cs" />
+    <Compile Include="tosc\Parameters\ListarOrdenesTransporteParameters.cs" />
+    <Compile Include="tosc\Result\ObtenerOrdenTransporteResult.cs" />
+    <Compile Include="tosc\Result\ListarOrdenesTransporteResult.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="NPTP2\Parameters\ListadoNaveParameter.cs" />
+    <Compile Include="NPTP2\Parameters\ListadoViajeParameter.cs" />
+    <Compile Include="NPTP2\Results\ListadoNaveResult.cs" />
+    <Compile Include="NPTP2\Results\ListadoViajeResult.cs" />
+    <Compile Include="SGCW\Parameters\ListarProductosParameter.cs" />
+    <Compile Include="SGCW\Parameters\ListarSubProductosParameter.cs" />
+    <Compile Include="SGCW\Parameters\ObtenerServicioGateOutParameter.cs" />
+    <Compile Include="SGCW\Results\ListarProductosResult.cs" />
+    <Compile Include="SGCW\Results\ListarSubProductosResult.cs" />
+    <Compile Include="SGCW\Results\ObtenerServicioGateOutResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\Componentes.Common\Componentes.Common.csproj">
+      <Project>{4241025f-7510-4f6b-85e0-93faf0def80c}</Project>
+      <Name>Componentes.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\QueryContracts.Common\QueryContracts.Common.csproj">
+      <Project>{bfb51524-32b0-4478-a18b-47614662bf40}</Project>
+      <Name>QueryContracts.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

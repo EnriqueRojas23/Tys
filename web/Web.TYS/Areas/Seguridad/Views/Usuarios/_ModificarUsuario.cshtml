@@ -1,0 +1,67 @@
+﻿@model Web.TYS.Areas.Seguridad.Models.Usuarios.InsertarModificarUsuarioModel
+@section Styles{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/sweetalert/sweetalert.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/jqGrid/ui.jqgrid.css")" />
+    <link rel="stylesheet" type="text/css" media="screen" href="@Url.Content("~/Content/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css")" />
+}
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/plugins/sweetalert/sweetalert.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/jqGrid/jquery.jqGrid.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/jqGrid/i18n/grid.locale-es.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jsview/seguridad/seguridad.usuarios.listarusuarios.js")" type="text/javascript"></script>
+}
+<form id="frmUsuarioModificar" role="form" method="post" class=" form-horizontal">
+    <div class="panel-primary">
+        <div class="panel-heading">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class=" panel-title">
+                Modificar Usuario
+            </h4>
+        </div>
+    </div>
+    <div class="modal-body">
+
+        <div class="form-group">
+            <p>
+                @Html.Label("Tipo de Acceso:")
+                @Html.DropDownListFor(model => model.usr_str_tipoacceso, Model.ListaModoAutenticacion, new { @class = "form-control", @required = "true" })
+            </p>
+            <p>(*)
+                @Html.Label("Usuario:")
+                @Html.TextBoxFor(model => model.Usr_str_red, new { @class = "form-control", @required = "true", placeholder = "Usuario de acceso" })
+            </p>
+            <p>(*)
+                @Html.Label("Nombres:")
+                @Html.TextBoxFor(model => model.Usr_str_nombre, new { @class = "form-control", @required = "true" ,placeholder = "Nombres" })
+            </p>
+            <p>(*)
+                @Html.Label("Apellidos:")
+                @Html.TextBoxFor(model => model.Usr_str_apellidos, new { @class = "form-control", @required = "true", placeholder = "Apellidos" })
+            </p>
+            <p>(*)
+                @Html.Label("Email:")
+                @Html.TextBoxFor(model => model.Usr_str_email, new { type = "email", @class = "form-control", @required = "true", placeholder = "ejemplo@dominio.com" })
+            </p>
+            <p>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        Accesos: <br />
+                    </label>
+
+                    <div class="col-sm-7">
+                      @Html.CheckBoxFor(model => model.Usr_bool_bloqueado) <label>La cuenta esta bloqueada. </label>
+                       
+                            <div class="clearfix"></div>
+                            @Html.CheckBoxFor(model => model.Usr_bool_aprobado) <label> activo </label>
+                        </div>
+                </div>
+            </p>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">Cancelar</button>
+                    <button id="btnActualizar" type="button" data-url="@Url.Action("Modificar", "Usuarios")" class="btn btn-primary">Actualizar</button>
+                </div>
+</div>
+    </div>
+    @Html.HiddenFor(model=>model.Usr_int_id)
+</form>

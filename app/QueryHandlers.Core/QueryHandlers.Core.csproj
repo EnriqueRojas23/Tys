@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C4142F24-9AA0-47D9-B225-7A18430CCCC2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QueryHandlers.Core</RootNamespace>
+    <AssemblyName>QueryHandlers.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contenedores\ActualizarPagoQuery.cs" />
+    <Compile Include="Contenedores\EliminarDetalleSolportQuery.cs" />
+    <Compile Include="Contenedores\eliminarDocumentoSolportQuery.cs" />
+    <Compile Include="Contenedores\ListarClavesAplicacionQuery.cs" />
+    <Compile Include="Contenedores\ListarDepotQuery.cs" />
+    <Compile Include="Contenedores\insetarDocumentosSolportQuery.cs" />
+    <Compile Include="Contenedores\ListarTransportistasSearchQuery.cs" />
+    <Compile Include="Contenedores\ListarItemSearchQuery.cs" />
+    <Compile Include="Contenedores\ListarOficinaQuery.cs" />
+    <Compile Include="Contenedores\ListarTamanyoContenedoresQuery.cs" />
+    <Compile Include="Contenedores\ListarTiposContenedoresQuery.cs" />
+    <Compile Include="Contenedores\ObtenerCIFQuery.cs" />
+    <Compile Include="Contenedores\ObtenerReservaCabeceraQuery.cs" />
+    <Compile Include="tosc\ObtenerOrdenTransporteQuery.cs" />
+    <Compile Include="tosc\ListarOrdenesTransporteQuery.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="NPTP2\ListadoNaveQuery.cs" />
+    <Compile Include="NPTP2\ListadoViajeQuery.cs" />
+    <Compile Include="SGCW\ListarProductosQuery.cs" />
+    <Compile Include="SGCW\ListarSubProductosQuery.cs" />
+    <Compile Include="SGCW\ObtenerServicioGateOutQuery.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\Componentes.Common\Componentes.Common.csproj">
+      <Project>{4241025F-7510-4F6B-85E0-93FAF0DEF80C}</Project>
+      <Name>Componentes.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\Data.Common\Data.Common.csproj">
+      <Project>{e40586b8-da89-41e5-888f-38aa6d7d9e58}</Project>
+      <Name>Data.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\QueryContracts.Common\QueryContracts.Common.csproj">
+      <Project>{bfb51524-32b0-4478-a18b-47614662bf40}</Project>
+      <Name>QueryContracts.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\QueryHandlers.Common\QueryHandlers.Common.csproj">
+      <Project>{bfb18c30-8936-46e5-88ef-e5a1c81340c3}</Project>
+      <Name>QueryHandlers.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QueryContracts.Common\QueryContracts.Core.csproj">
+      <Project>{823c27f3-893e-40a7-9649-1c78de330275}</Project>
+      <Name>QueryContracts.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QueryContracts.Terminal\QueryContracts.Common.csproj">
+      <Project>{823c27f3-893e-40a7-9649-1c78de330275}</Project>
+      <Name>QueryContracts.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

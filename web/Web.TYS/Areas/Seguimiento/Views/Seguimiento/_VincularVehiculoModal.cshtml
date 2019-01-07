@@ -1,0 +1,44 @@
+﻿@model Web.TYS.Areas.Seguimiento.Models.Seguimiento.ChoferModel
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/jqGrid/ui.jqgrid.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jqgrid.extension.css")" />
+
+}
+@using (Ajax.BeginForm("VincularChoferModal", "Seguimiento", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalcontent", OnComplete = "OnCompleteTransaction(xhr, status)" }, new { @class = "form-horizontal" }))
+{
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Vincular Chofer</h4>
+        <small class="font-bold">Digitar los datos necesarios para el registro.</small>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+                <div class="col-md-12">
+                    
+                    <div class="form-group">
+                        <div class="col-md-11">
+                            <label class="control-label">Choferes :</label>
+                            @Html.HiddenFor(model => model.idvehiculo)
+                            @Html.DropDownListFor(m => m.idchofer, (SelectList)ViewData["ListadoChofer"], "[Ninguno]", new { @class = "chosen-select form-control", @tabindex = 1 })
+
+                        </div>
+                    </div>
+                
+                
+                   
+                </div>
+           
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="col-md-3 col-md-offset-6">
+            <button type="submit" class="btn btn-block btn-primary ">Asignar</button>
+        </div>
+        <div class="col-md-3">
+            <button type="button" class="btn  btn-block  btn-inverse" data-dismiss="modal"> Cancelar</button>
+
+        </div>
+            
+    </div>
+}

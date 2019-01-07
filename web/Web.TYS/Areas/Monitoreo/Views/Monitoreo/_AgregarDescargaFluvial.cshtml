@@ -1,0 +1,96 @@
+﻿@model Web.TYS.Areas.Monitoreo.Models.EmbarqueModel
+
+@section Styles{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/jsTree/style.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/iCheck/custom.css")" />
+}
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/plugins/jsTree/jstree.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/plugins/iCheck/icheck.min.js")"></script>
+}
+
+@using (Ajax.BeginForm("AsignarDescarga", "Monitoreo", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalcontent", OnComplete = "OnCompleteTransaction(xhr, status)" }, new { @class = "form-horizontal" }))
+{
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Descarga Fluvial</h4>
+        <small class="font-bold">Selecciona las OTs o Manifiestos que deseas Asignar.</small>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="widget widget-chart-changes">
+                    <div class="widget-body">
+                        <div class="chart bg-success btlr btrr">
+                            <p class="chart-value"><i class="fa fa-caret-up"></i> @Model.conocimientoembarque</p>
+                            <p class="chart-value-change">@Model.transporte</p>
+                            @Html.HiddenFor(x=>x.idembarque)
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-5">
+                                <h4 class="chart-title"><span class="fw-normal"></span></h4>
+                                <p class="deemphasize"></p>
+                            </div>
+                        </div>
+                       
+                            <label class="col-md-1 control-label">Fecha:</label>
+                            <div class="col-md-4">
+                                <div class="input-group date" id='dtpfechacomp'>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        @Html.TextBoxFor(model => model.fechadescarga, "{0:dd/MM/yyyy}", new { @placeholder = "Fec. Descarga", @class = "form-control", @required = "true" })
+                                    </div>
+                                </div>
+                            </div>
+                            <label class=" col-sm-1 control-label">Hora:</label>
+                            <div class="col-sm-2">
+                                @Html.TextBoxFor(model => model.horadescarga, new { @placeholder = "00:00hrs", @class = "form-control", @required = "true" })
+                            </div>
+                            <label class=" col-md-1 control-label">Puerto:</label>
+                            <div class="col-md-3">
+                                @Html.DropDownListFor(m => m.idpuerto, (SelectList)ViewData["ListaPuerto"], "[Puerto]", new { @class = "chosen-select form-control input-sm", @required = "true" })
+                            </div>
+                     
+                            <div class="col-md-5">
+                                <h4 class="chart-title"><span class="fw-normal">Manifiestos</span></h4>
+                                <p class="deemphasize">Sin Descarga</p>
+                            </div>
+                            <div class="col-md-offset-2 col-md-5">
+                                <h4 class="chart-title"><span class="fw-normal">Manifiestos</span></h4>
+                                <p class="deemphasize">Con Descarga</p>
+                            </div>
+                        <div class="form-group">
+
+                                <div class="col-md-4">
+                                    <div id="jstree_di">
+                                        <div id="jstree_di"></div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <button id="agregar" type="button" class="btn btn-block bg-success ">Asignar >></button>
+                                    <button id="quitar" type="button" class="btn btn-block bg-success "><< Desasignar</button>
+                                </div>
+                                <div class="col-md-4">
+                                    <div id="jstree_nod">
+                                        <div id="jstree_nod"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                 </section>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="col-md-offset-6 col-md-3">
+            <button id="btnGuardarDescarga" type="button" class="btn btn-block  btn-primary">  Guardar</button>
+        </div>
+        <div class="col-md-3">
+            <button type="button" class="btn btn-inverse btn-block " data-dismiss="modal"> Cerrar</button>
+        </div>
+    </div>
+
+}

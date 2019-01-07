@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3358C0E5-E589-40DE-A476-6394BE9DF225}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QueryContracts.TYS</RootNamespace>
+    <AssemblyName>QueryContracts.TYS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\Parameters\ObtenerUsuarioParameter.cs" />
+    <Compile Include="Account\Parameters\ValidarUsuarioParameter.cs" />
+    <Compile Include="Account\Results\ObtenerUsuarioResult.cs" />
+    <Compile Include="Account\Results\ObtenerUsuarioResult1.cs" />
+    <Compile Include="Account\Results\ValidarUsuarioResult.cs" />
+    <Compile Include="Facturacion\Parameters\ListarComprobanteDetallesParameters.cs" />
+    <Compile Include="Facturacion\Parameters\ListarPreliquidacionParameters.cs" />
+    <Compile Include="Facturacion\Parameters\ListarDocumentosParameters.cs" />
+    <Compile Include="Facturacion\Parameters\ListarComprobantesParameters.cs" />
+    <Compile Include="Facturacion\Parameters\ListarOTSParameters.cs" />
+    <Compile Include="Facturacion\Parameters\ListarCompletadoPreliquidacionParameters.cs" />
+    <Compile Include="Facturacion\Parameters\ObtenerNumeroComprobanteParameters.cs" />
+    <Compile Include="Facturacion\Parameters\ObtenerComprobanteParameters.cs" />
+    <Compile Include="Facturacion\Parameters\ObtenerFactElectronicaParameters.cs" />
+    <Compile Include="Facturacion\Parameters\ObtenerUltimaPreliquidacionParameters.cs" />
+    <Compile Include="Facturacion\Parameters\ObtenerPreliquidacionParameters.cs" />
+    <Compile Include="Facturacion\Parameters\ActualizarOTComprobanteParameters.cs" />
+    <Compile Include="Facturacion\Parameters\VincularPreliquidacionOTParameters.cs" />
+    <Compile Include="Facturacion\Parameters\ListarPendientePreliquidacionParameters.cs" />
+    <Compile Include="Facturacion\Results\ListarComprobanteDetallesResult.cs" />
+    <Compile Include="Facturacion\Results\ListarPreliquidacionResult.cs" />
+    <Compile Include="Facturacion\Results\ListarDocumentosResult.cs" />
+    <Compile Include="Facturacion\Results\ListarComprobantesResult.cs" />
+    <Compile Include="Facturacion\Results\ListarCompletadoPreliquidacionResult.cs" />
+    <Compile Include="Facturacion\Results\ObtenerNumeroComprobanteResult.cs" />
+    <Compile Include="Facturacion\Results\ObtenerComprobanteResult.cs" />
+    <Compile Include="Facturacion\Results\ObtenerFactElectronicaResult.cs" />
+    <Compile Include="Facturacion\Results\ObtenerUltimaPreliquidacionResult.cs" />
+    <Compile Include="Facturacion\Results\ObtenerPreliquidacionResult.cs" />
+    <Compile Include="Facturacion\Results\ListarOTSResult.cs" />
+    <Compile Include="Facturacion\Results\ActualizarOTComprobanteResult.cs" />
+    <Compile Include="Facturacion\Results\VincularPreliquidacionOTResult.cs" />
+    <Compile Include="Facturacion\Results\ListarPendientePreliquidacionResult.cs" />
+    <Compile Include="Monitoreo\Parameters\DuplicarGuiaParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\DuplicarOTParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\InsertarDetalleEmbarqueParameter.cs" />
+    <Compile Include="Monitoreo\Parameters\InsertarIncidenciaParameter.cs" />
+    <Compile Include="Monitoreo\Parameters\ListarDetalleEmbarqueParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\ListarManifiestosAsignadosEmbarqueParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\ListarManifiestosSinEmbarqueParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\EliminarEmbarqueFluvialParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\ListarEventosParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\ListarOtsFluvialParameters.cs" />
+    <Compile Include="Liquidacion\Parameters\ListarDiasTranscurridosParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\ListarOtsMonitoreoEntregaParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\ObtenerExisteCEParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\ObtenerUltimoNumeroEmbarqueParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\ObtenerEmbarqueFluvialParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\ListarEtapasMonitoreoParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\InsertarEtapaParameter.cs" />
+    <Compile Include="Monitoreo\Parameters\ListarEmbarqueFluvialParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\ListarOrdenesTrabajoParameters.cs" />
+    <Compile Include="Monitoreo\Results\DuplicarGuiaResults.cs" />
+    <Compile Include="Monitoreo\Results\DuplicarOTResults.cs" />
+    <Compile Include="Monitoreo\Results\InsertarDetalleEmbarqueResult.cs" />
+    <Compile Include="Monitoreo\Results\InsertarIncidenciaResult.cs" />
+    <Compile Include="Monitoreo\Results\ListarManifiestosAsignadosEmbarqueResults.cs" />
+    <Compile Include="Monitoreo\Results\ListarManifiestosSinEmbarqueResults.cs" />
+    <Compile Include="Monitoreo\Results\ListarDetalleEmbarqueResults.cs" />
+    <Compile Include="Monitoreo\Results\EliminarEmbarqueFluvialResults.cs" />
+    <Compile Include="Monitoreo\Results\ListarEventosResults.cs" />
+    <Compile Include="Liquidacion\Result\ListarDiasTranscurridosResults.cs" />
+    <Compile Include="Monitoreo\Results\ListarOtsFluvialResults.cs" />
+    <Compile Include="Monitoreo\Results\ListarOtsMonitoreoEntregaResults.cs" />
+    <Compile Include="Monitoreo\Results\ObtenerExisteCEResults.cs" />
+    <Compile Include="Monitoreo\Results\ObtenerUltimoNumeroEmbarqueResults.cs" />
+    <Compile Include="Monitoreo\Results\ObtenerEmbarqueFluvialResults.cs" />
+    <Compile Include="Monitoreo\Results\ListarEtapasMonitoreoResults.cs" />
+    <Compile Include="Monitoreo\Results\InsertarEtapaResult.cs" />
+    <Compile Include="Monitoreo\Results\ListarEmbarqueFluvialResults.cs" />
+    <Compile Include="Monitoreo\Results\ListarOrdenesTrabajoResults.cs" />
+    <Compile Include="Pago\Parameters\EliminarAsignacionParameter.cs" />
+    <Compile Include="Pago\Parameters\CargarMonedaParameter.cs" />
+    <Compile Include="Pago\Parameters\CargarTipoComprobanteParameter.cs" />
+    <Compile Include="Pago\Parameters\CargarTipoTransporteParameter.cs" />
+    <Compile Include="Pago\Parameters\CargarEtapasParameter.cs" />
+    <Compile Include="Pago\Parameters\ExportarReporteGerencialParameters.cs" />
+    <Compile Include="Pago\Parameters\ListarExportarAsignacionParameters.cs" />
+    <Compile Include="Pago\Parameters\ListarPlacaParameters.cs" />
+    <Compile Include="Pago\Parameters\ListarReporteGerencialParameters.cs" />
+    <Compile Include="Pago\Parameters\ListarReporteGeneralParameters.cs" />
+    <Compile Include="Pago\Parameters\ListarDetalleComprobanteParameters.cs" />
+    <Compile Include="Pago\Parameters\ListarUbigeoParameters.cs" />
+    <Compile Include="Pago\Parameters\ListarComprobanteParameters.cs" />
+    <Compile Include="Pago\Parameters\ListarAsignacionParameters.cs" />
+    <Compile Include="Pago\Parameters\ListarTipoComprobanteParameters.cs" />
+    <Compile Include="Pago\Parameters\ListarMonedaParameters.cs" />
+    <Compile Include="Pago\Parameters\ListarTipoTransporteParameters.cs" />
+    <Compile Include="Pago\Parameters\ListarEtapaParameters.cs" />
+    <Compile Include="Pago\Parameters\ListarProveedorParameters.cs" />
+    <Compile Include="Pago\Parameters\ObtenerComprobanteParameter.cs" />
+    <Compile Include="Pago\Parameters\ObtenerTipoTransporteParameter.cs" />
+    <Compile Include="Pago\Parameters\ObtenerEtapaParameter.cs" />
+    <Compile Include="Pago\Parameters\ObtenerMonedaParameter.cs" />
+    <Compile Include="Pago\Parameters\ObtenerTipoComprobanteParameter.cs" />
+    <Compile Include="Pago\Parameters\ObtenerProveedorParameter.cs" />
+    <Compile Include="Pago\Parameters\ValidaSerieParameters.cs" />
+    <Compile Include="Pago\Parameters\ValidaOtsParameters.cs" />
+    <Compile Include="Pago\Results\ExportarReporteGerencialResult.cs" />
+    <Compile Include="Pago\Results\ListarExportarAsignacionResult.cs" />
+    <Compile Include="Pago\Results\ListarPlacaResult.cs" />
+    <Compile Include="Pago\Results\ValidaSerieResult.cs" />
+    <Compile Include="Pago\Results\ValidaOtsResult.cs" />
+    <Compile Include="Pago\Results\EliminarAsignacionResult.cs" />
+    <Compile Include="Pago\Results\CargarTipoTransporteResult.cs" />
+    <Compile Include="Pago\Results\CargarTipoComprobanteResult.cs" />
+    <Compile Include="Pago\Results\CargarMonedasResult.cs" />
+    <Compile Include="Pago\Results\CargarEtapasResult.cs" />
+    <Compile Include="Pago\Results\ListarReporteGerencialResult.cs" />
+    <Compile Include="Pago\Results\ListarReporteGeneralResult.cs" />
+    <Compile Include="Pago\Results\ListarDetalleComprobanteResult.cs" />
+    <Compile Include="Pago\Results\ListarUbigeoResult.cs" />
+    <Compile Include="Pago\Results\ListarComprobanteResult.cs" />
+    <Compile Include="Pago\Results\ListarAsignacionResult.cs" />
+    <Compile Include="Pago\Results\ListarTipoComprobanteResult.cs" />
+    <Compile Include="Pago\Results\ListarMonedaResult.cs" />
+    <Compile Include="Pago\Results\ListarTipoTransporteResult.cs" />
+    <Compile Include="Pago\Results\ListarEtapaResult.cs" />
+    <Compile Include="Pago\Results\ListarProveedorResult.cs" />
+    <Compile Include="Configuracion\Parameters\ListarMultiusoPorTipoParameter.cs" />
+    <Compile Include="Configuracion\Results\ListarMultiusoPorTipoResult.cs" />
+    <Compile Include="Pago\Results\ObtenerComprobanteResult.cs" />
+    <Compile Include="Pago\Results\ObtenerTipoTransporteResult.cs" />
+    <Compile Include="Pago\Results\ObtenerEtapaResult.cs" />
+    <Compile Include="Pago\Results\ObtenerMonedaResult.cs" />
+    <Compile Include="Pago\Results\ObtenerTipoComprobanteResult.cs" />
+    <Compile Include="Pago\Results\ObtenerProveedorResult.cs" />
+    <Compile Include="Liquidacion\Parameters\ListarArchivosParameters.cs" />
+    <Compile Include="Liquidacion\Parameters\ListarLiquidacionOperacionesParameters.cs" />
+    <Compile Include="Liquidacion\Result\ListarArchivosResults.cs" />
+    <Compile Include="Liquidacion\Result\ListarLiquidacionOperacionesResults.cs" />
+    <Compile Include="Monitoreo\Parameters\ListarHelpResourcesParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\ListarOrdenesxManifiestoParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\ListarIncidentesParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\ListarMaestroIncidenteParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\ListarMonitoreoOperacionesExportarParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\ListarOtsMonitoreoParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\ListarMonitoreoOperacionesParameters.cs" />
+    <Compile Include="Monitoreo\Parameters\ValidarOtsCerradasParameter.cs" />
+    <Compile Include="Monitoreo\Results\ListarHelpResourcesResults.cs" />
+    <Compile Include="Monitoreo\Results\ListarOrdenesxManifiestoResults.cs" />
+    <Compile Include="Monitoreo\Results\ListarIncidentesResults.cs" />
+    <Compile Include="Monitoreo\Results\ListarMaestroIncidenteResults.cs" />
+    <Compile Include="Monitoreo\Results\ListarMonitoreoOperacionesExportarResults.cs" />
+    <Compile Include="Monitoreo\Results\ListarOtsMonitoreoResults.cs" />
+    <Compile Include="Monitoreo\Results\ListarMonitoreoOperacionesResults.cs" />
+    <Compile Include="Monitoreo\Results\ValidarOtsCerradasResult.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguimiento\Parameters\ActualizarOTConfirmacionParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ActualizarOTPlanificacionParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\CopiarTarifaIndividualParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarDetalleOperacionxrutaParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarChoferParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarDetalleDespachoParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarCargasPendientesParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarImpresionManifiestoParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarInspeccionParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarDespachoParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarImpresionCargaParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarOperacionxVehiculoParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarOperacionCargaVehiculoParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarOrdenTrabajoClienteParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarOTHijasCCParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarOTLigeraParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarPrecintosCargaParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarServiciosParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarGuiasParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarDetalleTarifaIdsParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarEstacionOrigenParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarDetalleTarifaParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarConceptosTarifaParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarDetalleOperacionParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarTipoUnidadTarifaParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarTipoTransporteTarifaParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarOperacionCargaParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarClientesProveedorPendientesParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarDetalleCamionDirectoParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarOrdenTrabajoComprobanteParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarCamionCompletoParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarPlanificarOrdenParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarOrdenTrabajoParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarDetalleRutaParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarTarifaOrdenParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarTarifaParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarRutasParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarDireccionClienteParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarDistritoZonaEditarParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarDistritoZonaParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarDistritosParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarProvinciasParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarDepartamentosParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarEstadoParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarVehiculoParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarFormulaTarifaParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarPrecintosParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarZonasParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarFormulasParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarProveedorxClienteParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\CopiarTarifaParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerCambionCompletoParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerOperacionCargaTotalVehiculoParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerOperacionCargaParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerDespachoParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerDetalleRutaParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\EliminarPrecintoParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerTarifaParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerChoferParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerIdDireccionParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerUltimaHojaRutaParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerManifiestoParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerUltimoManifiestoParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerUltimaOperacionCargaParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerUltimaOrdenCamionCompletoParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerUltimaOrdenTrabajoParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerOrdenTrabajoParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerRutaParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerVehiculoParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerGuiaParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\AutogeneraOperacionesParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ValidarDireccionParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ValidarZonaParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerZonaParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerFormulaParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerDireccionParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarDireccionParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarUbigeoParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarClientesParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarValorxTablaParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ListarMaestroTablasParameters.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerClienteParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\EliminarProveedorClienteParameter.cs" />
+    <Compile Include="Seguimiento\Parameters\ObtenerValorTablaParameter.cs" />
+    <Compile Include="Seguimiento\Results\ActualizarOTConfirmacionResult.cs" />
+    <Compile Include="Seguimiento\Results\ActualizarOTPlanificacionResult.cs" />
+    <Compile Include="Seguimiento\Results\CopiarTarifaIndividualResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarImpresionManifiestoResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarImpresionCargaResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarDetalleOperacionxRutaResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarChoferResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarCargasPendientesResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarDetalleDespachoResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarInspeccionResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarDespachoResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarOperacionxVehiculoResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarOperacionCargaVehiculoResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarOrdenTrabajoClienteResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarOTHijasCCResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarOTLigeraResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarPrecintosCargaResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarPrecintosResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarServiciosResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarDetalleTarifaIdsResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarDetalleOperacionResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarGuiasResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarEstacionOrigenResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarDetalleTarifaResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarConceptosTarifaResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarTipoTransporteUnidadResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarTipoTransporteTarifaResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarOperacionCargaResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarDetalleCamionDirectoResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarOrdenTrabajoComprobanteResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarCamionCompletoResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarPlanificarOrdenResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarOrdenTrabajoResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarClienteProveedorPendientesResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarTarifaOrdenResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarTarifaResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarDetalleRutaResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarRutaResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarDireccionClienteResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarDistritoZonaEditarResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarDistritoZonaResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarDistritosResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarProvinciasResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarDepartamentosResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarEstadoResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarVehiculoResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarFormulaTarifaResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarZonasResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarFormulasResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarProveedorxClienteResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarDireccionResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarUbigeoResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarClientesResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarValorxTablaResult.cs" />
+    <Compile Include="Seguimiento\Results\ListarMaestroTablasResult.cs" />
+    <Compile Include="Seguimiento\Results\EliminarProveedorClienteResult.cs" />
+    <Compile Include="Seguimiento\Results\CopiarTarifaResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerCamionCompletoResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerDespachonResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerOperacionCargaTotalVehiculoResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerOperacionCargaResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerDetalleRutaResult.cs" />
+    <Compile Include="Seguimiento\Results\EliminarPrecintoResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerTarifaResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerChoferResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerIdDireccionResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerUltimaOperacionCargaResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerUltimaOrdenCamionCompletoResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerUltimaHojaRutaResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerManifiestoResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerUltimoManifiestoResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerUltimaOrdenTrabajoResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerOrdenTrabajoResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerRutaResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerGuiaResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerVehiculoResult.cs" />
+    <Compile Include="Seguimiento\Results\AutogeneraOperacionesResult.cs" />
+    <Compile Include="Seguimiento\Results\ValidarDireccionResult.cs" />
+    <Compile Include="Seguimiento\Results\ValidarZonaResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerZonaResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerFormulaResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerDireccionResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerClienteResult.cs" />
+    <Compile Include="Seguimiento\Results\ObtenerValorTablaResult.cs" />
+    <Compile Include="Seguridad\Parameters\BuscarPaginasParameter.cs" />
+    <Compile Include="Seguridad\Parameters\BuscarSistemasParameter.cs" />
+    <Compile Include="Seguridad\Parameters\CambiarContrasenaParameter.cs" />
+    <Compile Include="Seguridad\Parameters\DesbloquearUsuarioParameter.cs" />
+    <Compile Include="Seguridad\Parameters\EliminarPaginaParameter.cs" />
+    <Compile Include="Seguridad\Parameters\EliminarRolParameter.cs" />
+    <Compile Include="Seguridad\Parameters\EliminarUsuarioParameter.cs" />
+    <Compile Include="Seguridad\Parameters\EncriptarPasswordParameter.cs" />
+    <Compile Include="Seguridad\Parameters\GenerarPasswordParameter.cs" />
+    <Compile Include="Seguridad\Parameters\ListarPaginasPadreParameter.cs" />
+    <Compile Include="Seguridad\Parameters\ListarPaginasParameter.cs" />
+    <Compile Include="Seguridad\Parameters\ListarRolesAsignablesParameter.cs" />
+    <Compile Include="Seguridad\Parameters\ListarRolesParameter.cs" />
+    <Compile Include="Seguridad\Parameters\ListarSistemasParameter.cs" />
+    <Compile Include="Seguridad\Parameters\ListarUsuariosParameter.cs" />
+    <Compile Include="Seguridad\Parameters\ObtenerDatosBasicosUsuarioParameter.cs" />
+    <Compile Include="Seguridad\Parameters\ObtenerPaginaPadreParameter.cs" />
+    <Compile Include="Seguridad\Parameters\ObtenerPaginaParameter.cs" />
+    <Compile Include="Seguridad\Parameters\ObtenerPasswordParameter.cs" />
+    <Compile Include="Seguridad\Parameters\ObtenerSistemaParameter.cs" />
+    <Compile Include="Seguridad\Parameters\ObtenerUsuarioParameter.cs" />
+    <Compile Include="Seguridad\Parameters\ValidarExisteUsuarioParameter.cs" />
+    <Compile Include="Seguridad\Result\BuscarPaginasResult.cs" />
+    <Compile Include="Seguridad\Result\BuscarSistemasResult.cs" />
+    <Compile Include="Seguridad\Result\CambiarContrasenaResult.cs" />
+    <Compile Include="Seguridad\Result\DesbloquearUsuarioResult.cs" />
+    <Compile Include="Seguridad\Result\EliminarRolResult.cs" />
+    <Compile Include="Seguridad\Result\EliminarUsuarioResult.cs" />
+    <Compile Include="Seguridad\Result\EncriptarPasswordResult.cs" />
+    <Compile Include="Seguridad\Result\GenerarPasswordResult.cs" />
+    <Compile Include="Seguridad\Result\ListarPaginasPadreResult.cs" />
+    <Compile Include="Seguridad\Result\ListarPaginasResult.cs" />
+    <Compile Include="Seguridad\Result\ListarRolesAsignablesResult.cs" />
+    <Compile Include="Seguridad\Result\ListarRolesResult.cs" />
+    <Compile Include="Seguridad\Result\ListarSistemasResult.cs" />
+    <Compile Include="Seguridad\Result\ListarUsuariosResult.cs" />
+    <Compile Include="Seguridad\Result\ObtenerDatosBasicosUsuarioResult.cs" />
+    <Compile Include="Seguridad\Result\ObtenerPaginaPadreResult.cs" />
+    <Compile Include="Seguridad\Result\ObtenerPaginaResult.cs" />
+    <Compile Include="Seguridad\Result\ObtenerPasswordResult.cs" />
+    <Compile Include="Seguridad\Result\ObtenerSistemaResult.cs" />
+    <Compile Include="Seguridad\Result\EliminarPaginaResult.cs" />
+    <Compile Include="Seguridad\Result\ValidarExisteUsuarioResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\Componentes.Common\Componentes.Common.csproj">
+      <Project>{4241025f-7510-4f6b-85e0-93faf0def80c}</Project>
+      <Name>Componentes.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\QueryContracts.Common\QueryContracts.Common.csproj">
+      <Project>{bfb51524-32b0-4478-a18b-47614662bf40}</Project>
+      <Name>QueryContracts.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reporte\Parameters\" />
+    <Folder Include="Reporte\Results\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

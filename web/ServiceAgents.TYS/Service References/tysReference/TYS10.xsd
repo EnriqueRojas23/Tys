@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Monitoreo.Parameters" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Monitoreo.Parameters" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50030/TYS?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common" />
+  <xs:complexType name="DuplicarGuiaParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q1:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idguiaremisioncliente" type="xs:long" />
+          <xs:element minOccurs="0" name="idordennueva" type="xs:long" />
+          <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+          <xs:element minOccurs="0" name="rechazototal" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DuplicarGuiaParameters" nillable="true" type="tns:DuplicarGuiaParameters" />
+  <xs:complexType name="DuplicarOTParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q2:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cantidad" type="xs:int" />
+          <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+          <xs:element minOccurs="0" name="idordentrabajofinal" type="xs:long" />
+          <xs:element minOccurs="0" name="idusuarioregistro" type="xs:long" />
+          <xs:element minOccurs="0" name="rechazototal" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DuplicarOTParameters" nillable="true" type="tns:DuplicarOTParameters" />
+  <xs:complexType name="InsertarDetalleEmbarqueParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q3:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfInsertarDetalleEmbarqueDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarDetalleEmbarqueParameter" nillable="true" type="tns:InsertarDetalleEmbarqueParameter" />
+  <xs:complexType name="ArrayOfInsertarDetalleEmbarqueDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InsertarDetalleEmbarqueDto" nillable="true" type="tns:InsertarDetalleEmbarqueDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInsertarDetalleEmbarqueDto" nillable="true" type="tns:ArrayOfInsertarDetalleEmbarqueDto" />
+  <xs:complexType name="InsertarDetalleEmbarqueDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fechacontrolsunat" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechadescarga" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="iddetalleembarque" type="xs:long" />
+      <xs:element minOccurs="0" name="idembarque" type="xs:long" />
+      <xs:element minOccurs="0" name="idmanifiesto" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+      <xs:element minOccurs="0" name="idpuerto" type="xs:int" />
+      <xs:element minOccurs="0" name="idusuariocontrolsunat" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="idusuariodescarga" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InsertarDetalleEmbarqueDto" nillable="true" type="tns:InsertarDetalleEmbarqueDto" />
+  <xs:complexType name="InsertarIncidenciaParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q4:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfInsertarIncidenciaParameterDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarIncidenciaParameter" nillable="true" type="tns:InsertarIncidenciaParameter" />
+  <xs:complexType name="ArrayOfInsertarIncidenciaParameterDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InsertarIncidenciaParameterDto" nillable="true" type="tns:InsertarIncidenciaParameterDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInsertarIncidenciaParameterDto" nillable="true" type="tns:ArrayOfInsertarIncidenciaParameterDto" />
+  <xs:complexType name="InsertarIncidenciaParameterDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="documento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaincidencia" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fecharegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idincidencia" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="idmaestroincidencia" type="xs:int" />
+      <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+      <xs:element minOccurs="0" name="idusuarioregistro" type="xs:int" />
+      <xs:element minOccurs="0" name="observacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="recurso" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InsertarIncidenciaParameterDto" nillable="true" type="tns:InsertarIncidenciaParameterDto" />
+  <xs:complexType name="ListarDetalleEmbarqueParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q5:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idembarque" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarDetalleEmbarqueParameters" nillable="true" type="tns:ListarDetalleEmbarqueParameters" />
+  <xs:complexType name="ListarManifiestosAsignadosEmbarqueParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q6:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idembarque" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarManifiestosAsignadosEmbarqueParameters" nillable="true" type="tns:ListarManifiestosAsignadosEmbarqueParameters" />
+  <xs:complexType name="ListarManifiestosSinEmbarqueParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q7:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idembarque" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarManifiestosSinEmbarqueParameters" nillable="true" type="tns:ListarManifiestosSinEmbarqueParameters" />
+  <xs:complexType name="EliminarEmbarqueFluvialParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q8:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idembarque" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EliminarEmbarqueFluvialParameters" nillable="true" type="tns:EliminarEmbarqueFluvialParameters" />
+  <xs:complexType name="ListarEventosParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q9:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idmaestroetapa" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idmaestroincidencia" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idorden" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarEventosParameters" nillable="true" type="tns:ListarEventosParameters" />
+  <xs:complexType name="ListarOtsFluvialParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q10:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="documento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="idcliente" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="iddestino" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idestado" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="numhojaruta" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="nummanifiesto" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarOtsFluvialParameters" nillable="true" type="tns:ListarOtsFluvialParameters" />
+  <xs:complexType name="ListarOtsMonitoreoEntregaParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q11:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="documento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="grr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="idcliente" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="iddestino" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idestado" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idtipotransporte" type="xs:int" />
+          <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="numhojaruta" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="nummanifiesto" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tienda" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarOtsMonitoreoEntregaParameters" nillable="true" type="tns:ListarOtsMonitoreoEntregaParameters" />
+  <xs:complexType name="ObtenerExisteCEParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q12:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ce" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="idembarque" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="idtransporte" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerExisteCEParameters" nillable="true" type="tns:ObtenerExisteCEParameters" />
+  <xs:complexType name="ObtenerUltimoNumeroEmbarqueParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q13:QueryParameter">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerUltimoNumeroEmbarqueParameters" nillable="true" type="tns:ObtenerUltimoNumeroEmbarqueParameters" />
+  <xs:complexType name="ObtenerEmbarqueFluvialParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q14:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idembarque" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerEmbarqueFluvialParameters" nillable="true" type="tns:ObtenerEmbarqueFluvialParameters" />
+  <xs:complexType name="ListarEtapasMonitoreoParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q15:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="tipoetapa" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarEtapasMonitoreoParameters" nillable="true" type="tns:ListarEtapasMonitoreoParameters" />
+  <xs:complexType name="InsertarEtapaParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q16:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfInsertarEtapaParameterDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarEtapaParameter" nillable="true" type="tns:InsertarEtapaParameter" />
+  <xs:complexType name="ArrayOfInsertarEtapaParameterDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InsertarEtapaParameterDto" nillable="true" type="tns:InsertarEtapaParameterDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInsertarEtapaParameterDto" nillable="true" type="tns:ArrayOfInsertarEtapaParameterDto" />
+  <xs:complexType name="InsertarEtapaParameterDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="documento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaetapa" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fecharegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="grr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idetapa" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="idmaestroetapa" type="xs:int" />
+      <xs:element minOccurs="0" name="idmanifiesto" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+      <xs:element minOccurs="0" name="idusuarioregistro" type="xs:int" />
+      <xs:element minOccurs="0" name="recurso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="visible" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InsertarEtapaParameterDto" nillable="true" type="tns:InsertarEtapaParameterDto" />
+  <xs:complexType name="ListarEmbarqueFluvialParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q17:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idvehiculo" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="numeroembarque" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarEmbarqueFluvialParameters" nillable="true" type="tns:ListarEmbarqueFluvialParameters" />
+  <xs:complexType name="ListarOrdenesTrabajoParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q18:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarOrdenesTrabajoParameters" nillable="true" type="tns:ListarOrdenesTrabajoParameters" />
+  <xs:complexType name="ListarArchivosParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q19:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idarchivo" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="idordentrabajo" nillable="true" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarArchivosParameters" nillable="true" type="tns:ListarArchivosParameters" />
+  <xs:complexType name="ListarLiquidacionOperacionesParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q20="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q20:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="diastranscurridos" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="fechafin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="fechainicio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="grr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="idcliente" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="iddestinatario" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarLiquidacionOperacionesParameters" nillable="true" type="tns:ListarLiquidacionOperacionesParameters" />
+  <xs:complexType name="ListarHelpResourcesParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q21="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q21:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idcampo" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarHelpResourcesParameters" nillable="true" type="tns:ListarHelpResourcesParameters" />
+  <xs:complexType name="ListarOrdenesxManifiestoParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q22="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q22:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idmanifiesto" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarOrdenesxManifiestoParameters" nillable="true" type="tns:ListarOrdenesxManifiestoParameters" />
+  <xs:complexType name="ListarIncidentesParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q23="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q23:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idmaestroincidencia" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idorden" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarIncidentesParameters" nillable="true" type="tns:ListarIncidentesParameters" />
+  <xs:complexType name="ListarMaestroIncidenteParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q24="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q24:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idmaestroincidencia" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="tipoincidencia" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarMaestroIncidenteParameters" nillable="true" type="tns:ListarMaestroIncidenteParameters" />
+  <xs:complexType name="ListarMonitoreoOperacionesExportarParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q25="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q25:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="chofer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="documento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="fechafin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="fechainicio" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="guia" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="idestacion" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idruta" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="placa" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="recurso" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarMonitoreoOperacionesExportarParameters" nillable="true" type="tns:ListarMonitoreoOperacionesExportarParameters" />
+  <xs:complexType name="ListarOtsMonitoreoParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q26="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q26:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="documento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="grr" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="idcliente" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="iddestino" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idestado" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="numhojaruta" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="nummanifiesto" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tienda" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarOtsMonitoreoParameters" nillable="true" type="tns:ListarOtsMonitoreoParameters" />
+  <xs:complexType name="ListarMonitoreoOperacionesParameters">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q27="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q27:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idmanifiesto" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarMonitoreoOperacionesParameters" nillable="true" type="tns:ListarMonitoreoOperacionesParameters" />
+  <xs:complexType name="ValidarOtsCerradasParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q28="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q28:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idmanifiesto" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ValidarOtsCerradasParameter" nillable="true" type="tns:ValidarOtsCerradasParameter" />
+</xs:schema>

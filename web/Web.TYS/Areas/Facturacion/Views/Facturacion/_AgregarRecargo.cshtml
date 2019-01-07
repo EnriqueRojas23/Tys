@@ -1,0 +1,33 @@
+﻿@model Web.TYS.Areas.Facturacion.Models.PreliquidacionModel
+
+@using (Ajax.BeginForm("AgregarRecargo", "Facturacion", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalcontent", OnComplete = "OnCompleteTransaction_Recargo(xhr, status)" }, new { @class = "form-horizontal" }))
+{
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Agregar Recargo</h4>
+        <small class="font-bold">Ingrese el monto de recargo para la OT seleccionada.</small>
+    </div>
+    <div class="modal-body">
+        <div class="form-horizontal">
+            <div class="form-group">
+            <label class=" col-md-2 control-label">Recargo :</label>
+            <div class="col-md-4">
+                @Html.TextBoxFor(x => x.recargo, new { @maxlength = 8, @onkeypress = "return SoloDecimal(event,this.value);", @class = "form-control", @required = "true" })
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <div class="col-md-3 col-md-offset-6">
+            <button type="submit" class="btn  btn-block btn-primary btn-sm">  Guardar</button>
+            </div>
+        <div class="col-md-3">
+            <button type="button" class="btn  btn-block btn-inverse btn-sm" data-dismiss="modal">Cerrar</button>
+            @Html.HiddenFor(x => x.idordentrabajo)
+            @Html.HiddenFor(x => x.idestado)
+        </div>
+           
+        </div>
+
+}

@@ -1,0 +1,659 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"aut",
+				"automovil"
+			],
+			[
+				"reload",
+				"reloaddetalle"
+			],
+			[
+				"relo",
+				"reloadcarga"
+			],
+			[
+				"reloa",
+				"reloaddetalle"
+			],
+			[
+				"rel",
+				"reloadcarga"
+			],
+			[
+				"form",
+				"format"
+			],
+			[
+				"forma",
+				"format"
+			],
+			[
+				"Des",
+				"Destinatario"
+			],
+			[
+				"row",
+				"rowObject"
+			],
+			[
+				"destin",
+				"destinatario"
+			],
+			[
+				"peso",
+				"pesogeneral"
+			],
+			[
+				"id",
+				"idoperacion"
+			],
+			[
+				"cl",
+				"click"
+			],
+			[
+				"ro",
+				"rowid"
+			],
+			[
+				"pro",
+				"provincia"
+			],
+			[
+				"iddestin",
+				"iddestinatario"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"text",
+				"text"
+			],
+			[
+				"idremite",
+				"idremitente"
+			],
+			[
+				"auto",
+				"autowidth"
+			],
+			[
+				"PRoveed",
+				"proveedor"
+			],
+			[
+				"editartran",
+				"editartipotransporte"
+			],
+			[
+				"elimina",
+				"EliminarTipoComprobante"
+			],
+			[
+				"eliminar",
+				"eliminarProveedor"
+			],
+			[
+				"idm",
+				"idmenu"
+			],
+			[
+				"eleme",
+				"elementsIds"
+			],
+			[
+				"select",
+				"selectoption"
+			],
+			[
+				"pos",
+				"postData"
+			],
+			[
+				"Post",
+				"postData"
+			],
+			[
+				"getdat",
+				"getDataForm"
+			],
+			[
+				"wh",
+				"width"
+			],
+			[
+				"v",
+				"vUrl"
+			],
+			[
+				"key",
+				"keyCode"
+			],
+			[
+				"fecha",
+				"fechaInicial"
+			],
+			[
+				"ini",
+				"inicio"
+			],
+			[
+				"btnGri",
+				"btnGridT"
+			],
+			[
+				"fun",
+				"function"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "using QueryContracts.TYS.Seguimiento.Results;\nusing System;\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Web;\nusing System.Web.Caching;\nusing System.Web.Mvc;\nusing Web.Common.Controllers;\n\nnamespace Web.TYS.Areas.Liquidacion.Controller\n{\n    public class LiquidacionController : BaseController\n    {\n        //\n        // GET: /Liquidacion/Liquidacion/\n\n        public ActionResult Index()\n        {\n            return View();\n        }\n        public ActionResult OperacionesLiquidacion()\n        {\n            var clientes = GetListarClientes_Cache();\n            var listaclientes = new SelectList(\n                clientes,\n                \"idcliente\"\n                , \"razonsocial\"\n                );\n            ViewData[\"ListaClientes\"] = listaclientes;\n\n\n            var ubigeos = GetListarUbigeo_Cache();\n            var listaUbigeos = new SelectList(\n             ubigeos,\n             \"iddistrito\",\n             \"ubigeo\");\n            ViewData[\"ListaUbigeo\"] = listaUbigeos;\n\n\n\n            return View();\n        }\n        public List<ListarUbigeoDto> GetListarUbigeo_Cache()\n        {\n\n\n            var ubigeo = HttpContext.Cache.Get(\"Ubigeo\") as List<ListarUbigeoDto>;\n            if (HttpContext.Cache[\"Ubigeo\"] == null)\n            {\n                ubigeo = DataAccess.Seguimiento.SeguimientoData.GetListarUbigeo();\n                HttpContext.Cache.Insert(\"Ubigeo\", ubigeo, null, DateTime.Now.AddSeconds(1500), Cache.NoSlidingExpiration);\n            }\n            else\n                ubigeo = (List<ListarUbigeoDto>)HttpContext.Cache[\"Ubigeo\"];\n\n            return ubigeo;\n        }\n\n        public List<ListarClientesDto> GetListarClientes_Cache()\n        {\n            var clientes = HttpContext.Cache.Get(\"Clientes\") as List<ListarClientesDto>;\n            if (HttpContext.Cache[\"Clientes\"] ==  null)\n            {\n                clientes = DataAccess.Seguimiento.SeguimientoData.GetListarClientes(\"\", false);\n                HttpContext.Cache.Insert(\"Clientes\", clientes, null, DateTime.Now.AddSeconds(1500), Cache.NoSlidingExpiration);\n            }\n            else\n                clientes = (List<ListarClientesDto>)HttpContext.Cache[\"Clientes\"];\n\n            return clientes;\n        }\n        public JsonResult JsonGetListarLiquidacion(string fechainicio, string fechafin, int? idcliente, int? iddestino\n           , string sord, int page, int rows)\n        {\n\n            if (fechainicio == string.Empty) fechainicio = null;\n            if (fechafin == string.Empty) fechafin = null;\n       \n\n\n            var result = DataAccess.Liquidacion.LiquidacionData.GetListarLiquidacionOperaciones(fechainicio, fechafin\n                ,iddestino, idcliente);\n\n            var listadoTotal = result;\n            int pageindex = page - 1;\n            int pagesize = rows;\n            int totalrecord = listadoTotal.Count();\n            var totalpage = (int)Math.Ceiling((float)totalrecord / (float)rows);\n\n            var jsonData = new\n            {\n                total = totalpage,\n                page,\n                records = totalrecord,\n                rows = listadoTotal\n            };\n\n            return Json(jsonData, JsonRequestBehavior.AllowGet);\n\n\n        }\n\n    }\n}\n",
+			"file": "Controller/LiquidacionController.cs",
+			"file_size": 3335,
+			"file_write_time": 131393292945672024,
+			"settings":
+			{
+				"buffer_size": 3229,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Scripts/index.js",
+			"settings":
+			{
+				"buffer_size": 5440,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/H/RIA/TYS/src/web/Web.TYS/Areas/Liquidacion",
+		"/H/RIA/TYS/src/web/Web.TYS/Areas/Liquidacion/Controller",
+		"/H/RIA/TYS/src/web/Web.TYS/Areas/Liquidacion/Models",
+		"/H/RIA/TYS/src/web/Web.TYS/Areas/Liquidacion/Scripts",
+		"/H/RIA/TYS/src/web/Web.TYS/Areas/Liquidacion/Views",
+		"/H/RIA/TYS/src/web/Web.TYS/Areas/Liquidacion/Views/Liquidacion"
+	],
+	"file_history":
+	[
+		"/H/RIA/TYS/src/web/Web.TYS/Areas/Liquidacion/liquidacion.sublime-project",
+		"/C/Users/kike_/AppData/Roaming/Sublime Text 3/Packages/OmniSharp/OmniSharpSublime.sublime-settings",
+		"/C/Users/kike_/AppData/Roaming/Sublime Text 3/Packages/OmniSharp/Default.sublime-keymap",
+		"/C/Users/kike_/AppData/Local/Temp/Rar$DIa0.226/notice.txt",
+		"/C/Users/kike_/Desktop/Todo/cam/Distribucion/Dinet.Distribucion.Web/Areas/CentroControl/Contexts/MonitoreoContext.cs",
+		"/C/Users/kike_/Desktop/NExtU/ObjetosLiterales.html",
+		"/C/Users/kike_/Desktop/NExtU/Solucion actividad6.html",
+		"/I/BKLaptopROja/Solucion actividad1.html",
+		"/I/BKLaptopROja/Solucion actvidad7.html",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/seguimiento/seguimiento.editarordentrabajo.js",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/seguimiento/seguimiento.nuevaordentrabajo.js",
+		"/C/Users/kike_/Desktop/Todo/T&S/src/app/CommandHandlers.Neptunia/Contenedor/ReservaContenedorHandler.cs",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/seguimiento/seguimiento.ordentrabajo.js",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/seguimiento/seguimiento.despacho.js",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/seguimiento/seguimiento.operaciones.js",
+		"/H/RIA/TYS/src/packages/MvcReportViewer.0.8.3/content/Scripts/MvcReportViewer.js",
+		"/C/Users/kike_/Desktop/Todo/T&S/src/app/QueryHandlers.Terminal/Contenedores/ListarClavesAplicacionQuery.cs",
+		"/C/Users/kike_/Desktop/Todo/T&S/src/web/Web.Neptunia/DataAccess/Ordenes/OfisisData.cs",
+		"/C/Users/kike_/Desktop/Todo/T&S/src/web/Web.Neptunia/DataAccess/Contenedores/ContenedoresData.cs",
+		"/C/Users/kike_/Desktop/Todo/T&S/src/web/Web.Neptunia/Areas/Contenedores/Controllers/ReservasController.cs",
+		"/C/Users/kike_/Desktop/Todo/T&S/src/web/Web.Neptunia/Areas/OrdenesServicio/Controllers/OrdenesController.cs",
+		"/H/RIA/products_WB0J6BJ85(1)/sing-wrapbootstrap-3.6.0/ajax-bootstrap4/css/application.css",
+		"/H/RIA/products_WB0J6BJ85(1)/sing-wrapbootstrap-3.6.0/ajax-bootstrap4/demo/js/_fake-world-data.js",
+		"/H/RIA/products_WB0J6BJ85(1)/sing-wrapbootstrap-3.6.0/ajax-bootstrap4/css/application.min.css",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/seguimiento/seguimiento.monitoreo.js",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/seguimiento/seguimiento.tarifa.js",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/seguimiento/seguimiento.planificacion.js",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/seguimiento/seguimiento.vehiculo.js",
+		"/H/RIA/TYS/src/web/Web.TYS/Web.config",
+		"/H/RIA/TYS/src/web/Web.TYS/Areas/Seguimiento/Views/Web.config",
+		"/H/ASViajes/telefonos.txt",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/seguimiento/seguimiento.nuevocamioncompleto.js",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/seguimiento/seguimiento.camioncompleto.js",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/seguimiento/seguimiento.nuevaordentrabajocamion.js",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/seguimiento/seguimiento.precinto.js",
+		"/H/PublicadoTys/Web.config",
+		"/C/Users/kike_/Desktop/Web.config",
+		"/H/RIA/RASH/CIC2/CIC2/src/common/Web.Common/bin/Debug/System.Web.Mvc.xml",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/seguimiento/seguimiento.cliente.js",
+		"/H/RIA/TYS/database/2.Data_BD.sql",
+		"/H/RIA/TYS/2701src/src/web/Web.TYS/Content/bootstrap.extension.css",
+		"/H/RIA/Neptunia/Neptunia/src/web/Web.Neptunia/Scripts/jsview/neptunia.js",
+		"/H/RIA/Neptunia/Neptunia/src/web/Web.Neptunia/Scripts/jsview/bienes.envios.js",
+		"/C/Users/kike_/Desktop/Desarrollador Javascript_ProyectoFinal_Enrique_Rojas/Pruebafinal.html",
+		"/H/RIA/Comercio/SLN_ProcesosAdmiPE/SLN_ProcesosAdmiPE/PE_ProcesosAdm/JavaScript/RIA.js",
+		"/H/RIA/Comercio/SLN_ProcesosAdmiPE/SLN_ProcesosAdmiPE/PE_ProcesosAdm/JavaScript/PagoEfectivo.js",
+		"/H/RIA/TYS/2701src/src/web/Web.TYS/Areas/Seguimiento/Views/Seguimiento/NuevaOrdenTrabajo.cshtml",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/seguimiento/seguimiento.formula.js",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/seguimiento/seguimiento.zona.js",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/facturacion/facturacion.comprobante.js",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/facturacion/facturacion.tipotransporte.js",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/facturacion/facturacion.reportegeneral.js",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/facturacion/facturacion.asignacion.js",
+		"/H/RIA/TYS/src/TYS.sln",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/facturacion/facturacion.nuevocomprobante.js",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/facturacion/facturacion.proveedor.js",
+		"/H/RIA/RASH/CIC2/CIC2/src/web/Web.Coolbox/Areas/CIC/Views/Incidencia/NuevaIncidencia.cshtml",
+		"/C/Users/kike_/Desktop/Pruebafinal.html",
+		"/H/RIA/Neptunia/Neptunia/src/web/Web.Neptunia/Scripts/jsview/bienes.bienes.js",
+		"/H/RIA/Neptunia/Neptunia/src/app/CommandHandlers.Neptunia/Seguridad/ResetarPasswordHandler.cs",
+		"/H/RIA/Neptunia/Neptunia/src/app/CommandHandlers.Neptunia/Seguridad/InsertarModificarUsuarioHandler.cs",
+		"/C/Users/kike_/AppData/Local/Temp/Rar$DIa0.307/AgenRet_TXT.txt",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/facturacion/facturacion.reportegerencial.js",
+		"/H/RIA/TYS/src/common/ServiceAgents.Common/obj/Release/ServiceAgents.Common.csproj.FileListAbsolute.txt",
+		"/D/Discovery/BindingsTYS.txt",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/facturacion/facturacion.moneda.js",
+		"/H/RIA/TYS/src/web/Web.TYS/Scripts/jsview/facturacion/facturacion.tipocomprobante.js",
+		"/D/Discovery/BindingsNeptunia.txt",
+		"/H/RIA/T&S/src/app/CommandHandlers.TYS/obj/Debug/CommandHandlers.Neptunia.csproj.FileListAbsolute.txt",
+		"/H/RIA/T&S/src/common/ServiceAgents.Common/obj/Debug/ServiceAgents.Common.csproj.FileListAbsolute.txt",
+		"/H/RIA/T&S/src/web/ServiceAgents.TYS/obj/Debug/ServiceAgents.TYS.csproj.FileListAbsolute.txt",
+		"/H/RIA/T&S/src/web/Web.Neptunia/Web.TYS.csproj",
+		"/H/RIA/Comercio/ruta.txt",
+		"/H/RIA/Neptunia/Neptunia/src/app/DistributedServices.Neptunia/bin/Debug/DistributedServices.Neptunia.exe.config",
+		"/C/Users/kike_/Downloads/WebTXT_ENVIO_161120161704.txt",
+		"/C/Users/kike_/Downloads/Web.20161123.txt",
+		"/C/Users/kike_/Desktop/Monitoreo/Pendientes.txt",
+		"/C/Users/kike_/Downloads/BIF_PAGOEFECTIVO_20161101.txt",
+		"/C/Users/kike_/Downloads/ServicioNeptunia.20161123.txt",
+		"/C/Users/kike_/Desktop/BCP_CDPG304503102016.txt",
+		"/C/Users/kike_/AppData/Local/Temp/Rar$DIa0.324/Web.20161116.txt",
+		"/C/Users/kike_/AppData/Local/Temp/Rar$DIa0.038/Web.20161116.txt",
+		"/D/Log/AUX_CLIENTE/COMERCIO-Code-Error_2016-7-12.txt",
+		"/C/Users/kike_/Downloads/Pruebas.txt",
+		"/H/RIA/Comercio/SLN_ProcesosAdmiPE1107/SLN_ProcesosAdmiPE/SLN_ProcesosAdmiPE/PE_ProcesosAdm/JavaScript/RIA.js",
+		"/H/RIA/Comercio/SLN_ProcesosAdmiPE1107/SLN_ProcesosAdmiPE/SLN_ProcesosAdmiPE/PE_ProcesosAdm/JavaScript/PagoEfectivo.js",
+		"/C/Users/kike_/Downloads/SBK_bws09262016.txt",
+		"/C/Users/kike_/Downloads/SBK_bws10032016.txt",
+		"/C/Users/kike_/Downloads/SBK_bws09262016 (1).txt",
+		"/C/Users/kike_/Downloads/SBK_bws09222016.txt",
+		"/C/Users/kike_/Desktop/conciliacionarchivos22setiembre/SBK_bws09222016.txt",
+		"/C/Users/kike_/Desktop/conciliacionarchivos22setiembre/IBK_210735001160922.txt",
+		"/H/RIA/RASH/CIC/0209/WebCoolbox2.0/src/web/Web.Coolbox/Scripts/app/CIC/incidencias.registro.js",
+		"/D/gestion.pagoefectivo.pe/dev.2b.gestion.pagoefectivo.pe/conciliacion/data/BWU_WU210916.txt",
+		"/C/Users/kike_/Downloads/WU240616 (2).TXT",
+		"/C/Users/kike_/Downloads/BWU_WU210916.txt",
+		"/C/Users/kike_/Downloads/WU270616 (1).TXT",
+		"/C/Users/kike_/Desktop/conciliacionarchivos22setiembre/FULL_Fullcarga_ElComercio_20160922.txt",
+		"/C/Users/kike_/Downloads/FULL_Fullcarga_ElComercio_20160914.txt",
+		"/G/R&A/riapc/DESCARGAS/Chat de WhatsApp con -+1 973-722-8216-.txt",
+		"/F/snagit_keys.txt",
+		"/C/Users/kike_/Downloads/BIF_PAGOEFECTIVO_20160904.txt",
+		"/D/gestion.pagoefectivo.pe/dev.2b.gestion.pagoefectivo.pe/error/COMERCIO-Code-Error_2016-9-6.txt",
+		"/H/RIA/RASH/CIC/0209/WebCoolbox2.0/src/web/Web.Coolbox/Scripts/app/CIC/incidencias.index.js",
+		"/H/RIA/RASH/CIC/0209/WebCoolbox2.0/src/web/Web.Coolbox/Scripts/app/CIC/incidencias.seguimiento.js",
+		"/H/RIA/RASH/CIC/0209/WebCoolbox2.0/src/web/Web.Coolbox/Scripts/app/CIC/incidencias.listarincidencias.js",
+		"/C/Users/kike_/Downloads/BCP_CDPG304528082016.txt",
+		"/C/Users/kike_/Downloads/BCP_CDPG304530082016.txt",
+		"/D/Discovery/BindingsCoolbox2.txt",
+		"/D/Comercio/trash/210735001160627.TXT",
+		"/C/Users/kike_/Downloads/SBK_bws07312016.txt",
+		"/C/Users/kike_/Desktop/PY ALERTAS/PY ALERTAS/SOL3.2Piloto - ER SPE/SOLv3.2/js/JScript.js",
+		"/C/Users/kike_/Desktop/PY ALERTAS/PY ALERTAS/SOL3.2Piloto - ER SPE/SOLv3.2/js/aduana.js",
+		"/C/Users/kike_/Downloads/FULL_Fullcarga_ElComercio_20160824.txt",
+		"/H/RIA/Neptunia/Neptunia/src/web/Web.Neptunia/Scripts/jsview/seguridad/seguridad.roles.listarroles.js",
+		"/C/Users/kike_/Desktop/PY ALERTAS/PY ALERTAS/SOL3.2Piloto - ER SPE/SOLv3.2/js/General.js",
+		"/C/Users/kike_/Desktop/PY ALERTAS/PY ALERTAS/SOL3.2Piloto - ER SPE/SOLv3.2/js/Grilla.js",
+		"/C/Users/kike_/Desktop/nept-tarifario/2008_Final/nept-tarifario/GesforOsmos.Neptunia.UI.Web/Web.config",
+		"/H/RIA/Neptunia/Neptunia/src/web/Web.Neptunia/Scripts/jsview/seguridad/seguridad.usuarios.asignarrolesusuarios.js",
+		"/H/RIA/Neptunia/Neptunia/src/web/Web.Neptunia/Scripts/jsview/seguridad/seguridad.usuarios.listarusuarios.js",
+		"/H/RIA/Neptunia/Neptunia/src/web/Web.Neptunia/Scripts/jsview/ordenes.generar.js",
+		"/H/RIA/Neptunia/Neptunia/src/web/Web.Neptunia/Scripts/jsview/seguridad/seguridad.usuarios.listarsistemas.js",
+		"/H/RIA/Neptunia/Neptunia/src/web/Web.Neptunia/Scripts/jsview/account/account.signin.js",
+		"/H/RIA/Neptunia/Neptunia/src/web/Web.Neptunia/Scripts/jsview/seguridad/seguridad.usuarios.listarpaginas.js",
+		"/C/Users/kike_/Downloads/nombre (2).xls",
+		"/C/Users/kike_/Downloads/nombre (1).xls",
+		"/C/Users/kike_/Downloads/nombre.xls",
+		"/C/Users/kike_/Downloads/nombre (3).xls"
+	],
+	"find":
+	{
+		"height": 21.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"60",
+			"\");\n",
+			"chosen-select",
+			"complete",
+			"$.ajax",
+			"complete",
+			"AutoCompleteTextBox()",
+			"languages",
+			"destinatariodireccion",
+			"complete",
+			"ajax",
+			"complete",
+			"widget widget-chart-changes",
+			"carousel",
+			"transform",
+			"widget",
+			"ConfirmarCarga",
+			"complete",
+			"reload",
+			"();\n",
+			"reload",
+			"gridcargas",
+			"griddetalle",
+			"gridservicios",
+			"formatter",
+			"\n              ",
+			"', ",
+			"displayButtonAnular",
+			"cambio",
+			"alert",
+			"anular",
+			"anularoperacion",
+			"anular",
+			"gridcargas",
+			"anular",
+			"anular+",
+			"validarexistemanifiesto2",
+			"anularmanifiesto",
+			"anular",
+			"cambio",
+			"oOperacionesDetalleTablePU",
+			"event.preventdefault",
+			"    oOperacionesDetalleTablePU.draw();",
+			"gridcargas",
+			"oOperacionesTable",
+			"verdetalle",
+			"formatedit",
+			"comprobant",
+			"comprobante",
+			"Operación",
+			"Operaciópn",
+			"alert",
+			"gridcargas",
+			"           \n",
+			"setGridParam",
+			",\n",
+			"vehiculo",
+			"txtpeso",
+			"eliminar",
+			"irEliminar",
+			"displayButtonsOperacion",
+			"reload",
+			"function ",
+			"function reload()",
+			"reload()",
+			"reload",
+			"reload1",
+			"reload1}",
+			"txtpeso",
+			"peso",
+			",\n",
+			"oOperacionesTable",
+			"oOperacionesdTable",
+			"Manifiesto",
+			"anularmanifiesto",
+			"btnDesasociarot",
+			"Manifiesto",
+			"anularManifiesto",
+			"generar",
+			"grillaprecintos",
+			"noexiste",
+			"valijas",
+			"asignar",
+			"gridservicios",
+			"rowSave",
+			"irEliminar",
+			"oOperacionesDetalleTable",
+			"idorden",
+			"orden",
+			"eliminarorden",
+			"btnguardar",
+			"confirm",
+			"inspeccionar",
+			"inspecc",
+			"inspecciones",
+			"oOperacionesDetalleTable",
+			"verdetalle",
+			"              \n",
+			"\n            ",
+			"focus",
+			"idvehiculo",
+			"idoperacio",
+			"idoperacioe",
+			"idoperacion",
+			"idopera",
+			"oOperacionesDetalleTable",
+			"cargargrilladetalle",
+			"tblDetalle",
+			"Creado",
+			"asignarvalijas",
+			"configurarGrillaPrecintos",
+			"OnCompleteTransaction",
+			"verdetalle",
+			"RegistrarContinuar",
+			"editarorden",
+			"tipooperacion",
+			"oOperacionesDetalleTable",
+			"verdetalle",
+			"txtsubtotal",
+			"txtcantidad",
+			"N° OT",
+			"inspeccionarvehiculo",
+			"Inspeccionado",
+			"inspeccionarvehiculo",
+			"rownumbers",
+			"successfunc",
+			"rowSave",
+			"successfunc"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Controller/LiquidacionController.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3229,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1585,
+								1585
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 351.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Scripts/index.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 5440,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 507.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/C++/C++ Single File.sublime-build",
+	"project": "liquidacion.sublime-project",
+	"replace":
+	{
+		"height": 38.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 234.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,0 +1,124 @@
+﻿@model Web.TYS.Areas.Seguimiento.Models.Seguimiento.TarifaModel
+
+@{
+    ViewBag.Title = "Tarifas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles
+{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/jqGrid/ui.jqgrid.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jqgrid.extension.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/datapicker/datepicker3.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/jasny/jasny-bootstrap.min.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/sweetalert/sweetalert.css")" />
+    <link rel="stylesheet" type="text/css" media="screen" href="@Url.Content("~/Content/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css")" />
+    <link rel="stylesheet" type="text/css" media="screen" href="@Url.Content("~/Content/plugins/touchspin/jquery.bootstrap-touchspin.min.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/chosen/chosen.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/dualListBox/bootstrap-duallistbox.css")" />
+}
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jsview/seguimiento/seguimiento.tarifa.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/jqGrid/jquery.jqGrid.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/jqGrid/i18n/grid.locale-es.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/datapicker/bootstrap-datepicker.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/jasny/jasny-bootstrap.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/sweetalert/sweetalert.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/touchspin/jquery.bootstrap-touchspin.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/datatables-checkboxes/dataTables.checkboxes.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/chosen/chosen.jquery.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/plugins/dualListBox/jquery.bootstrap-duallistbox.js")" type="text/javascript"></script>
+}
+<script type="text/javascript">
+        var fcnUrlControlGrid = function (str , id)
+        {
+            var urlprincipal = '@Url.Action("GetControlDetailsGrid", "Seguimiento", new { area = "Seguimiento" })';
+            return urlprincipal + "?control=" + str + "&id=" + id ;
+        };
+</script>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Mantenimiento de Tarifas</h2>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+
+
+        <div class="row ">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5><i class="fa fa-info-circle"></i>  Filtro de búsqueda</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Cliente  :</label>
+                                <div class="col-md-4">
+                                    @Html.DropDownListFor(m => m.idcliente, (SelectList)ViewData["ListaClientes"], "[CLIENTE]", new { @class = "chosen-select form-control input-sm", @required = "true" })
+                                    
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" id='btnBuscar' class="btn  btn-line btn-block btn-sm btn-primary"><i class="fa fa-search"></i> Buscar </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Copiar Tarifas :</label>
+                                <div class="col-md-4">
+                                    @Html.DropDownListFor(m => m.idclientecopia, (SelectList)ViewData["ListaClientes"], "[CLIENTE]", new { @class = "chosen-select form-control input-sm", @required = "true" })
+
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" id='btnCopiar' onclick="irCopiar();" class="btn  btn-line btn-block btn-sm btn-primary"><i class="fa fa-search"></i> Copiar </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row ">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5><i class="fa fa-info-circle"></i>  Listado de Tarifas</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    <button type="button" id='addrow' class="btn  btn-line btn-block btn-sm btn-primary"><i class="fa fa-pencil"></i> Nuevo </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12 jqGrid_wrapper">
+                                    <table id="gridtarifa"
+                                           data-dataurl="@Url.Action("JsonGetListarTarifas", "Seguimiento")"
+                                           data-editurl="@Url.Action("GridSaveTarifa", "Seguimiento")"></table>
+                                    <div id="gridtarifapager"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+</div>

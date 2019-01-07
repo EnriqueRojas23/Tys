@@ -1,0 +1,56 @@
+﻿@model Web.TYS.Areas.Seguimiento.Models.Seguimiento.PrecintoModel
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/jqGrid/ui.jqgrid.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jqgrid.extension.css")" />
+
+}
+
+@using (Ajax.BeginForm("AsignarPrecinto", "Seguimiento", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalcontent", OnComplete = "OnCompleteTransaction(xhr, status)" }, new { @class = "form-horizontal" }))
+{
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Asignar Precintos</h4>
+        <small class="font-bold">Seleccionar los datos necesarios para el registro.</small>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-6">
+                    @Html.HiddenFor(x => x.idvehiculo)
+                </div>
+            </div>
+            </div>
+                <div class="form-group">  
+                    <div class="col-md-12">
+                        <div class="panel panel-danger">
+          
+                            <div id="collapseSOne" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                @if(@Model.AccesoriosSeleccionados.Length > 0)
+                                {
+                                    @Html.ListBoxFor(x => x.AccesoriosSeleccionados, Model.ListaAccesorios, new { multiple = "", @disabled = "disabled" })
+                                }
+                                else
+                                {
+                                    @Html.ListBoxFor(x => x.AccesoriosSeleccionados, Model.ListaAccesorios, new { multiple = "", @disabled = "" })
+    
+                                }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      
+
+
+    <div class="modal-footer">
+        <div class="col-md-offset-6 col-md-3">
+            <button type="button" onclick="registrarPrecinto()" class="btn  btn-block btn-primary"> Guardar</button>
+        </div>
+        <div class="col-md-3">
+            <button type="button" class="btn  btn-block btn-inverse " data-dismiss="modal">  Cerrar</button>
+        </div>
+    </div>
+}

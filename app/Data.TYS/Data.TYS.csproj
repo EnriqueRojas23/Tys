@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DD65FF16-9F53-44BC-B01A-4922D6E3B592}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Data.TYS</RootNamespace>
+    <AssemblyName>Data.TYS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\lib\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Mappings\facturacion\DocumentoConfiguration.cs" />
+    <Compile Include="Mappings\facturacion\DetalleComprobanteConfiguration.cs" />
+    <Compile Include="Mappings\facturacion\ComprobanteConfiguration.cs" />
+    <Compile Include="Mappings\facturacion\PreliquidacionConfiguration.cs" />
+    <Compile Include="Mappings\monitoreo\DetalleEmbarqueConfiguration.cs" />
+    <Compile Include="Mappings\monitoreo\EmbarqueConfiguration.cs" />
+    <Compile Include="Mappings\monitoreo\DetalleEtapaConfiguration.cs" />
+    <Compile Include="Mappings\monitoreo\GuiaEtapaConfiguration.cs" />
+    <Compile Include="Mappings\monitoreo\EtapaConfiguration.cs" />
+    <Compile Include="Mappings\liquidacion\IncidenteConfiguration.cs" />
+    <Compile Include="Mappings\monitoreo\HelpResourcesConfiguration.cs" />
+    <Compile Include="Mappings\monitoreo\IncidenteConfiguration.cs" />
+    <Compile Include="Mappings\pago\AsignacionConfiguration.cs" />
+    <Compile Include="Mappings\pago\ComprobanteConfiguration.cs" />
+    <Compile Include="Mappings\pago\ComprobanteDetalleConfiguration.cs" />
+    <Compile Include="Mappings\pago\EtapaConfiguration.cs" />
+    <Compile Include="Mappings\pago\MonedaConfiguration.cs" />
+    <Compile Include="Mappings\pago\ProveedorConfiguration.cs" />
+    <Compile Include="Mappings\pago\TipoComprobanteConfiguration.cs" />
+    <Compile Include="Mappings\pago\TipoTransporteConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\DetalleTarifaConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\DespachoConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\OperacionCargaConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\CamionCompletoConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\ManifiestoConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\CargaPrecintoConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\DetalleValijaConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\OrdenTrabajoSeguimientoConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\VehiculoConfiguration - Copia.cs" />
+    <Compile Include="Mappings\seguimiento\VehiculoInspeccionConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\ServicioOperacionConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\PrecintoConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\VehiculoConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\RutaEtapaConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\TarifaConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\GuiaRemisionClienteConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\OrdenTrabajoConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\DetalleRutaConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\RutaConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\DireccionConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\ZonaDistritoConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\ZonaConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\FormulaConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\ProveedorClienteConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\ClienteConfiguration.cs" />
+    <Compile Include="Mappings\seguimiento\ValorTablaConfiguration.cs" />
+    <Compile Include="Mappings\Seguridad\PaginaConfiguration.cs" />
+    <Compile Include="Mappings\Seguridad\RolConfiguration.cs" />
+    <Compile Include="Mappings\Seguridad\SistemaConfiguration.cs" />
+    <Compile Include="Mappings\Seguridad\SistemaRolConfiguration.cs" />
+    <Compile Include="Mappings\Seguridad\SistemaRolPaginaConfiguration.cs" />
+    <Compile Include="Mappings\Seguridad\SistemaRolUsuarioConfiguration.cs" />
+    <Compile Include="Mappings\Seguridad\UsuarioClienteConfiguration.cs" />
+    <Compile Include="Mappings\Seguridad\UsuarioConfiguration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\Domain.Common\Domain.Common.csproj">
+      <Project>{4457e134-43e4-4c32-992e-600dc005ac26}</Project>
+      <Name>Domain.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.TYS\Domain.TYS.csproj">
+      <Project>{f4c106d2-14ec-4bb4-a317-5bcaabfcaa92}</Project>
+      <Name>Domain.TYS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

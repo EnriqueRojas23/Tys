@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/QueryContracts.Core.Contenedores.Results" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/QueryContracts.Core.Contenedores.Results" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50040/Core?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common" />
+  <xs:complexType name="ActualizarPagoResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q1:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="viMensaje" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActualizarPagoResult" nillable="true" type="tns:ActualizarPagoResult" />
+  <xs:complexType name="EliminarDocumentoSolportResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q2:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EliminarDocumentoSolportResult" nillable="true" type="tns:EliminarDocumentoSolportResult" />
+  <xs:complexType name="EliminarDetalleSolportResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q3:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EliminarDetalleSolportResult" nillable="true" type="tns:EliminarDetalleSolportResult" />
+  <xs:complexType name="ListarClavesAplicacionResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q4:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarClavesAplicacionDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarClavesAplicacionResult" nillable="true" type="tns:ListarClavesAplicacionResult" />
+  <xs:complexType name="ArrayOfListarClavesAplicacionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarClavesAplicacionDto" nillable="true" type="tns:ListarClavesAplicacionDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarClavesAplicacionDto" nillable="true" type="tns:ArrayOfListarClavesAplicacionDto" />
+  <xs:complexType name="ListarClavesAplicacionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Clave" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarClavesAplicacionDto" nillable="true" type="tns:ListarClavesAplicacionDto" />
+  <xs:complexType name="ListarDepotResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q5:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarDepotDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarDepotResult" nillable="true" type="tns:ListarDepotResult" />
+  <xs:complexType name="ArrayOfListarDepotDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarDepotDto" nillable="true" type="tns:ListarDepotDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarDepotDto" nillable="true" type="tns:ArrayOfListarDepotDto" />
+  <xs:complexType name="ListarDepotDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DescripcionOficina" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DireccionAlmacen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdAlmacen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdOficina" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreAlmacen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoAlmacen" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarDepotDto" nillable="true" type="tns:ListarDepotDto" />
+  <xs:complexType name="insertarDocumentosSolportResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q6:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="insertarDocumentosSolportResult" nillable="true" type="tns:insertarDocumentosSolportResult" />
+  <xs:complexType name="ListarTransportistasSearchResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q7:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarTransportistasSearchDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarTransportistasSearchResult" nillable="true" type="tns:ListarTransportistasSearchResult" />
+  <xs:complexType name="ArrayOfListarTransportistasSearchDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarTransportistasSearchDto" nillable="true" type="tns:ListarTransportistasSearchDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarTransportistasSearchDto" nillable="true" type="tns:ArrayOfListarTransportistasSearchDto" />
+  <xs:complexType name="ListarTransportistasSearchDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Camion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Conductor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmpresaTransporte" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NIFConductor" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarTransportistasSearchDto" nillable="true" type="tns:ListarTransportistasSearchDto" />
+  <xs:complexType name="ListarItemSearchResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q8:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarItemSearchDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarItemSearchResult" nillable="true" type="tns:ListarItemSearchResult" />
+  <xs:complexType name="ArrayOfListarItemSearchDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarItemSearchDto" nillable="true" type="tns:ListarItemSearchDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarItemSearchDto" nillable="true" type="tns:ArrayOfListarItemSearchDto" />
+  <xs:complexType name="ListarItemSearchDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodItem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DesItem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DesItemComp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdItem" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarItemSearchDto" nillable="true" type="tns:ListarItemSearchDto" />
+  <xs:complexType name="ListarOficinaResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q9:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarOficinaDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarOficinaResult" nillable="true" type="tns:ListarOficinaResult" />
+  <xs:complexType name="ArrayOfListarOficinaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarOficinaDto" nillable="true" type="tns:ListarOficinaDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarOficinaDto" nillable="true" type="tns:ArrayOfListarOficinaDto" />
+  <xs:complexType name="ListarOficinaDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DescripcionOficina" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdEmpresa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdOficina" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Poblacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Provincia" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarOficinaDto" nillable="true" type="tns:ListarOficinaDto" />
+  <xs:complexType name="ListarTamanyoContenedoresResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q10:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarTamanyoContenedoresDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarTamanyoContenedoresResult" nillable="true" type="tns:ListarTamanyoContenedoresResult" />
+  <xs:complexType name="ArrayOfListarTamanyoContenedoresDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarTamanyoContenedoresDto" nillable="true" type="tns:ListarTamanyoContenedoresDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarTamanyoContenedoresDto" nillable="true" type="tns:ArrayOfListarTamanyoContenedoresDto" />
+  <xs:complexType name="ListarTamanyoContenedoresDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cantidad" type="xs:int" />
+      <xs:element minOccurs="0" name="Tamanyo" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarTamanyoContenedoresDto" nillable="true" type="tns:ListarTamanyoContenedoresDto" />
+  <xs:complexType name="ListarTiposContenedoresResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q11:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListarTiposContenedoresDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarTiposContenedoresResult" nillable="true" type="tns:ListarTiposContenedoresResult" />
+  <xs:complexType name="ArrayOfListarTiposContenedoresDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarTiposContenedoresDto" nillable="true" type="tns:ListarTiposContenedoresDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarTiposContenedoresDto" nillable="true" type="tns:ArrayOfListarTiposContenedoresDto" />
+  <xs:complexType name="ListarTiposContenedoresDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cantidad" type="xs:int" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarTiposContenedoresDto" nillable="true" type="tns:ListarTiposContenedoresDto" />
+  <xs:complexType name="ObtenerCIFResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q12:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CIF" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="coditem" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="desitem" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="iditem" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerCIFResult" nillable="true" type="tns:ObtenerCIFResult" />
+  <xs:complexType name="ObtenerReservaCabeceraResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q13:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ListaReservaDetalle" nillable="true" type="tns:ArrayOfListarReservaDetalleDto" />
+          <xs:element minOccurs="0" name="rb_bit_checkimo" type="xs:boolean" />
+          <xs:element minOccurs="0" name="rb_bit_servicio_integral" type="xs:boolean" />
+          <xs:element minOccurs="0" name="rb_dec_peso" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="rb_int_identificador_terminal" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="rb_str_agente_aduana" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_codigo_agente_carga" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_codigo_agente_carga_descripcion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_codigo_buque" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_codigo_buque_descripcion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_codigo_cliente" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_codigo_cliente_cif" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_codigo_cliente_descripcion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_codigo_puerto_destino" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_codigo_puerto_destino_descripcion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_codigo_puerto_destino_final" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_codigo_puerto_destino_final_descripcion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_codigo_puerto_origen" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_codigo_puerto_origen_descripcion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_codigoimo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_condicion_origen" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_condicion_origen_descripcion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_consolidador" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_depot" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_depot_descripcion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_embarque_via" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_fecha_eta" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_fecha_reserva" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_hora_eta" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_hora_reserva" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_local_asignado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_mercancia" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_movilizado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_numero_booking" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_numero_servicio_integral" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_oficina" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_oficina_descripcion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_operador_logistico" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_producto" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_subproducto" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_tipo_reserva" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_tipo_reserva_descripcion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_viaje" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="rb_str_ws_estado" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerReservaCabeceraResult" nillable="true" type="tns:ObtenerReservaCabeceraResult" />
+  <xs:complexType name="ArrayOfListarReservaDetalleDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListarReservaDetalleDto" nillable="true" type="tns:ListarReservaDetalleDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListarReservaDetalleDto" nillable="true" type="tns:ArrayOfListarReservaDetalleDto" />
+  <xs:complexType name="ListarReservaDetalleDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="rb_int_identificador_terminal" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="rbd_dat_fecha_creacion" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="rbd_int_tamanyo" type="xs:int" />
+      <xs:element minOccurs="0" name="rbd_str_co2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_ent_cif_transportista" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_estado_bookingdet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_fecha_estimada" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_fecha_recojo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_hora_estimada" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_hora_recojo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_humedad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_matricula_equipamiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_o2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_precintos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_reefers" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_temperatura" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_tipo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_tipo_carga" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_trans_matricula_camion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_trans_nif_conductor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_trans_nombre_conductor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_unidad_temperatura" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_unidad_temperatura_descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_usuario_creacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rbd_str_ventilacion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListarReservaDetalleDto" nillable="true" type="tns:ListarReservaDetalleDto" />
+</xs:schema>

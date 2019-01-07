@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/QueryContracts.Core.Contenedores.Parameters" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/QueryContracts.Core.Contenedores.Parameters" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50040/Core?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common" />
+  <xs:complexType name="ActualizarPagoParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q1:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdCabecera" type="xs:long" />
+          <xs:element minOccurs="0" name="IdDetalle" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActualizarPagoParameter" nillable="true" type="tns:ActualizarPagoParameter" />
+  <xs:complexType name="EliminarDocumentoSolportParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q2:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdReserva" type="xs:long" />
+          <xs:element minOccurs="0" name="NombreFichero" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EliminarDocumentoSolportParameter" nillable="true" type="tns:EliminarDocumentoSolportParameter" />
+  <xs:complexType name="EliminarDetalleSolportParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q3:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdDetalle" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EliminarDetalleSolportParameter" nillable="true" type="tns:EliminarDetalleSolportParameter" />
+  <xs:complexType name="ListarClavesAplicacionParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q4:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TipoValorApp" type="tns:ListarClavesAplicacionParameter.TipoValor" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarClavesAplicacionParameter" nillable="true" type="tns:ListarClavesAplicacionParameter" />
+  <xs:simpleType name="ListarClavesAplicacionParameter.TipoValor">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UMTemperatura" />
+      <xs:enumeration value="TipoCondicionOrigen" />
+      <xs:enumeration value="TipoCarga" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ListarClavesAplicacionParameter.TipoValor" nillable="true" type="tns:ListarClavesAplicacionParameter.TipoValor" />
+  <xs:complexType name="ListarDepotParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q5:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdOficina" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarDepotParameter" nillable="true" type="tns:ListarDepotParameter" />
+  <xs:complexType name="InsertarDocumentosSolportParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q6:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DesFichero" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Fichero" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdReserva" type="xs:int" />
+          <xs:element minOccurs="0" name="Usuario" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarDocumentosSolportParameter" nillable="true" type="tns:InsertarDocumentosSolportParameter" />
+  <xs:complexType name="ListarTransportistasSearchParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q7:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CodigoItem" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DescripcionItem" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TipoItem" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarTransportistasSearchParameter" nillable="true" type="tns:ListarTransportistasSearchParameter" />
+  <xs:complexType name="ListarItemSearchParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q8:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CodigoItem" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DescripcionItem" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TipoItem" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarItemSearchParameter" nillable="true" type="tns:ListarItemSearchParameter" />
+  <xs:complexType name="ListarOficinaParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q9:QueryParameter">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarOficinaParameter" nillable="true" type="tns:ListarOficinaParameter" />
+  <xs:complexType name="ListarTamanyoContenedoresParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q10:QueryParameter">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarTamanyoContenedoresParameter" nillable="true" type="tns:ListarTamanyoContenedoresParameter" />
+  <xs:complexType name="ListarTiposContenedoresParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q11:QueryParameter">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListarTiposContenedoresParameter" nillable="true" type="tns:ListarTiposContenedoresParameter" />
+  <xs:complexType name="ObtenerCIFParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q12:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="entidad" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerCIFParameter" nillable="true" type="tns:ObtenerCIFParameter" />
+  <xs:complexType name="ObtenerReservaCabeceraParameter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q13:QueryParameter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NumeroBooking" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObtenerReservaCabeceraParameter" nillable="true" type="tns:ObtenerReservaCabeceraParameter" />
+</xs:schema>

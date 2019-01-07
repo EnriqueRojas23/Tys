@@ -1,0 +1,47 @@
+﻿@model Web.TYS.Areas.Seguimiento.Models.Seguimiento.RutaModel
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/jqGrid/ui.jqgrid.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jqgrid.extension.css")" />
+
+}
+@section scripts
+{
+   
+
+@*@using (Html.BeginForm("AgregarComprobanteModal","Facturacion", null, FormMethod.Post))// , { @class = "form-horizontal" }))*@
+}
+@using (Ajax.BeginForm("AgregarRutaModal", "Seguimiento", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalcontent", OnComplete = "OnCompleteTransaction(xhr, status)" }, new { @class = "form-horizontal" }))
+{
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Agregar Ruta</h4>
+        <small class="font-bold">Digitar los datos necesarios para el registro de la nueva ruta.</small>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            
+            <div class="col-md-12">
+
+                <div class="form-group">
+                    <div class="col-md-11">
+                        <label class="control-label">Nombre :</label>
+                        @Html.TextBoxFor(model => model.nombre, new { @minlength = "2", @maxlength = "20", @class = "form-control", @required = "true" })
+                        @Html.HiddenFor(model => model.idruta)
+
+                    </div>
+                </div>
+            </div>
+               
+                    </div>
+           
+     </div>
+    <div class="modal-footer">
+
+            <div class="col-md-offset-8 col-md-4">
+                <button type="submit" class="btn  btn-primary"> Guardar</button>
+                <button type="button" onclick="" class="btn btn-inverse" data-dismiss="modal"> Cancelar</button>
+            </div>
+    </div>
+   
+}

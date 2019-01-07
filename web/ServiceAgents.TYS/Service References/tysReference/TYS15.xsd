@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CommandContracts.TYS.Facturacion.Output" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CommandContracts.TYS.Facturacion.Output" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50030/TYS?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommandContracts.Common" />
+  <xs:complexType name="ActualizarMontosOTOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q1:CommandResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActualizarMontosOTOutput" nillable="true" type="tns:ActualizarMontosOTOutput" />
+  <xs:complexType name="InsertarActualizarDocumentoOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q2:CommandResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idnumerodocumento" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarActualizarDocumentoOutput" nillable="true" type="tns:InsertarActualizarDocumentoOutput" />
+  <xs:complexType name="InsertarActualizarDetalleComprobanteOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q3:CommandResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="iddetallecomprobante" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarActualizarDetalleComprobanteOutput" nillable="true" type="tns:InsertarActualizarDetalleComprobanteOutput" />
+  <xs:complexType name="InsertarActualizarComprobanteOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q4:CommandResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idcomprobantepago" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarActualizarComprobanteOutput" nillable="true" type="tns:InsertarActualizarComprobanteOutput" />
+  <xs:complexType name="InsertarActualizarPreliquidacionOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q5:CommandResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idordentrabajo" type="xs:long" />
+          <xs:element minOccurs="0" name="idpreliquidacion" nillable="true" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarActualizarPreliquidacionOutput" nillable="true" type="tns:InsertarActualizarPreliquidacionOutput" />
+</xs:schema>

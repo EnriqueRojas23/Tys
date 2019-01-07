@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{44761257-DC54-4C5A-A838-480B25D2E355}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceAgents.TYS</RootNamespace>
+    <AssemblyName>ServiceAgents.TYS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TYSBackendClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\tysReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\CommandContracts.Common.CommandResult.datasource" />
+    <None Include="Properties\DataSources\QueryContracts.Common.QueryResult.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\tysReference\TYS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS17.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS18.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS19.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS191.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS20.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS22.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS23.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS231.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS24.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS25.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS26.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS27.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS271.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS28.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS281.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TysBackendService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\tysReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\tysReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\tysReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\tysReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\tysReference\TYS.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\app\CommandContracts.TYS\CommandContracts.TYS.csproj">
+      <Project>{15f436be-8fa6-473d-967b-efe40213c080}</Project>
+      <Name>CommandContracts.TYS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\app\CommandHandlers.TYS\CommandHandlers.TYS.csproj">
+      <Project>{d04a2545-b370-4f9c-935f-eaa1907b2bfd}</Project>
+      <Name>CommandHandlers.TYS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\app\QueryContracts.TYS\QueryContracts.TYS.csproj">
+      <Project>{3358c0e5-e589-40de-a476-6394be9df225}</Project>
+      <Name>QueryContracts.TYS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\app\QueryHandlers.TYS\QueryHandlers.TYS.csproj">
+      <Project>{bb004a92-7833-4648-95ae-f81e093a8252}</Project>
+      <Name>QueryHandlers.TYS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\CommandContracts.Common\CommandContracts.Common.csproj">
+      <Project>{36fc69e7-e42a-4067-8339-f2d24d1c3317}</Project>
+      <Name>CommandContracts.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\CommandHandlers.Common\CommandHandlers.Common.csproj">
+      <Project>{c29044a3-229c-465f-a735-a58ba658f834}</Project>
+      <Name>CommandHandlers.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\QueryContracts.Common\QueryContracts.Common.csproj">
+      <Project>{bfb51524-32b0-4478-a18b-47614662bf40}</Project>
+      <Name>QueryContracts.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\QueryHandlers.Common\QueryHandlers.Common.csproj">
+      <Project>{bfb18c30-8936-46e5-88ef-e5a1c81340c3}</Project>
+      <Name>QueryHandlers.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\ServiceAgents.Common\ServiceAgents.Common.csproj">
+      <Project>{9be04c93-bd52-4677-a597-9a4e81cd93e9}</Project>
+      <Name>ServiceAgents.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

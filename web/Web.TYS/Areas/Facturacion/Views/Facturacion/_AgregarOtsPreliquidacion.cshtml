@@ -1,0 +1,29 @@
+﻿@model Web.TYS.Areas.Facturacion.Models.PreliquidacionModel
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Agregar OTS</h4>
+        <small class="font-bold">Seleccione las OTs que desea ingresar a la Pre-Liquidación.</small>
+    </div>
+    <div class="modal-body">
+        <div class="form-horizontal">
+            <div class="form-group">
+                    <div class="col-md-12 jqGrid_wrapper">
+                        <table id="gridpreliquidacionp"
+                               data-dataurl="@Url.Action("JsonGetListarPreliquidacion", "Facturacion")"></table>
+                        <div id="gridpreliquidacionppager"></div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+    <div class="col-md-2 col-md-offset-8">
+        <button type="button" id="btnAgregarOrdenes" class="btn  btn-block btn-primary btn-sm">Agregar</button>
+    </div>
+    <div class="col-md-2">
+        <button type="button" class="btn  btn-block btn-inverse btn-sm" data-dismiss="modal">Cerrar</button>
+        @Html.HiddenFor(x => x.idcliente)
+    </div>
+</div>
+

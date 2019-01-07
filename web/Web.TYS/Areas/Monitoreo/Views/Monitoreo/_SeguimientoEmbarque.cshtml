@@ -1,0 +1,97 @@
+﻿@model Web.TYS.Areas.Monitoreo.Models.EmbarqueModel
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/jqGrid/ui.jqgrid.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jqgrid.extension.css")" />
+
+}
+@using (Ajax.BeginForm("GuardarSeguimientoEmbarqueFluvial", "Monitoreo", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalcontent", OnComplete = "OnCompleteTransaction(xhr, status)" }, new { @class = "form-horizontal" }))
+{
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Seguimiento Embarque fluvial</h4>
+        <small class="font-bold">Seleccionar los datos necesarios para el registro.</small>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+
+                        <label class="col-md-2 control-label">F. Fin Carga:</label>
+                        <div class="col-md-4">
+                            <div class="input-group date" id='dtpfechacomp'>
+                                <div class="input-group date">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    @Html.TextBoxFor(model => model.fechafincarga, "{0:dd/MM/yyyy}", new { @placeholder = "Fecha Fin de Carga", @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <label class=" col-md-2 control-label">Hora Fin Carga (24hrs):</label>
+                        <div class="col-sm-3">
+                            @Html.TextBoxFor(model => model.horafincarga, new { @placeholder = "00:00hrs", @class = "form-control" })
+                        </div>
+                    </div>
+              
+                    <div class="form-group">
+
+                        <label class="col-md-2 control-label">F. Zarpe:</label>
+                        <div class="col-md-4">
+                            <div class="input-group date" id='dtpfechacomp'>
+                                <div class="input-group date">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    @Html.TextBoxFor(model => model.fechazarpe, "{0:dd/MM/yyyy}", new { @placeholder = "Fecha de Zarpe", @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <label class=" col-md-2 control-label">Hora Zarpe (24hrs):</label>
+                        <div class="col-sm-3">
+                            @Html.TextBoxFor(model => model.horazarpe, new { @placeholder = "00:00hrs", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <label class="col-md-2 control-label">F. Llegada Destino:</label>
+                        <div class="col-md-4">
+                            <div class="input-group date" id='dtpfechacomp'>
+                                <div class="input-group date">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    @Html.TextBoxFor(model => model.fechallegada, "{0:dd/MM/yyyy}", new { @placeholder = "Fecha Llegada a Destino", @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <label class=" col-sm-2 control-label">Hora Llegada (24hrs):</label>
+                        <div class="col-sm-3">
+                            @Html.TextBoxFor(model => model.horallegada, new { @placeholder = "00:00hrs", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <label class="col-md-2 control-label">F. Atraque:</label>
+                        <div class="col-md-4">
+                            <div class="input-group date" id='dtpfechacomp'>
+                                <div class="input-group date">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    @Html.TextBoxFor(model => model.fechaatraque, "{0:dd/MM/yyyy}", new { @placeholder = "Fecha de Atraque", @class = "form-control"})
+                                </div>
+                            </div>
+                        </div>
+                        <label class=" col-md-2 control-label">Hora Atraque (24hrs):</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.horaatraque, new { @placeholder = "00:00hrs", @class = "form-control" })
+                        </div>
+                    </div>
+                   
+                    </div>
+           
+        </div>
+    </div>
+    <div class="modal-footer">
+        @Html.HiddenFor(x => x.idembarque)
+        <div class="col-md-offset-6 col-md-3">
+            <button type="submit" class="btn btn-block btn-primary">Guardar</button>
+        </div>
+        <div class="col-md-3">
+            <button type="button" class="btn btn-block btn-inverse" data-dismiss="modal">Cerrar</button>
+        </div>
+    </div>
+}

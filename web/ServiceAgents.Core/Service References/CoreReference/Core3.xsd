@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/QueryContracts.Core.NPTP2.Results" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/QueryContracts.Core.NPTP2.Results" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50040/Core?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common" />
+  <xs:complexType name="ListadoNaveResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q1:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListadoNaveDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListadoNaveResult" nillable="true" type="tns:ListadoNaveResult" />
+  <xs:complexType name="ArrayOfListadoNaveDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListadoNaveDto" nillable="true" type="tns:ListadoNaveDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListadoNaveDto" nillable="true" type="tns:ArrayOfListadoNaveDto" />
+  <xs:complexType name="ListadoNaveDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodNav08" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DesNav08" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListadoNaveDto" nillable="true" type="tns:ListadoNaveDto" />
+  <xs:complexType name="ListadoViajeResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q2:QueryResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Hits" nillable="true" type="tns:ArrayOfListadoViajeDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListadoViajeResult" nillable="true" type="tns:ListadoViajeResult" />
+  <xs:complexType name="ArrayOfListadoViajeDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListadoViajeDto" nillable="true" type="tns:ListadoViajeDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListadoViajeDto" nillable="true" type="tns:ArrayOfListadoViajeDto" />
+  <xs:complexType name="ListadoViajeDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codnav08" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="feclle11" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="navvia11" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="numman11" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="numvia11" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListadoViajeDto" nillable="true" type="tns:ListadoViajeDto" />
+</xs:schema>

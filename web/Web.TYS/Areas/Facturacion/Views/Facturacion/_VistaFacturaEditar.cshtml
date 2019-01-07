@@ -1,0 +1,138 @@
+﻿@model Web.TYS.Areas.Facturacion.Models.ComprobanteModel
+
+
+<div class="modal-header bg-success">
+    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h4 class="modal-title text-white">Editar Factura</h4>
+    <small class="font-bold text-white">Se muestran los datos de la factura.</small>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-12">
+          
+
+            <section class="widget widget-chart-changes">
+                <div class="widget-body">
+                    <div class="form-group">
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <p class="deemphasize">Fecha de emisión:</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="deemphasize" id="cantidadot_label"><strong> @Model.fechaemision.Value.ToShortDateString()</strong></p></div>
+                            </div>
+
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <p class="deemphasize">Señor(es):</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="deemphasize" id="cantidadot_label"> <strong> @Model.razonsocial</strong></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <p class="deemphasize">RUC:</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="deemphasize"><strong> @Model.ruc</strong></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <p class="deemphasize">Dirección:</p>
+                            </div>
+                            <div class="col-md-10">
+                                <p class="deemphasize" id="recargos_label"><strong>@Model.direccion</strong> </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <p class="deemphasize">Serie:</p>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="deemphasize"><strong> @Model.numerocomprobante</strong></p>
+                            </div>
+                            @*<div class="col-md-2">
+                                <p class="deemphasize">Número:</p>
+                            </div>
+                            <div class="col-md-2">
+                                @Html.TextBoxFor(m => m.numerocomprobante, new { @class = "form-control", @required = "true", @disabled = true })
+                            </div>*@
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <p class="deemphasize">Observación:</p>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="deemphasize"><strong> @Model.descripcion</strong></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <p class="deemphasize">Orden de Compra:</p>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="deemphasize"><strong> @Model.ordencompra</strong></p>
+                            </div>
+                        </div>
+
+                        </div>
+                     <div class="form-group">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-md-5">
+                                        <div class="col-md-6">
+                                            <button type="button" id='addrow' class="btn  btn-line btn-block btn-sm btn-primary"><i class="fa fa-plus"></i> Agregar Item </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-11 jqGrid_wrapper">
+                                        <table id="griddetallefactura"
+                                               data-editurl="@Url.Action("GridSaveDetalle", "Facturacion","Facturacion")"></table>
+                                        <div id="griddetallefacturapager"></div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10 col-md-offset-8">
+                            <div class="row">
+                                <label class=" col-md-2 control-label">Sub Total:</label>
+                                <div class="col-md-3">@Html.TextBoxFor(x => x.strsubtotal, new { @readonly = "True", @onkeypress = "return SoloDecimal(event,this.value); alert('xD')", @class = "form-control" })  </div>
+                            </div>
+                            <div class="row">
+                                <label class=" col-md-2 control-label">IGV:</label>
+                                <div class="col-md-3">@Html.TextBoxFor(x => x.strigv, new { @readonly = "True", @onkeypress = "return SoloDecimal(event,this.value);", @class = "form-control" })  </div>
+                            </div>
+                            <div class="row">
+                                <label class=" col-md-2 control-label">Total:</label>
+                                <div class="col-md-3">@Html.TextBoxFor(x => x.strtotal, new { @readonly = "True", @class = "form-control" })  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal-footer">
+    <div class="col-md-2 col-md-offset-8">
+        <button id="btnActualizarComprobante" class=" btn btn-primary btn-block " role=" button">
+            Actualizar
+        </button>
+    </div>
+    <div class="col-md-2">
+        <button type="button" class="btn btn-inverse btn-block" data-dismiss="modal"> Cerrar</button>
+    </div>
+
+    @Html.HiddenFor(x => x.idpreliquidacion)
+    @Html.HiddenFor(x => x.descripcion)
+    @Html.HiddenFor(x => x.idcomprobantepago)
+</div>
+

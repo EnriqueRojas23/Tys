@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F418A6F4-EA50-4058-8245-3E504E51862B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DistributedServices.TYS</RootNamespace>
+    <AssemblyName>DistributedServices.TYS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="InstallerParameters.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TysBackendService.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\CommandContracts.Common\CommandContracts.Common.csproj">
+      <Project>{36fc69e7-e42a-4067-8339-f2d24d1c3317}</Project>
+      <Name>CommandContracts.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\CommandHandlers.Common\CommandHandlers.Common.csproj">
+      <Project>{c29044a3-229c-465f-a735-a58ba658f834}</Project>
+      <Name>CommandHandlers.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\DistributedServices.Common\DistributedServices.Common.csproj">
+      <Project>{824f74e6-ea23-402c-b426-93c730d81ee2}</Project>
+      <Name>DistributedServices.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\QueryContracts.Common\QueryContracts.Common.csproj">
+      <Project>{bfb51524-32b0-4478-a18b-47614662bf40}</Project>
+      <Name>QueryContracts.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\QueryHandlers.Common\QueryHandlers.Common.csproj">
+      <Project>{bfb18c30-8936-46e5-88ef-e5a1c81340c3}</Project>
+      <Name>QueryHandlers.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\WindowsService.Common\WindowsService.Common.csproj">
+      <Project>{cec73337-84e4-47d2-9764-300937030cd3}</Project>
+      <Name>WindowsService.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommandContracts.TYS\CommandContracts.TYS.csproj">
+      <Project>{15f436be-8fa6-473d-967b-efe40213c080}</Project>
+      <Name>CommandContracts.TYS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommandHandlers.TYS\CommandHandlers.TYS.csproj">
+      <Project>{d04a2545-b370-4f9c-935f-eaa1907b2bfd}</Project>
+      <Name>CommandHandlers.TYS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.TYS\Data.TYS.csproj">
+      <Project>{dd65ff16-9f53-44bc-b01a-4922d6e3b592}</Project>
+      <Name>Data.TYS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QueryContracts.TYS\QueryContracts.TYS.csproj">
+      <Project>{3358c0e5-e589-40de-a476-6394be9df225}</Project>
+      <Name>QueryContracts.TYS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QueryHandlers.TYS\QueryHandlers.TYS.csproj">
+      <Project>{bb004a92-7833-4648-95ae-f81e093a8252}</Project>
+      <Name>QueryHandlers.TYS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

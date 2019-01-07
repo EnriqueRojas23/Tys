@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ACF707C7-2657-4C8E-9BC5-F98E684F8162}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceAgents.Core</RootNamespace>
+    <AssemblyName>ServiceAgents.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CoreReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="CoreBackendClient.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\app\CommandContracts.Core\CommandContracts.Core.csproj">
+      <Project>{ce8047ca-e0a9-4265-802c-f06e103717be}</Project>
+      <Name>CommandContracts.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\app\QueryContracts.Common\QueryContracts.Core.csproj">
+      <Project>{823c27f3-893e-40a7-9649-1c78de330275}</Project>
+      <Name>QueryContracts.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\CommandContracts.Common\CommandContracts.Common.csproj">
+      <Project>{36fc69e7-e42a-4067-8339-f2d24d1c3317}</Project>
+      <Name>CommandContracts.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\CommandContracts.Common\CommandContracts.Common.csproj">
+      <Project>{36fc69e7-e42a-4067-8339-f2d24d1c3317}</Project>
+      <Name>CommandContracts.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\QueryContracts.Common\QueryContracts.Common.csproj">
+      <Project>{bfb51524-32b0-4478-a18b-47614662bf40}</Project>
+      <Name>QueryContracts.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\QueryContracts.Common\QueryContracts.Common.csproj">
+      <Project>{bfb51524-32b0-4478-a18b-47614662bf40}</Project>
+      <Name>QueryContracts.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\ServiceAgents.Common\ServiceAgents.Common.csproj">
+      <Project>{9be04c93-bd52-4677-a597-9a4e81cd93e9}</Project>
+      <Name>ServiceAgents.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\CommandContracts.Common.CommandResult.datasource" />
+    <None Include="Properties\DataSources\QueryContracts.Common.QueryResult.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\CoreReference\Core.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CoreReference\Core1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CoreReference\Core10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CoreReference\Core11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CoreReference\Core12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CoreReference\Core13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CoreReference\Core14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CoreReference\Core15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CoreReference\Core2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CoreReference\Core3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CoreReference\Core4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CoreReference\Core5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CoreReference\Core6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CoreReference\Core7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CoreReference\Core8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CoreReference\Core9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CoreReference\CoreBackendService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CoreReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CoreReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CoreReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CoreReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CoreReference\Core.disco" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

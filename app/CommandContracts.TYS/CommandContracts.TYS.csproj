@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{15F436BE-8FA6-473D-967B-EFE40213C080}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommandContracts.TYS</RootNamespace>
+    <AssemblyName>CommandContracts.TYS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentValidation">
+      <HintPath>..\..\..\lib\FluentValidation.3.1.0.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Facturacion\ActualizarMontosOTCommand.cs" />
+    <Compile Include="Facturacion\InsertarActualizarDocumentoCommand.cs" />
+    <Compile Include="Facturacion\InsertarActualizarDetalleComprobanteCommand.cs" />
+    <Compile Include="Facturacion\InsertarActualizarComprobanteCommand.cs" />
+    <Compile Include="Facturacion\AgregarRecargoCommand.cs" />
+    <Compile Include="Facturacion\EliminarComprobanteCommand.cs" />
+    <Compile Include="Facturacion\InsertarPreliquidacionCommand.cs" />
+    <Compile Include="Facturacion\Output\ActualizarMontosOTOutput.cs" />
+    <Compile Include="Facturacion\Output\InsertarActualizarDocumentoOutput.cs" />
+    <Compile Include="Facturacion\Output\InsertarActualizarDetalleComprobanteOutput.cs" />
+    <Compile Include="Facturacion\Output\InsertarActualizarComprobanteOutput.cs" />
+    <Compile Include="Facturacion\Output\InsertarActualizarPreliquidacionOutput.cs" />
+    <Compile Include="Monitoreo\EliminarDetalleEmbarqueCommand.cs" />
+    <Compile Include="Monitoreo\InsertarActualizarEmbarqueFluvialCommand.cs" />
+    <Compile Include="Monitoreo\ActualizarDetalleEmbarqueCommand.cs" />
+    <Compile Include="Monitoreo\InsertarDetalleEtapaCommand.cs" />
+    <Compile Include="Monitoreo\InsertarGuiaEtapaCommand.cs" />
+    <Compile Include="Monitoreo\InsertarEtapaCommand.cs" />
+    <Compile Include="Monitoreo\Output\InsertarActualizarEmbarqueFluvialOutput.cs" />
+    <Compile Include="Monitoreo\Output\ActualizarDetalleEmbarqueOutput.cs" />
+    <Compile Include="Monitoreo\Output\InsertarDetalleEtapaOutput.cs" />
+    <Compile Include="Monitoreo\Output\InsertarEtapaOutput.cs" />
+    <Compile Include="Liquidacion\ActualizarLiquidacionCommand.cs" />
+    <Compile Include="Liquidacion\InsertarArchivoCommand.cs" />
+    <Compile Include="Liquidacion\Output\ActualizarLiquidacionOutput.cs" />
+    <Compile Include="Liquidacion\Output\InsertarArchivoOutput.cs" />
+    <Compile Include="Monitoreo\AnularIncidenteCommand.cs" />
+    <Compile Include="Monitoreo\CerrarOperacionCommand.cs" />
+    <Compile Include="Monitoreo\InsertarActualizarIncidenteCommand.cs" />
+    <Compile Include="Monitoreo\InsertarHelpResourcesCommand.cs" />
+    <Compile Include="Monitoreo\Output\InsertarHelpResourcesOutput.cs" />
+    <Compile Include="Monitoreo\Output\InsertarActualizarIncidenteOutput.cs" />
+    <Compile Include="Pago\InsertarActualizarAsignacionCommand.cs" />
+    <Compile Include="Pago\InsertarActualizarComprobanteCommand.cs" />
+    <Compile Include="Pago\InsertarActualizarComprobanteDetalleCommand.cs" />
+    <Compile Include="Pago\InsertarActualizarEtapaCommand.cs" />
+    <Compile Include="Pago\InsertarActualizarMonedaCommand.cs" />
+    <Compile Include="Pago\InsertarActualizarProveedorCommand.cs" />
+    <Compile Include="Pago\InsertarActualizarTipoComprobanteCommand.cs" />
+    <Compile Include="Pago\InsertarActualizarTipoTransporteCommand.cs" />
+    <Compile Include="Pago\Output\InsertarAsignacionOutput.cs" />
+    <Compile Include="Pago\Output\InsertarComprobanteDetalleOutput.cs" />
+    <Compile Include="Pago\Output\InsertarComprobanteOutput.cs" />
+    <Compile Include="Pago\Output\InsertarEtapaOutput.cs" />
+    <Compile Include="Pago\Output\InsertarMonedaOutput.cs" />
+    <Compile Include="Pago\Output\InsertarProveedorOutput.cs" />
+    <Compile Include="Pago\Output\InsertarTipoComprobanteOutput.cs" />
+    <Compile Include="Pago\Output\InsertarTipoTransporteOutput.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguimiento\EliminarRutaCommand.cs" />
+    <Compile Include="Seguimiento\EliminarTarifaCommand.cs" />
+    <Compile Include="Seguimiento\EliminarDetalleRutaCommand.cs" />
+    <Compile Include="Seguimiento\EliminarGuiaRemisionClienteCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarLineaConsumidaClienteCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarEstadoOperacionCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarEstadoOTCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarCargaPrecintoCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarDetalleValijaCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarOrdenTrabajoSeguimientoCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarOTLigeraCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarPrecintoCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarChoferCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarDetalleTarifaCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarCamionCompletoCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarManifiestoCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarDespachoCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarVehiculoInspeccionCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarVehiculoCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarServicioOperacionCommand.cs" />
+    <Compile Include="Seguimiento\Output\TransbordarVehiculoOutput.cs" />
+    <Compile Include="Seguimiento\ActualizarGuiaOrdenCommand.cs" />
+    <Compile Include="Seguimiento\TransbordarVehiculoCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarOperacionCargaCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarRutaEtapaCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizaTarifaCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarGuiaRemisionClienteCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarOrdenTrabajoCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarDetalleRutaCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarRutaCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarDireccionCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarZonaDistritoCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarZonaCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarFormulaCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarProveedorClienteCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarClienteCommand.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarValorTablaCommand.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarDespachoOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarDetalleValijaOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarManifiestoOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarCargaPrecintoOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarServicioOperacionOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarChoferOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarOperacionCargaOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarDetalleTarifaOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarCamionCompletoOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarTarifaOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarGuiaRemisionClienteOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarOrdenTrabajoOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarDetalleRutaOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarRutaOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarDireccionOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarFormulaOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarClienteOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarVehiculoOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarZonaDistritoOutput.cs" />
+    <Compile Include="Seguimiento\InsertarActualizarZonaOutput.cs" />
+    <Compile Include="Seguimiento\Output\InsertarActualizarValorTablaOutput.cs" />
+    <Compile Include="Seguridad\AsignarClientesUsuariosCommand.cs" />
+    <Compile Include="Seguridad\AsignarMenuOpcionRolCommand.cs" />
+    <Compile Include="Seguridad\AsignarRolesUsuariosCommand.cs" />
+    <Compile Include="Seguridad\InsertarModificarPaginaCommand.cs" />
+    <Compile Include="Seguridad\InsertarModificarRolCommand.cs" />
+    <Compile Include="Seguridad\InsertarModificarUsuarioCommand.cs" />
+    <Compile Include="Seguridad\InsertarModificarSistemaCommand.cs" />
+    <Compile Include="Seguridad\Output\AsignarClientesUsuariosOutput.cs" />
+    <Compile Include="Seguridad\Output\AsignarMenuOpcionRolOutput.cs" />
+    <Compile Include="Seguridad\Output\AsignarRolesUsuariosOutput.cs" />
+    <Compile Include="Seguridad\Output\InsertarModificarPaginaOutput.cs" />
+    <Compile Include="Seguridad\Output\InsertarModificarRolOutput.cs" />
+    <Compile Include="Seguridad\Output\InsertarModificarSistemaOutput.cs" />
+    <Compile Include="Seguridad\Output\InsertarModificarUsuarioOutput.cs" />
+    <Compile Include="Seguridad\Output\ResetarPasswordOutput.cs" />
+    <Compile Include="Seguridad\ResetarPasswordCommand.cs" />
+    <Compile Include="Seguridad\Validators\InsertarModificarUsuarioValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\CommandContracts.Common\CommandContracts.Common.csproj">
+      <Project>{36fc69e7-e42a-4067-8339-f2d24d1c3317}</Project>
+      <Name>CommandContracts.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\common\Componentes.Common\Componentes.Common.csproj">
+      <Project>{4241025f-7510-4f6b-85e0-93faf0def80c}</Project>
+      <Name>Componentes.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Facturacion\Validators\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

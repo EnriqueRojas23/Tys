@@ -1,0 +1,35 @@
+﻿@model Web.TYS.Areas.Pago.Models.MonedaModel
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/jqGrid/ui.jqgrid.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jqgrid.extension.css")" />
+
+}
+@using (Ajax.BeginForm("EditarMonedaModal", "Facturacion", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalcontent", OnComplete = "OnCompleteTransaction(xhr, status)" }, new { @class = "form-horizontal" }))
+{
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <i class="fa fa-users fa-4x"></i>
+        <h4 class="modal-title">Editar Moneda</h4>
+        <small class="font-bold">Digitar los datos necesarios para el registro de la nueva moneda.</small>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Moneda :</label>
+                        @*<input type="hidden" id="hdproveedor" class="form-control">*@
+                          @Html.HiddenFor(m => m.idmoneda);
+                          @Html.TextBoxFor(m => m.moneda, new { @class = "form-control", @required = "" })
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn  btn-outline btn-primary btn-sm"><i class="fa fa-check-circle-o"></i> Guardar</button>
+                        <button type="button" class="btn  btn-outline btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-times-circle-o"></i>  Cancelar</button>
+
+                    </div>
+                </div>
+           
+        </div>
+    </div>
+    <div class="modal-footer"></div>
+}

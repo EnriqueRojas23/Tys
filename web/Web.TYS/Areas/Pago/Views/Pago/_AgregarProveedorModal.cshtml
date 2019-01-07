@@ -1,0 +1,54 @@
+﻿@model Web.TYS.Areas.Pago.Models.ProveedorModel
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/jqGrid/ui.jqgrid.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jqgrid.extension.css")" />
+
+}
+@using (Ajax.BeginForm("AgregarProveedorModal", "Pago", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalcontent", OnComplete = "OnCompleteTransaction(xhr, status)" }, new { @class = "form-horizontal" }))
+{
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Agregar Proveedor</h4>
+        <small class="font-bold">Digitar los datos necesarios para el registro del nuevo proveedor.</small>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="col-md-11">
+                            <label class="control-label">RUC :</label>
+                            <input type="hidden" id="hdproveedor" class="form-control">
+                            @Html.TextBoxFor(m => m.ruc, new { @class = "form-control", @required = "true", @onkeypress = "return validateFloatKeyPress(this,event);", @minlength = "8", @maxlength = "11" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-11">
+                            <label class="control-label">Razón Social :</label>
+                            @Html.TextBoxFor(m => m.razonsocial, new { @class = "form-control", @required = "true", @maxlength = "50" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-11">
+                            <label class="control-label">Dirección :</label>
+                            @Html.TextBoxFor(m => m.direccion, new { @maxlength = "300", @class = "form-control", @required = "true" })
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                        <label class="control-label">Placa Asociada :</label>
+                        @Html.TextBoxFor(m => m.placaasociada, new { @class = "form-control", @required = "true", @maxlength = "10" })
+                    </div>*@
+                  
+                </div>
+           
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="col-md-offset-6 col-md-3">
+            <button type="submit" class="btn  btn-block btn-primary btn-sm">Guardar</button>
+            </div>
+        <div class="col-md-3">
+            <button type="button" class="btn  btn-block btn-inverse btn-sm" data-dismiss="modal"> Cancelar</button>
+        </div>
+      </div>
+}

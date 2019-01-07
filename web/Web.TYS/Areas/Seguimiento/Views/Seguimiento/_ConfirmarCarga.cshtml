@@ -1,0 +1,98 @@
+﻿@model Web.TYS.Areas.Seguimiento.Models.Seguimiento.CargaModel
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/plugins/jqGrid/ui.jqgrid.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jqgrid.extension.css")" />
+
+}
+<script type="text/javascript">
+
+
+        var fcnUrlControlGrid = function (str, id)
+        {
+            var urlprincipal = '@Url.Action("GetControlDetailsGrid", "Seguimiento", new  { area = "Seguimiento" })';
+            return urlprincipal + "?control=" + str + "&id=" + id;
+        };
+
+
+
+</script>
+@using (Ajax.BeginForm("ConfirmarCarga", "Seguimiento", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "modalcontent", OnComplete = "OnCompleteTransaction(xhr, status)" }, new { @class = "form-horizontal" }))
+{
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Confirmar  Carga</h4>
+        <small class="font-bold">Digitar los datos necesarios para la confirmación de la carga.</small>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Carga:</label>
+                        <label class="control-label col-md-4">@Model.numcarga</label>
+                        <label class="control-label col-md-2">Peso:</label>
+                        <label class="control-label col-md-4">@Model.peso</label>
+                       
+                        @Html.HiddenFor(x => x.idcarga)
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Volumen:</label>
+                        <label class="control-label col-md-4">@Model.vol</label>
+                        <label class="control-label col-md-2">Placa:</label>
+                        <label class="control-label col-md-4">@Model.placa</label>
+
+
+
+                    
+                       
+                        @Html.HiddenFor(x => x.idcarga)
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Proveedor:</label>
+                        <label class="control-label col-md-4">@Model.proveedor</label>
+                        <label class="control-label col-md-2">Chofer:</label>
+                        <label class="control-label col-md-4">@Model.nombrechofer</label>
+
+                        @Html.HiddenFor(x => x.idcarga)
+                        @Html.HiddenFor(x=>x.ids)
+                    </div>
+                 
+                    
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Fecha :</label>
+                            <div class="col-md-4">
+                                <div class="input-group date" id='dtpfechacomp'>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        @Html.TextBoxFor(model => model.fechaconfirmacion, "{0:dd/MM/yyyy}", new { @placeholder = "Fecha Confirmación", @class = "form-control", @required = "true" })
+                                    </div>
+                                </div>
+                            </div>
+                            <label class=" col-md-2 control-label">Hora (24hrs):</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(model => model.horaconfirmacion, new {  @placeholder = "00:00hrs", @class = "form-control", @required = "true"})
+                            </div>
+                    
+                      
+                     
+                        </div>
+                 </div>
+
+
+
+                        
+      </div>
+           
+        
+    </div>
+    <div class="modal-footer">
+        <div class="col-md-offset-6 col-md-3">
+            <button type="submit" class="btn btn-block btn-primary"> Guardar</button>
+        </div>
+        <div class="col-md-3">
+            <button type="button" class="btn btn-block btn-inverse" data-dismiss="modal"> Cerrar</button>
+        </div>
+
+    </div>
+
+}
