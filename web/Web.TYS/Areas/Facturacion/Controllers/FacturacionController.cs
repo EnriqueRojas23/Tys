@@ -26,7 +26,7 @@ namespace Web.TYS.Areas.Facturacion.Controllers
         //
         // GET: /Facturacion/Facturacion/
 
-            // hola
+            // hola que tal
 
         #region PartialView
 
