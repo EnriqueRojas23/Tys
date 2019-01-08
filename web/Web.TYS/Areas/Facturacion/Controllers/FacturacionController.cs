@@ -28,7 +28,7 @@ namespace Web.TYS.Areas.Facturacion.Controllers
 
             
         #region PartialView
-
+             
         public PartialViewResult GenerarComprobante()
         {
             return PartialView("_GenerarComprobante");
