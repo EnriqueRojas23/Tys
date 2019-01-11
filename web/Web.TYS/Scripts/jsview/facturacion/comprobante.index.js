@@ -85,7 +85,7 @@ function configurarBotones() {
             });
       return valido
  }
-   
+
     $("#btnGenerarNota").click(function (event) {
 
         var selIds = $(grilla).jqGrid('getGridParam', 'selarrrow');
@@ -94,16 +94,16 @@ function configurarBotones() {
         else if (selIds.length > 1)
             messagebox('No puede continuar.', 'Debe seleccionar solo un elemento.', 'warning')
         else{
-               
+
                 if(fn_validarTipoComprobante(String(selIds)) == true)
                      if(fn_validarEnvioSunat(String(selIds)) == false)
                         generarNC(selIds)
                     else messagebox('No puede continuar', "El documento aún no ha sido enviado a SUNAT, edite el documento.", 'warning')
-            
+
         }
     });
 
-    
+
 
     $("#btnEditarComprobante").click(function (event) {
         var selIds = $(grilla).jqGrid('getGridParam', 'selarrrow');
@@ -176,7 +176,7 @@ function editarcomprobante(idcomprobante) {
                 console.log("error");
             })
         });
-       
+
     });
 }
 
@@ -213,7 +213,7 @@ function generarNC(idcomprobante) {
                 url: URL_GenerarNC,
                 type: 'POST',
                 dataType: 'json',
-                data: 
+                data:
                 {    idcomprobante: $("#idcomprobantepago").val()
                     , subtotal: $("#strsubtotal").val()
                     , igv: $("#strigv").val()

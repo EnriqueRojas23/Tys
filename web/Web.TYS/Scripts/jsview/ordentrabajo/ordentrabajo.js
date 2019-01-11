@@ -187,6 +187,7 @@ function displayButton(cellvalue, options, rowObject) {
             return "";
     }
     else return "";
+
 }
 function editarboleta(idpreliquidacion) {
     var url = UrlHelper.Action("PreBoleta", "Orden", "Seguimiento") + "?idpreliquidacion=" + idpreliquidacion;
@@ -231,6 +232,8 @@ function editarboleta(idpreliquidacion) {
 
 
 
+
+
         $("#txtdescripcion").val($("#descripcion").val());
         $("#btnGenBoleta").click(function (event) {
             var id = $("#idpreliquidacion").val();
@@ -246,6 +249,7 @@ function editarboleta(idpreliquidacion) {
                     , __descripcion: $("#txtdescripcion").val()
                     , fecha: $("#fechaemision").val()
                     , numerodocumento: $("#idnumerodocumento").val()
+                    , ordencompra : $("#ordencompra").val()
                 }
             })
             .done(function (data) {
@@ -253,6 +257,7 @@ function editarboleta(idpreliquidacion) {
                     var id = data.idcomprobante;
                     $("#modalcontainerL").modal("hide");
                     reload();
+
                      var url = "http://104.36.166.65/webreports/facturaelectronica.aspx?idcomprobante=" + String(id) + "&valorigv=" + data.valorigv;
                      window.open(url);
                 }
@@ -424,6 +429,8 @@ function renegerargrt(ot) {
 }
 
 function renegerarpago(idpreliquidacion) {
+
+
     var url = UrlHelper.Action("PreFactura", "Orden", "Seguimiento") + "?idpreliquidacion=" + idpreliquidacion;
     var url2 = UrlHelper.Action("JsonGenerarComprobante", "Orden", "Seguimiento");
 
@@ -478,13 +485,23 @@ function renegerarpago(idpreliquidacion) {
                 type: 'POST',
                 dataType: 'json',
                 data: {
-                    "idpreliquidacion": $("#idpreliquidacion").val()
-                 , "__descripcion": $("#txtdescripcion").val()
-                 , "igv": $("#strigv").val()
-                 , "subtotal": $("#strsubtotal").val()
-                 , "fecha": $("#fechaemision").val()
-                 , "numerodocumento": $("#numerocomprobante").val()
-                , "tipocomprobante": "FACT"
+                 //    "idpreliquidacion": $("#idpreliquidacion").val()
+                 // , "__descripcion": $("#txtdescripcion").val()
+                 // , "igv": $("#strigv").val()
+                 // , "subtotal": $("#strsubtotal").val()
+                 // , "fecha": $("#fechaemision").val()
+                 //  , "numerodocumento": $("#numerocomprobante").val()
+                 //  , ordencompra : $("#ordencompra").val()
+
+
+                  idpreliquidacion: $("#idpreliquidacion").val()
+                  , subtotal: $("#strsubtotal").val()
+                  , igv: $("#strigv").val()
+                  , __descripcion: $("#txtdescripcion").val()
+                  , fecha: $("#fechaemision").val()
+                  , numerodocumento: $("#idnumerodocumento").val()
+                  , ordencompra : $("#ordencompra").val()
+
                 }
             })
             .done(function (data) {

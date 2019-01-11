@@ -18,7 +18,7 @@ $(document).ready(function () {
     configchosen();
     configurarGrilla();
     configurarBotones();
-    
+
 });
 function configurarBotones() {
     $("#btnGenerar").click(function (event) {
@@ -142,7 +142,7 @@ function configurarBotones() {
 
     $("#btnEditarComprobante").click(function (event) {
 
-        
+
         var url = UrlHelper.Action("ValidarComprobante", "Facturacion", "Facturacion");
 
         var selIds = $(grilla).jqGrid('getGridParam', 'selarrrow');
@@ -244,7 +244,7 @@ function OnCompleteTransaction_Recargo(xhr, status) {
 }
 function editarcomprobante(idpreliquidacion) {
 
-alert('xD')
+
 
     var url = UrlHelper.Action("PreFactura", "Facturacion", "Facturacion") + "?idpreliquidacion=" + idpreliquidacion;
     var url2 = UrlHelper.Action("JsonGenerarComprobante", "Facturacion", "Facturacion");
@@ -384,7 +384,7 @@ function editarboleta(idpreliquidacion) {
         $("#txtdescripcion").val($("#descripcion").val());
         $("#btnGenBoleta").click(function (event) {
             var id = $("#idpreliquidacion").val();
-         
+
             $.ajax({
                 url: url2,
                 type: 'POST',
@@ -464,11 +464,11 @@ $("#btnReporte").click(function (event) {
 function configurarGrillaDetalle() {
 
 
-    
+
 
     var grilladetalle = $("#griddetallefactura");
     var pagergrilladetalle = $("#griddetallefacturapager");
-    
+
     $.jgrid.defaults.width = 1000;
     $.jgrid.defaults.height = 100;
 
@@ -476,7 +476,7 @@ function configurarGrillaDetalle() {
 
     var vdataedit = $(grilladetalle).data("editurl");
     var url = UrlHelper.Action("GetListarDetalleFacturacion", "Facturacion", "Facturacion") + "?idpreliquidacion=" + idpreliquidacion;
-    
+
 
     $(grilladetalle).jqGrid({
         url: url,
@@ -545,9 +545,9 @@ function configurarGrillaDetalle() {
 }
 function mypricecheck(value, colname) {
 
-if (value <= 0 ) 
+if (value <= 0 )
    return [false,"Ingrese un valor mayor a 0"];
-else 
+else
    return [true,""];
 }
 
@@ -564,7 +564,7 @@ function displayButtons2(cellvalue, options, rowObject) {
 
 function reload2() {
 
-   
+
 
     var idpreliquidacion = $("#idpreliquidacion").val();
     var url = UrlHelper.Action("GetListarDetalleFacturacion", "Facturacion", "Facturacion") + "?idpreliquidacion=" + idpreliquidacion;
@@ -585,11 +585,11 @@ function sumarTotales(){
    $("#strsubtotal").val(numberWithCommas(colSum));
    $("#strigv").val(numberWithCommas(igv));
    $("#strtotal").val(numberWithCommas(total));
-  
-    
 
 
- 
+
+
+
 
 }
 
@@ -598,9 +598,9 @@ function sumarTotales(){
 
 function irEliminar(id) {
      let URL_EliminarDetalle = UrlHelper.Action("EliminarDetalleFactura","Facturacion","Facturacion")
- 
 
- 
+
+
     $.ajax({
         url: URL_EliminarDetalle,
         type: 'POST',
@@ -613,10 +613,10 @@ function irEliminar(id) {
     .fail(function() {
         console.log("error");
     })
-    
-    
 
 
 
-   
+
+
+
 }

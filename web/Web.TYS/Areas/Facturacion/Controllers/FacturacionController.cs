@@ -28,7 +28,7 @@ namespace Web.TYS.Areas.Facturacion.Controllers
 
             
         #region PartialView
-             
+                
         public PartialViewResult GenerarComprobante()
         {
             return PartialView("_GenerarComprobante");
@@ -114,7 +114,11 @@ namespace Web.TYS.Areas.Facturacion.Controllers
 
             decimal igv = Convert.ToDecimal(ConfigurationManager.AppSettings["igv"].ToString());
             var liquidaciones = new FacturacionData().ObtenerPreliquidacion(idpreliquidacion).ToList();
+
             var liquidacion = liquidaciones.First();
+
+            
+
             string guias = "", descripcion = "";
 
             liquidaciones.ForEach(x =>
@@ -127,10 +131,10 @@ namespace Web.TYS.Areas.Facturacion.Controllers
             }
 
             var usuario = UsuariosData.ObtenerUsuario((Int32)Usuario.Idusuario);
-            var series = new FacturacionData().GetListarDocumentos(null, usuario.usr_int_id, usuario.idestacionorigen).ToList();
+            var series = new FacturacionData().GetListarDocumentos((int)Constantes.TipoComprobante.Factura , usuario.usr_int_id, usuario.idestacionorigen).ToList();
 
             if (series == null)
-                series = new FacturacionData().GetListarDocumentos(null, null, usuario.idestacionorigen).ToList();
+                series = new FacturacionData().GetListarDocumentos((int)Constantes.TipoComprobante.Factura, null, usuario.idestacionorigen).ToList();
 
             var listaseries = new SelectList(
                    series,
@@ -172,11 +176,11 @@ namespace Web.TYS.Areas.Facturacion.Controllers
             string next = string.Empty;
 
             var usuario = UsuariosData.ObtenerUsuario((Int32)Usuario.Idusuario);
-            var series = new FacturacionData().GetListarDocumentos(null, usuario.usr_int_id, usuario.idestacionorigen)
+            var series = new FacturacionData().GetListarDocumentos((int)Constantes.TipoComprobante.NotaCredito, usuario.usr_int_id, usuario.idestacionorigen)
                 .Where(x => x.idtipocomprobante == (Int32)Constantes.TipoComprobante.NotaCredito).ToList();
 
             if (series == null)
-                series = new FacturacionData().GetListarDocumentos(null, null, usuario.idestacionorigen).ToList();
+                series = new FacturacionData().GetListarDocumentos((int)Constantes.TipoComprobante.NotaCredito, null, usuario.idestacionorigen).ToList();
 
             if (series == null)
                 return null;

@@ -2805,7 +2805,7 @@ namespace Web.TYS.Areas.Seguimiento.Controllers
             decimal igv = Convert.ToDecimal(ConfigurationManager.AppSettings["igv"].ToString());
             var liquidacion = new FacturacionData().ObtenerPreliquidacion(idpreliquidacion).FirstOrDefault();
             var usuario = UsuariosData.ObtenerUsuario((Int32)Usuario.Idusuario);
-            var series = new FacturacionData().GetListarDocumentos(null, usuario.usr_int_id, usuario.idestacionorigen).ToList();
+            var series = new FacturacionData().GetListarDocumentos((int)Constantes.TipoComprobante.Factura, usuario.usr_int_id, usuario.idestacionorigen).ToList();
             string guias = "", descripcion = "";
 
             if (series == null)

@@ -37,15 +37,17 @@ namespace CommandHandlers.TYS.Facturacion
         public CommandContracts.Common.CommandResult Handle(InsertarActualizarComprobanteCommand command)
         {
 
-         //   if (command == null) throw new ArgumentException("Tiene que ingresar una cliente");
+            List<DetalleComprobante> DetallesComprobante = new List<DetalleComprobante>() ;
             Comprobante dominio = null;
             if (command.idcomprobantepago.HasValue)
                 dominio = _ComprobanteRepository.Get(x => x.idcomprobantepago == command.idcomprobantepago).LastOrDefault();
             else
                 dominio = new Comprobante();
 
-            var DetallesComprobante = _DetalleComprobanteRepository.Get(x => x.idcomprobantepago == command.idcomprobantepago).ToList();
-
+            if (command.idcomprobantepago.HasValue)
+            {
+                 DetallesComprobante = _DetalleComprobanteRepository.Get(x => x.idcomprobantepago == command.idcomprobantepago).ToList();
+            }
        
 
             if (command._tipoop == 1)
