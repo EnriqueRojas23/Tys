@@ -860,6 +860,24 @@ namespace Web.TYS.Areas.Facturacion.Controllers
             else
                 return Json(new { res = true, idcomprobante = 0 }, JsonRequestBehavior.AllowGet);
         }
+        [HttpPost]
+        public JsonResult ValidarEnvioSunat_preliquidacion(long idpreliquidacion) //Edicion
+        {
+
+            
+            var _aux = new FacturacionData().ObtenerComprobante(idpreliquidacion, null);
+            var comprobante = new FacturacionData().ObtenerFacturaElectronica(_aux.idcomprobantepago.Value);
+
+            if (comprobante != null)
+            {
+                if (comprobante.estado == "E")
+                    return Json(new { res = false, msj = "El documento ya fue enviado a Sunat" }, JsonRequestBehavior.AllowGet);
+                else
+                    return Json(new { res = true, idcomprobante = 0 }, JsonRequestBehavior.AllowGet);
+            }
+            else
+                return Json(new { res = true, idcomprobante = 0 }, JsonRequestBehavior.AllowGet);
+        }
 
         public ActionResult Preliquidacion()
         {
@@ -1151,9 +1169,11 @@ namespace Web.TYS.Areas.Facturacion.Controllers
         }
 
         [HttpPost]
-        public JsonResult JsonAnularComprobante(long idcomprobante)
+        public JsonResult JsonAnularComprobante(long idpreliquidacion)
         {
-            var comprobante = new FacturacionData().ObtenerComprobante(null, idcomprobante);
+            
+
+            var comprobante = new FacturacionData().ObtenerComprobante(idpreliquidacion, null);
 
             var ordenes = new FacturacionData().GetListarCompletadoPreliquidacion(comprobante.idpreliquidacion);
             string idsordenes = string.Empty;
@@ -1163,7 +1183,7 @@ namespace Web.TYS.Areas.Facturacion.Controllers
             }
             idsordenes = idsordenes.Substring(1, idsordenes.Length - 1);
 
-            new DataAccess.Facturacion.FacturacionData().AnularComprobante(idcomprobante);
+            new DataAccess.Facturacion.FacturacionData().AnularComprobante(comprobante.idcomprobantepago.Value);
 
             new FacturacionData().ActualizarComprobanteOTS(idsordenes, null);
 

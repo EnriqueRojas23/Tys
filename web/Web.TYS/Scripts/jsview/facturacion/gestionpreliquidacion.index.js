@@ -83,7 +83,8 @@ function configurarBotones() {
 
     $("#btnEditarPreliquidacion").click(function (event) {
         var url = UrlHelper.Action("ValidarComprobante", "Facturacion", "Facturacion");
-
+        var urlAnular = UrlHelper.Action("JsonAnularComprobante", "Facturacion", "Facturacion");
+        
         var selIds = $(grilla).jqGrid('getGridParam', 'selarrrow');
         if (selIds == '')
             messagebox('No puede continuar.', 'Debe seleccionar al menos un elemento.', 'warning');
@@ -102,7 +103,49 @@ function configurarBotones() {
                     window.location.href = url;
                 }
                 else {
-                    messagebox('No puede continuar.', 'Ya se ha generado un comprobante.', 'warning')
+                    //messagebox('No puede continuar.', 'Ya se ha generado un comprobante.', 'warning')
+                    if (fn_validarEnvioSunat(String(selIds)) === false) {
+                        alert('xD');
+                    }
+
+                    swal({
+                        title: "Editar Preliquidación",
+                        text: "Esta operación eliminará el comprobante generado. ¿Desea continuar?",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonClass: "btn-danger",
+                        confirmButtonText: "Si, eliminar",
+                        cancelButtonText: "Cancelar",
+                        closeOnConfirm: false,
+                        closeOnCancel: true
+                    },
+                        function (isConfirm) {
+                            if (isConfirm) {
+                                $.ajax(
+                                    {
+                                        type: "POST",
+                                        async: false,
+                                        url: urlAnular,
+                                        data: { "idpreliquidacion": String(selIds) },
+                                        success: function (data) {
+                                            if (data.res === true) {
+                                                var url = UrlHelper.Action("EditarPreliquidacion", "Facturacion", "Facturacion") + "?id=" + selIds;
+                                                window.location.href = url;
+                                            }
+                                            else {
+                                                swal({ title: "¡Error!", text: data.mensaje, type: "error", confirmButtonText: "Aceptar" });
+                                            }
+                                        },
+                                        error: function (request, status, error) {
+                                            swal({ title: "¡Error!", text: "¡Ocurrió un error al guardar la evaluación!", type: "error", confirmButtonText: "Aceptar" });
+                                        }
+                                    });
+                            }
+                        });
+
+
+
+
                 }
             })
             .fail(function () {
@@ -179,7 +222,27 @@ function AgregarRecargo(idorden) {
         $("#idordentrabajo").val(idorden);
     })
 }
+function fn_validarEnvioSunat(ids) {
+    var URL_EnvioSunat = UrlHelper.Action("ValidarEnvioSunat_preliquidacion", "Facturacion", "Facturacion");
+    let valido = false;
 
+    $.ajax({
+        url: URL_EnvioSunat,
+        type: 'POST',
+        dataType: 'json',
+        data: { "idpreliquidacion": ids },
+        async: false
+    })
+        .done(function (data) {
+            if (data.res) {
+                valido = true
+            }
+        })
+        .fail(function () {
+            console.log("error");
+        });
+    return valido
+}
 function GenerarPreliquidacion(items) {
     var url = UrlHelper.Action("JsonGenerarPreliquidacion", "Facturacion", "Facturacion");
 
