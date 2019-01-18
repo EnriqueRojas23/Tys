@@ -43,6 +43,7 @@ namespace CommandHandlers.TYS.Seguridad
             dominio_usuario.usr_int_cambiarpwd = command.usr_int_cambiarpwd;
             dominio_usuario.idcliente = command.idcliente;
             dominio_usuario.idestacionorigen = command.idestacionorigen;
+            dominio_usuario.idprovincia = command.idprovincia;
         
 
             if (!command.usr_int_id.HasValue) {

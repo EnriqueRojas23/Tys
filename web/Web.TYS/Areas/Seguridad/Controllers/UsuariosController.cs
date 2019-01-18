@@ -336,6 +336,30 @@ namespace Web.TYS.Areas.Seguridad.Controllers
      
         public PartialViewResult ModificarModal(int? id)
         {
+
+            var clientes = DataAccess.Seguimiento.SeguimientoData.GetListarClientes(null, false).ToList();
+            var listaclientes = new SelectList(
+                   clientes,
+                   "idcliente",
+                   "razonsocial");
+            ViewData["ListadoClientes"] = listaclientes;
+
+
+            var provincias = DataAccess.Seguimiento.SeguimientoData.GetListarProvincia(null).ToList();
+            var listaprovincias = new SelectList(
+                   provincias,
+                   "idprovincia",
+                   "provincia");
+            ViewData["ListadoProvincias"] = listaprovincias;
+
+
+            var estacion = DataAccess.Seguimiento.SeguimientoData.GetListarEstacionOrigen().ToList();
+            var listaestacion = new SelectList(
+               estacion,
+               "idestacion",
+               "estacionorigen");
+            ViewData["ListaEstacion"] = listaestacion;
+
             var modelo = new InsertarModificarUsuarioModel();
             //mapeando valores en el modelo
             if (id != null)
@@ -351,6 +375,7 @@ namespace Web.TYS.Areas.Seguridad.Controllers
                 modelo.usr_str_tipoacceso = result.usr_str_tipoacceso;
                 modelo.idestacionorigen = result.idestacionorigen;
                 modelo.idcliente = result.idcliente;
+                modelo.idprovincia = result.idprovincia;
 
             }
 

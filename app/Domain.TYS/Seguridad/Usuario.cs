@@ -28,7 +28,7 @@ namespace Domain.TYS.Seguridad
         public int? idcliente { get; set; }
         public int? idproveedor { get; set; }
         public int? idestacionorigen { get; set; }
-
+        public int? idprovincia { get; set; }   
 
     }
 }

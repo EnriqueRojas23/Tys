@@ -40,7 +40,7 @@ namespace Web.TYS.Areas.Seguimiento.Models.Seguimiento
         public string codigodireccion { get; set; }
         public string direccion { get; set; }
         public bool pagocontado { get; set; }
-
+        public int idprovincia { get; set; }
     }
     public class ServicioModel
     {

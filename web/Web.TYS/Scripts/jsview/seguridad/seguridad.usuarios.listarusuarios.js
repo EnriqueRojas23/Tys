@@ -275,6 +275,7 @@ function modificarUsuario(obj, id) {
         $("#modalcontent").html(data);
         $("#modalcontainer").modal("show");
         configurarPopUpEditar();
+        configurarChosenSelect();
         $('#btnActualizar').click(function (event) { btnActualizar_onclick(this, event); });
     });
 }

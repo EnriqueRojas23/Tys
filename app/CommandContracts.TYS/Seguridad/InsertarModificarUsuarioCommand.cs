@@ -20,6 +20,7 @@ namespace CommandContracts.TYS.Seguridad
         public string usr_str_tipoacceso { get; set; }
         public int? idestacionorigen { get; set; }
         public int? idcliente { get; set; }
+        public int? idprovincia { get; set; }
 
 
     }

@@ -11,57 +11,87 @@
     <script src="@Url.Content("~/Scripts/plugins/jqGrid/i18n/grid.locale-es.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/jsview/seguridad/seguridad.usuarios.listarusuarios.js")" type="text/javascript"></script>
 }
-<form id="frmUsuarioModificar" role="form" method="post" class=" form-horizontal">
-    <div class="panel-primary">
-        <div class="panel-heading">
+    <form id="frmUsuarioModificar" role="form" method="post" class=" form-horizontal">
+        <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             <h4 class=" panel-title">
                 Modificar Usuario
             </h4>
         </div>
-    </div>
-    <div class="modal-body">
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12">
 
-        <div class="form-group">
-            <p>
-                @Html.Label("Tipo de Acceso:")
-                @Html.DropDownListFor(model => model.usr_str_tipoacceso, Model.ListaModoAutenticacion, new { @class = "form-control", @required = "true" })
-            </p>
-            <p>(*)
-                @Html.Label("Usuario:")
-                @Html.TextBoxFor(model => model.Usr_str_red, new { @class = "form-control", @required = "true", placeholder = "Usuario de acceso" })
-            </p>
-            <p>(*)
-                @Html.Label("Nombres:")
-                @Html.TextBoxFor(model => model.Usr_str_nombre, new { @class = "form-control", @required = "true" ,placeholder = "Nombres" })
-            </p>
-            <p>(*)
-                @Html.Label("Apellidos:")
-                @Html.TextBoxFor(model => model.Usr_str_apellidos, new { @class = "form-control", @required = "true", placeholder = "Apellidos" })
-            </p>
-            <p>(*)
-                @Html.Label("Email:")
-                @Html.TextBoxFor(model => model.Usr_str_email, new { type = "email", @class = "form-control", @required = "true", placeholder = "ejemplo@dominio.com" })
-            </p>
-            <p>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">
-                        Accesos: <br />
-                    </label>
-
-                    <div class="col-sm-7">
-                      @Html.CheckBoxFor(model => model.Usr_bool_bloqueado) <label>La cuenta esta bloqueada. </label>
-                       
-                            <div class="clearfix"></div>
-                            @Html.CheckBoxFor(model => model.Usr_bool_aprobado) <label> activo </label>
+                    <div class="form-group">
+                        <label class=" col-md-3 control-label">Tipo de Acceso:</label>
+                        <div class="col-md-9">
+                            @Html.DropDownListFor(model => model.usr_str_tipoacceso, Model.ListaModoAutenticacion, new { @class = "form-control", @required = "true" })
                         </div>
-                </div>
-            </p>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-white" data-dismiss="modal">Cancelar</button>
-                    <button id="btnActualizar" type="button" data-url="@Url.Action("Modificar", "Usuarios")" class="btn btn-primary">Actualizar</button>
-                </div>
-</div>
-    </div>
-    @Html.HiddenFor(model=>model.Usr_int_id)
-</form>
+                        </div>
+                    <div class="form-group">
+                        <label class=" col-md-3 control-label">Usuario:</label>
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(model => model.Usr_str_red, new { @class = "form-control", @required = "true", placeholder = "Usuario de acceso" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class=" col-md-3 control-label">Nombres:</label>
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(model => model.Usr_str_nombre, new { @class = "form-control", @required = "true", placeholder = "Nombres" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class=" col-md-3 control-label">Apellidos:</label>
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(model => model.Usr_str_apellidos, new { @class = "form-control", @required = "true", placeholder = "Apellidos" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class=" col-md-3 control-label">EMail:</label>
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(model => model.Usr_str_email, new { type = "email", @class = "form-control", @required = "true", placeholder = "ejemplo@dominio.com" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class=" col-md-3 control-label">Cliente:</label>
+                        <div class="col-md-9">
+                            @Html.DropDownListFor(model => model.idcliente, (SelectList)ViewData["ListadoClientes"], "[Todos los Clientes]", new { @class = "chosen-select form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class=" col-md-3 control-label">Estación:</label>
+                        <div class="col-md-9">
+                            @Html.DropDownListFor(model => model.idestacionorigen, (SelectList)ViewData["ListaEstacion"], "[Todos las Sucursales]", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class=" col-md-3 control-label">Provincia:</label>
+                        <div class="col-md-9">
+                            @Html.DropDownListFor(model => model.idprovincia, (SelectList)ViewData["ListadoProvincias"], "[Todos las Provincias]", new { @class = "form-control chosen-select" })
+                        </div>
+                    </div>
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">
+                                    Accesos: <br />
+                                </label>
+
+                                <div class="col-sm-7">
+                                    @Html.CheckBoxFor(model => model.Usr_bool_bloqueado) <label>La cuenta esta bloqueada. </label>
+
+                                    <div class="clearfix"></div>
+                                    @Html.CheckBoxFor(model => model.Usr_bool_aprobado) <label> activo </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-white" data-dismiss="modal">Cancelar</button>
+            <button id="btnActualizar" type="button" data-url="@Url.Action("Modificar", "Usuarios")" class="btn btn-primary">Actualizar</button>
+        </div>
+        @Html.HiddenFor(model => model.Usr_int_id)
+    </form>

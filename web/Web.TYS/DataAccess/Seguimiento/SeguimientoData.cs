@@ -194,7 +194,7 @@ namespace Web.TYS.DataAccess.Seguimiento
             return resultado == null ? new List<ListarDepartamentosDto>() : resultado.Hits.ToList();
         }
 
-        public static List<ListarProvinciasDto> GetListarProvincia(int iddepartamento)
+        public static List<ListarProvinciasDto> GetListarProvincia(int? iddepartamento)
         {
             var parametros = new ListarProvinciasParameters { iddepartamento = iddepartamento };
             var resultado = (ListarProvinciasResult)parametros.Execute();

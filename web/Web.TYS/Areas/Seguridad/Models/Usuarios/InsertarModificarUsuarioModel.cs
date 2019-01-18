@@ -36,7 +36,7 @@ namespace Web.TYS.Areas.Seguridad.Models.Usuarios
         public int? Usr_int_online { get; set; }
         public DateTime? Usr_dat_fecregistro { get; set; }
         public DateTime? Usr_dat_ultfecbloqueo { get; set; }
-        
+
 
 
         public DateTime? Usr_dat_fecvctousuario { get; set; }
@@ -45,6 +45,7 @@ namespace Web.TYS.Areas.Seguridad.Models.Usuarios
         public string usr_str_tipoacceso { get; set; }
         public int? idcliente { get; set; }
         public int? idproveedor { get; set; }
+        public int? idprovincia { get; set; }
         public int? idestacionorigen { get; set; }
 
         public DateTime? Usr_dat_ultfeclogin { get; set; }
