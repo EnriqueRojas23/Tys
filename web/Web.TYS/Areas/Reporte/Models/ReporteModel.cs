@@ -24,6 +24,7 @@ namespace Web.TYS.Areas.Models
         public string codtienda { get; set; }
         public string embarcacion { get; set; }
         public string placa { get; set; }
+        public int anio { get; set; }
 
     }
     public class TipoUnidadMedidaModel

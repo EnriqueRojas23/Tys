@@ -1303,15 +1303,22 @@ namespace Web.TYS.Areas.Facturacion.Controllers
         {
             string idspre = string.Empty;
             //elminar ots
-            new FacturacionData().ActualizarOTS(ids, null);
+           
+          
             var igv = Convert.ToDecimal(ConfigurationManager.AppSettings["igv"].ToString());
+            
+            
             //obtener ots por liquidacion
+          
+            var model = new FacturacionData().ObtenerPreliquidacion(idpreliquidacion.Value).FirstOrDefault();
+            new FacturacionData().ActualizarOTS(ids, null);
             var otspreliquidadas = new FacturacionData().GetListarCompletadoPreliquidacion(idpreliquidacion.Value).ToList();
+
             foreach (var item in otspreliquidadas)
             {
                 idspre = idspre + ',' + item.idordentrabajo;
             }
-            var model = new FacturacionData().ObtenerPreliquidacion(idpreliquidacion.Value).FirstOrDefault();
+
             if (otspreliquidadas.Count != 0)
             {
                 idspre = idspre.Substring(1, idspre.Length - 1);
@@ -1356,7 +1363,7 @@ namespace Web.TYS.Areas.Facturacion.Controllers
 
          new FacturacionData().InsertarActualizarPreliquidacion(model);
             }
-
+         
             return Json(new
             {
                 res = true

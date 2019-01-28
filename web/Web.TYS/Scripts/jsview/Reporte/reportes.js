@@ -301,25 +301,25 @@ function reporteProdvsDestino() {
     var idtipotransporte = $("#idtipotransporte").val();
     var idcliente = $("#idcliente").val();
 
-    if (idunidadmedida == '') {
+    if (idunidadmedida === '') {
         messagebox("Faltan datos", "Debe seleccionar una unidad de medida", "warning");
         return;
     }
     var url = "http://104.36.166.65/webreports/produccionvsdestino.aspx?iddistrito=" + iddistrito
-    + "&idprovincia=" + idprovincia
-    + "&iddepartamento=" + iddepartamento
-    + "&fecinicio=" + fecinicio
-    + "&fecfin=" + fecfin
-    + "&idunidadmedida=" + idunidadmedida
-    + "&idtipotransporte=" + idtipotransporte
-    + "&idcliente=" + idcliente
+        + "&idprovincia=" + idprovincia
+        + "&iddepartamento=" + iddepartamento
+        + "&fecinicio=" + fecinicio
+        + "&fecfin=" + fecfin
+        + "&idunidadmedida=" + idunidadmedida
+        + "&idtipotransporte=" + idtipotransporte
+        + "&idcliente=" + idcliente;
 
     window.open(url);
 }
 function reporteProdvsFact() {
     var idcliente = $("#idcliente").val();
-    var fecinicio = $("#fecinicio").val();
-    var fecfin = $("#fecfin").val();
+    var anio = $("#anio").val();
+    
 
     //if(idcliente=='')
     //{
@@ -328,8 +328,8 @@ function reporteProdvsFact() {
     //  }
 
     var url = "http://104.36.166.65/webreports/reporteproduccionvsproduccion.aspx?idcliente=" + idcliente
-    + "&fecinicio=" + fecinicio
-    + "&fecfin=" + fecfin;
+        + "&anio=" + anio;
+    //+ "&fecfin=" + fecfin;
 
     window.open(url);
 }

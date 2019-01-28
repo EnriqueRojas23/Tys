@@ -138,6 +138,11 @@ function EliminarOTs(items) {
                        $("#cantidadot_label").html(data.cantidad);
                        $("#recargos_label").html(String(parseFloat(data.recargo).toFixed(2)));
 
+                       if (data.cantidad === 0) {    
+                           var url = UrlHelper.Action("GestionPreliquidacion", "Facturacion", "Facturacion");
+                           window.location.href = url;
+                       }
+
                        messagebox('Registro Exitoso', 'Se ha eliminado las OTs.', 'success');
                    }
                })

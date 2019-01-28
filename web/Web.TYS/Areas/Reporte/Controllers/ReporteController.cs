@@ -435,7 +435,6 @@ namespace Web.TYS.Areas.Monitoreo.Controllers
             model.idusuario = (Int32)Usuario.Idusuario;
 
 
-
             var clientes = GetListarClientes_Cache();
             var listaclientes = new SelectList(
                 clientes,
@@ -443,6 +442,23 @@ namespace Web.TYS.Areas.Monitoreo.Controllers
                 , "razonsocial"
                 );
             ViewData["ListaClientes"] = listaclientes;
+
+            var anios = new Dictionary<int, int>
+            {
+                {DateTime.Now.Year - 3, DateTime.Now.Year - 3},
+                { DateTime.Now.Year - 2,DateTime.Now.Year - 2 },
+                { DateTime.Now.Year - 1, DateTime.Now.Year - 1 },
+                 { DateTime.Now.Year,  DateTime.Now.Year }
+            };
+
+
+            var listaanio = new SelectList(
+              anios,
+              "Key"
+              , "Value"
+              );
+            ViewData["ListaAnio"] = listaanio;
+
 
             return View(model);
         }
