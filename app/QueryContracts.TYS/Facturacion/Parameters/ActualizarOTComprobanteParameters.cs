@@ -7,6 +7,7 @@ namespace QueryContracts.TYS.Facturacion.Parameters
     {
         public string idsordentrabajo { get; set; }
         public DateTime? fechacomprobante { get; set; }
+
         
 
     }

@@ -22,17 +22,17 @@ function configurarGrilla() {
         url: url,
         datatype: 'json',
         mtype: 'Get',
-        colNames: ['', 'OT', 'Fecha OT', 'GRT', 'Remitente', 'Destinatario', 'Modo Transporte', 'Concepto Cobro', 'Origen'
+        colNames: ['', 'OT', 'Fecha OT',  'Remitente', 'Destinatario', 'Modo Transporte', 'Origen'
         , 'Destino', 'Tarifa', 'Bul.', 'Peso', 'Vol', 'PesoVol', 'Base', 'Sub Total', 'Recar.', 'SubTotal Final'],
         colModel: [
            { key: true, hidden: true, name: 'idordentrabajo', index: 'idordentrabajo', classes: "grid-col" },
            { key: false, hidden: false, editable: false, name: 'numcp', index: 'numcp', width: '70', align: 'center', classes: "grid-col", formatter: formatedit },
            { key: false, hidden: false, editable: false, name: 'fecharegistro', index: 'fecharegistro', width: '70', align: 'center', classes: "grid-col", formatter: 'date', formatoptions: { srcformat: "d/m/Y", newformat: "d/m/Y" } },
-           { key: false, hidden: false, editable: false, name: 'guiatransportista', index: 'guiatransportista', width: '60', align: 'center', classes: "grid-col", formatter: formatedit },
+           //{ key: false, hidden: false, editable: false, name: 'guiatransportista', index: 'guiatransportista', width: '60', align: 'center', classes: "grid-col", formatter: formatedit },
            { key: false, hidden: false, editable: false, name: 'remitente', index: 'remitente', width: '80', align: 'center', classes: "grid-col", formatter: formatedit },
            { key: false, hidden: false, editable: false, name: 'destinatario', index: 'destinatario', width: '80', align: 'center', classes: "grid-col", formatter: formatedit },
            { key: false, hidden: false, editable: false, name: 'modotransporte', index: 'modotransporte', width: '70', align: 'center', classes: "grid-col", formatter: formatedit },
-           { key: false, hidden: false, editable: false, name: 'conceptocobro', index: 'conceptocobro', width: '70', align: 'center', classes: "grid-col", formatter: formatedit },
+           //{ key: false, hidden: false, editable: false, name: 'conceptocobro', index: 'conceptocobro', width: '70', align: 'center', classes: "grid-col", formatter: formatedit },
            { key: false, hidden: false, editable: false, name: 'origen', index: 'origen', width: '90', align: 'center', classes: "grid-col", formatter: formatedit },
            { key: false, hidden: false, editable: false, name: 'destino', index: 'destino', width: '90', align: 'center', classes: "grid-col", formatter: formatedit },
            { key: false, hidden: false, editable: false, name: 'tarifa', index: 'tarifa', width: '40', align: 'right', classes: "grid-col", formatter: ToFixed },

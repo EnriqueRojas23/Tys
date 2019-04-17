@@ -131,7 +131,6 @@ function irReimprimir(item) {
 }
 function configurarGrillaDetalleFactura() {
 
-  alert('entre')
     var grilladetalle = $("#griddetallefactura");
     var pagergrilladetalle = $("#griddetallefacturapager");
 
@@ -211,7 +210,7 @@ function configurarGrillaDetalleFactura() {
 
 }
 function configurarGrillaDetalle() {
-    alert('entre')
+    
     var grilladetalle = $("#griddetallefactura");
     var pagergrilladetalle = $("#griddetallefacturapager");
 
@@ -327,7 +326,7 @@ function reload2() {
     var pagergrilladetalle = $("#griddetallefacturapager");
 
     var idcomprobante = $("#idcomprobantepago").val();
-    var url = UrlHelper.Action("GetListarDetalleFacturacion", "Facturacion", "Facturacion") + "?idcomprobante=" + idcomprobante;
+    var url = UrlHelper.Action("GetListarDetalleFacturacion2", "Facturacion", "Facturacion") + "?idcomprobante=" + idcomprobante;
     grilladetalle.jqGrid('setGridParam', { url: url }).trigger('reloadGrid');
 
 

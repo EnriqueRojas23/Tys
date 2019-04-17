@@ -404,24 +404,43 @@ namespace Web.TYS.DataAccess.Seguimiento
 
             var cliente = DataAccess.Seguimiento.SeguimientoData.GetObtenerCliente(idcliente);
             List<ListarTarifaOrdenDto> result;
-            if (!cliente.pagocontado)
-            {
 
-                result = TarifaData.evaluarTarifasOrden_OrigenDistrito(idorigen, iddestino, idcliente, idformula, idtipotransporte, idconceptocobro);
-                if (result.Count == 0)
-                    result = TarifaData.evaluarTarifasOrden_OrigenProvincias(idorigen, iddestino, idcliente, idformula, idtipotransporte, idconceptocobro);
-                if (result.Count == 0)
-                    result = TarifaData.evaluarTarifasOrden_OrigenDepartamento(idorigen, iddestino, idcliente, idformula, idtipotransporte, idconceptocobro);
-            }
+            result = TarifaData.evaluarTarifasOrden_OrigenDistrito(idorigen, iddestino, idcliente, idformula, idtipotransporte, idconceptocobro);
+            if (result.Count == 0)
+                result = TarifaData.evaluarTarifasOrden_OrigenProvincias(idorigen, iddestino, idcliente, idformula, idtipotransporte, idconceptocobro);
+            if (result.Count == 0)
+                result = TarifaData.evaluarTarifasOrden_OrigenDepartamento(idorigen, iddestino, idcliente, idformula, idtipotransporte, idconceptocobro);
+
+            if (result.Count > 0)
+                return result;
             else
             {
                 //Para clientes de pago al contado
-                 result = TarifaData.evaluarTarifasOrden_OrigenDistrito(idorigen, iddestino, 80, idformula, idtipotransporte, idconceptocobro);
+                result = TarifaData.evaluarTarifasOrden_OrigenDistrito(idorigen, iddestino, 80, idformula, idtipotransporte, idconceptocobro);
                 if (result.Count == 0)
                     result = TarifaData.evaluarTarifasOrden_OrigenProvincias(idorigen, iddestino, 80, idformula, idtipotransporte, idconceptocobro);
                 if (result.Count == 0)
                     result = TarifaData.evaluarTarifasOrden_OrigenDepartamento(idorigen, iddestino, 80, idformula, idtipotransporte, idconceptocobro);
             }
+
+            //if (!cliente.pagocontado)
+            //{
+
+            //    result = TarifaData.evaluarTarifasOrden_OrigenDistrito(idorigen, iddestino, idcliente, idformula, idtipotransporte, idconceptocobro);
+            //    if (result.Count == 0)
+            //        result = TarifaData.evaluarTarifasOrden_OrigenProvincias(idorigen, iddestino, idcliente, idformula, idtipotransporte, idconceptocobro);
+            //    if (result.Count == 0)
+            //        result = TarifaData.evaluarTarifasOrden_OrigenDepartamento(idorigen, iddestino, idcliente, idformula, idtipotransporte, idconceptocobro);
+            //}
+            //else
+            //{
+            //    //Para clientes de pago al contado
+            //     result = TarifaData.evaluarTarifasOrden_OrigenDistrito(idorigen, iddestino, 80, idformula, idtipotransporte, idconceptocobro);
+            //    if (result.Count == 0)
+            //        result = TarifaData.evaluarTarifasOrden_OrigenProvincias(idorigen, iddestino, 80, idformula, idtipotransporte, idconceptocobro);
+            //    if (result.Count == 0)
+            //        result = TarifaData.evaluarTarifasOrden_OrigenDepartamento(idorigen, iddestino, 80, idformula, idtipotransporte, idconceptocobro);
+            //}
             return result;
         }
 

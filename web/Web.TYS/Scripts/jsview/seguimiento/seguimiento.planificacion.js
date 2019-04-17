@@ -110,7 +110,6 @@ function cargargrilla() {
         },
         editParams: editOptionsNew,
         editurl: vdataedit,
-        shrinkToFit: true,
         grouping: true,
         groupingView: {
             groupField: ['destino'],
@@ -178,7 +177,7 @@ function cargargrilla2() {
     var grilla = $("#gridordenesp");
     var pagergrilla = $("#gridordenesppager");
 
-    var id = $('#idcliente').val()
+    var id = $('#idcliente').val();
 
     var vdataurl = $(grilla).data("dataurl") + "?id=" + id;
     var vdataedit = $(grilla).data("editurl");

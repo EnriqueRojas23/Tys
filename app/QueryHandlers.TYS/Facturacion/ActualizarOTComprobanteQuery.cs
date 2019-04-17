@@ -19,6 +19,7 @@ namespace QueryHandlers.TYS.Facturacion
                 string query = "";
                 if (parameters.fechacomprobante.HasValue)
                 {
+
                     query = string.Format("update seguimiento.ordentrabajo"
                     + " set fechacomprobantepago = '{0}' ,"
                     + " facturado = 1,"
@@ -29,7 +30,7 @@ namespace QueryHandlers.TYS.Facturacion
                 }
                 else
                 {
-                    query = string.Format("update seguimiento.ordentrabajo set fechacomprobantepago = null , facturado = 0 where idordentrabajo in ({0})",
+                    query = string.Format("update seguimiento.ordentrabajo set fechacomprobantepago = null , facturado = 0 , idestado = 21 where idordentrabajo in ({0})",
                                                                      parameters.idsordentrabajo);
                 }
 

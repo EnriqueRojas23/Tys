@@ -184,7 +184,7 @@ function eliminarvehiculo(item)
 
   var url = UrlHelper.Action("EliminarVehiculo","Seguimiento","Seguimiento") + "?idvehiculo=" + item;
 
-  alert(url);
+  
 
   swal({
      title: "Deshabilitar Vehículo",

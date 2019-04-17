@@ -244,9 +244,13 @@ namespace CommandHandlers.TYS
                     if (!command.idordentrabajo.HasValue)
                         _OrdenTrabajoRepository.Add(dominio);
                         _OrdenTrabajoRepository.Commit();
-                        //trans.Complete();  
 
-                        return new InsertarActualizarOrdenTrabajoOutput() { idordentrabajo = dominio.idordentrabajo };
+
+                // dominio.numcp ="100-" + dominio.idordentrabajo.ToString().PadLeft(6, '0');
+                //_OrdenTrabajoRepository.Commit();
+
+
+                return new InsertarActualizarOrdenTrabajoOutput() { idordentrabajo = dominio.idordentrabajo };
                 }
                 catch (Exception ex)
                 {

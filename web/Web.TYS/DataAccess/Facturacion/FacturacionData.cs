@@ -255,8 +255,8 @@ namespace Web.TYS.DataAccess.Facturacion
         {
             var parameters = new ActualizarOTComprobanteParameters
             {
-                idsordentrabajo = ordenes
-                ,
+                idsordentrabajo = ordenes,
+                
                 fechacomprobante = fechacomprobante
             };
             parameters.Execute();

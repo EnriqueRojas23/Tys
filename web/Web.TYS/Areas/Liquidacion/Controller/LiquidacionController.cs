@@ -322,15 +322,15 @@ namespace Web.TYS.Areas.Liquidacion.Controller
 
         public FileResult DownloadArchivo(long idarchivo)
         {
-            //var listaArchivos = (List<ListarArchivosIncidenciaDto>)Session["Archivos"];
-            string filePath = ConfigurationManager.AppSettings["Uploads"];
-            long idorden = Convert.ToInt64(Session["idorden"]);
-            var result = DataAccess.Liquidacion.LiquidacionData.GetListarArchivos(idorden, null);
+            
+            string filePath = ConfigurationManager.AppSettings["Uploads"];  // Saca del web config la ruta
+            long idorden = Convert.ToInt64(Session["idorden"]); 
+            var result = DataAccess.Liquidacion.LiquidacionData.GetListarArchivos(idorden, null); // esto no necesitas pero traigo la orden
 
             var archivo = result.Where(x => x.idarchivo.Equals(idarchivo)).SingleOrDefault();
 
-            string filename = Server.HtmlEncode(archivo.nombrearchivo);
-            filePath = archivo.rutaacceso + "//";
+            string filename = Server.HtmlEncode(archivo.nombrearchivo); // obtengo el encode, con el archivo y la ruta. nombrearchivo esto tiene toda la rutay el nombre del archivo con extesion lo sacas de tu bd
+            filePath = archivo.rutaacceso + "//"; // el resto te copias y pegas.. y listo el return lanza y desarga el file
             string contentType = System.Net.Mime.MediaTypeNames.Application.Octet;
 
             return File(Path.Combine(filePath, filename), contentType, filename);

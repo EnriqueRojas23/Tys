@@ -89,7 +89,7 @@ function configurarBotones() {
         if (selIds == '')
             messagebox('No puede continuar.', 'Debe seleccionar al menos un elemento.', 'warning');
         else if (selIds.length > 1)
-            messagebox('No puede continuar.', 'Debe seleccionar solo un elemento.', 'warning')
+            messagebox('No puede continuar.', 'Debe seleccionar solo un elemento.', 'warning');
         else {
             $.ajax({
                 url: url,
@@ -98,14 +98,14 @@ function configurarBotones() {
                 data: { "idpreliquidacion": String(selIds) }
             })
             .done(function (data) {
-                if (data.idcomprobante == 0) {
+                if (data.idcomprobante === 0) {
                     var url = UrlHelper.Action("EditarPreliquidacion", "Facturacion", "Facturacion") + "?id=" + selIds;
                     window.location.href = url;
                 }
                 else {
                     //messagebox('No puede continuar.', 'Ya se ha generado un comprobante.', 'warning')
                     if (fn_validarEnvioSunat(String(selIds)) === false) {
-                        alert('xD');
+                        console.log('');
                     }
 
                     swal({

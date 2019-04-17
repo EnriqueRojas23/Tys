@@ -19,10 +19,13 @@ namespace CommandHandlers.TYS
     {
 
         private readonly IRepository<Preliquidacion> _PreliquidacionRepository;
+        private readonly IRepository<Comprobante> _ComprobanteRepository;
 
-        public InsertarActualizarPreliquidacionHandler(IRepository<Preliquidacion> pPreliquidacionRepository)
+        public InsertarActualizarPreliquidacionHandler(IRepository<Preliquidacion> pPreliquidacionRepository,
+            IRepository<Comprobante> pComprobanteRepository)
         {
             this._PreliquidacionRepository = pPreliquidacionRepository;
+            this._ComprobanteRepository = pComprobanteRepository;
         }
 
 
@@ -31,6 +34,7 @@ namespace CommandHandlers.TYS
             if (command == null) throw new ArgumentException("Tiene que ingresar una cliente");
 
             Preliquidacion dominio = null;
+            Comprobante dominio_com = null;
             if (command.idpreliquidacion.HasValue)
                 dominio = _PreliquidacionRepository.Get(x => x.idpreliquidacion == command.idpreliquidacion).LastOrDefault();
             else
@@ -56,6 +60,9 @@ namespace CommandHandlers.TYS
             }
             else if(command._tipoop == 2) // desvincular comprobante
             {
+                dominio_com = _ComprobanteRepository.Get(x => x.idcomprobantepago == command.idcomprobantepago).LastOrDefault();
+                dominio_com.idpreliquidacion = null;
+                    
                 dominio.idestado = command.idestado;
                 dominio.idcomprobantepago = null;
             }

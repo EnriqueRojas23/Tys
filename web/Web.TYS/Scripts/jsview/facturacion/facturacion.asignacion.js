@@ -120,7 +120,7 @@ function configurarGrilla() {
 var editOptionsNew = {
         keys: true,
         successfunc: function () {
-          alert('xD');
+          
             var $self = $(this);
             setTimeout(function () {
                 $self.trigger("reloadGrid");

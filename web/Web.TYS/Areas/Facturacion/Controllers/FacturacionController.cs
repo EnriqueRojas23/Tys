@@ -316,7 +316,7 @@ namespace Web.TYS.Areas.Facturacion.Controllers
                 x.igv = x.subtotal * igv;
                 x.total = x.subtotal + x.igv;
             });
-            var resjson1 = (new JqGridExtension<ComprobanteModel>()).DataBind(listadoTotal, listadoTotal.Count);
+            var resjson1 = (new JqGridExtension<ComprobanteModel>()).DataBind(listadoTotal.OrderByDescending(x=>x.numeropreliquidacion), listadoTotal.Count);
 
             return resjson1;
 
@@ -346,6 +346,10 @@ namespace Web.TYS.Areas.Facturacion.Controllers
             var igv = Convert.ToDecimal(ConfigurationManager.AppSettings["igv"].ToString());
             var model = new FacturacionData().ObtenerPreliquidacion(id).FirstOrDefault();
             var listado = new FacturacionData().GetListarCompletadoPreliquidacion(id).ToList();
+
+            if (model == null)
+                return Json(new { res = false, msj = "No tiene ordenes asociadas" }, JsonRequestBehavior.AllowGet);
+
             model.idpreliquidacion = id;
             //model.numeropreliquidacion = preliquidacion.numeropreliquidacion;
             if (model.recargo.HasValue)
@@ -965,25 +969,55 @@ namespace Web.TYS.Areas.Facturacion.Controllers
                 if (x.recargo.HasValue)
                     x.total = x.recargo.Value + x.subtotal;
             });
+            
 
-            return (new JqGridExtension<PreliquidacionModel>()).DataBind(listadoTotal, listadoTotal.Count);
+            return (new JqGridExtension<PreliquidacionModel>()).DataBind(listadoTotal.OrderBy(x => x.numcp), listadoTotal.Count);
 
 
         }
 
-        //[HttpPost]
-        //public JsonResult GetListarDetalleFacturacion(long idpreliquidacion)
-        //{
-        //    var listado = (List<ComprobanteDetalleModel>)Session["detallefacturacion"];
-        //    if(listado != null)
-        //    {
-        //        return (new JqGridExtension<ComprobanteDetalleModel>()).DataBind(listado, listado.Count);
-        //    }
+        [HttpPost]
+        public JsonResult GetListarDetalleFacturacion2(long idcomprobante, string sidx, string sord, int page, int rows)
+        {
+            var prequilidacion = new FacturacionData().ObtenerComprobante(null, idcomprobante);
+            var listadoTotal = new List<ComprobanteDetalleModel>();
+            decimal igv = Convert.ToDecimal(ConfigurationManager.AppSettings["igv"].ToString());
+            var liquidaciones = new FacturacionData().ObtenerPreliquidacion(prequilidacion.idpreliquidacion).ToList();
+            var liquidacion = liquidaciones.First();
 
-        //    var detallesfacturacion = new FacturacionData().GetListarComprobanteDetalles(idpreliquidacion).ToList();
-        //    Session["detallefacturacion"] = detallesfacturacion;
-        //    return (new JqGridExtension<ComprobanteDetalleModel>()).DataBind(detallesfacturacion, detallesfacturacion.Count);
-        //}
+
+            if (Session["detallefacturacion"] == null)
+            {
+                var detalle = new ComprobanteDetalleModel
+                {
+                    idcomprobantepago = prequilidacion.idpreliquidacion,
+                    cantidad = 1,
+                    descripcion = "POR SERVICIO DE TRANSPORTE Y DISTRIBUCIÓN DE MERCADERIA.",
+                    unidadmedida = DataAccess.Seguimiento.SeguimientoData
+                                   .GetListarValoresxTabla(Convert.ToInt32(Constantes.MaestroTablas.Unidad))
+                                   .Where(x => x.idvalortabla == 76).First().valor,
+                    subtotal = liquidacion.subtotal + (liquidacion.recargo == null ? 0 : liquidacion.recargo.Value),
+                    iddetallecomprobante = 1
+                };
+                listadoTotal.Add(detalle);
+                Session["detallefacturacion"] = listadoTotal;
+            }
+            else
+            {
+                listadoTotal = (List<ComprobanteDetalleModel>)Session["detallefacturacion"];
+            }
+
+            return (new JqGridExtension<ComprobanteDetalleModel>()).DataBind(listadoTotal, listadoTotal.Count);
+            //var listado = (List<ComprobanteDetalleModel>)Session["detallefacturacion"];
+            //if (listado != null)
+            //{
+            //    return (new JqGridExtension<ComprobanteDetalleModel>()).DataBind(listado, listado.Count);
+            //}
+
+            //var detallesfacturacion = new FacturacionData().GetListarComprobanteDetalles(idpreliquidacion).ToList();
+            //Session["detallefacturacion"] = detallesfacturacion;
+            //return (new JqGridExtension<ComprobanteDetalleModel>()).DataBind(detallesfacturacion, detallesfacturacion.Count);
+        }
         public JsonResult GetListarDetalleFacturacion(long idpreliquidacion, string sidx, string sord, int page, int rows)
         {
             var listadoTotal = new List<ComprobanteDetalleModel>();
@@ -1521,7 +1555,16 @@ namespace Web.TYS.Areas.Facturacion.Controllers
             var usuario = UsuariosData.ObtenerUsuario((Int32)Usuario.Idusuario);
             var model = new FacturacionData().ObtenerComprobante(null, idcomprobantepago);
 
-            
+            decimal totalbd = 0;
+            var detalle = new FacturacionData().GetListarComprobanteDetalles(idcomprobantepago);
+            foreach (var item in detalle)
+            {
+
+                totalbd = item.subtotal + totalbd;
+
+            }
+
+
             int cantidadcaracteres = 0;
             var numerocomprobante = new FacturacionData().obtenerNumeroComprobante((Int32)Usuario.Idusuario
                 , (Int16) Constantes.TipoComprobante.NotaCredito , usuario.idestacionorigen, null);
@@ -1564,8 +1607,8 @@ namespace Web.TYS.Areas.Facturacion.Controllers
             #endregion asignarpropiedades
 
             var idcomprobante = FacturacionData.GenerarComprobante(model);
+            decimal montototal = 0;
 
-          
             foreach (var item in listado)
             {
                 modDetalle = new ComprobanteDetalleModel();
@@ -1573,8 +1616,31 @@ namespace Web.TYS.Areas.Facturacion.Controllers
                 modDetalle.igv = (item.subtotal * Convert.ToDecimal(valorigv));
                 modDetalle.subtotal = item.subtotal;
                 modDetalle.total = item.subtotal + modDetalle.igv;
+                montototal = modDetalle.subtotal + montototal;
                 modDetalle.descripcion = item.descripcion;
                 DataAccess.Facturacion.FacturacionData.GenerarDetalleComprobante(modDetalle);
+            }
+
+
+            //comprobar si requiere anulacion total // si el monto es igual al del comprobante
+            if (montototal == totalbd)
+            {
+
+                var ordenes = new FacturacionData().GetListarCompletadoPreliquidacion(model.idpreliquidacion);
+                string idsordenes = string.Empty;
+                foreach (var item in ordenes)
+                {
+                    idsordenes = idsordenes + "," + item.idordentrabajo;
+                }
+                idsordenes = idsordenes.Substring(1, idsordenes.Length - 1);
+
+                var preliquidacion = new PreliquidacionModel();
+                preliquidacion.idpreliquidacion = model.idpreliquidacion;
+                preliquidacion.idestado = (Int32)Constantes.EstadoPreliquidacion.PendienteFactura;
+                preliquidacion._tipoop = 2;//Desvincular comprobante
+                new FacturacionData().InsertarActualizarPreliquidacion(preliquidacion);
+
+                new FacturacionData().ActualizarComprobanteOTS(idsordenes, null);
             }
 
             return Json(new { res = true, idcomprobante = idcomprobante, valorigv = valorigv }, JsonRequestBehavior.AllowGet);

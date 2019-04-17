@@ -111,10 +111,10 @@ function CargaListaCliente() {
                        "title": "Activo", "data": "activo", "name": "activo", "autoWidth": true, "class": "text-center",
                        "mRender":
                                   function (data, type, full) {
-                                       if(data==true)
-                                         return "<div><input type='checkbox' checked disabled name='your-group' value='unit-in-group' /> </div>";
+                                       if(data===true)
+                                         return "<div><input type='checkbox' onclick='verDocumento("+data+")'  checked name='your-group' value='unit-in-group' /> </div>";
                                       else
-                                         return "<div><input type='checkbox'  disabled name='your-group' value='unit-in-group' /> </div>";
+                                         return "<div><input type='checkbox'   name='your-group' value='unit-in-group' /> </div>";
                                   }
                    },
 
@@ -834,4 +834,7 @@ function validateFloatKeyPress(el, evt)
     }
 
     return true;
+}
+function verDocumento(algo) {
+    alert(algo);
 }

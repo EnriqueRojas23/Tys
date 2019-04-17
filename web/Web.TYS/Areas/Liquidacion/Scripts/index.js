@@ -312,7 +312,7 @@ function reloadDetalle(id)
 function agregarincidentes(id)
 {
 
-    //alert('entre');
+    
   var vUrl = UrlHelper.Action("JsonAgregarIncidentes", "Liquidacion", "Liquidacion")  + "?idorden=" +  id;
 
            $.get(vUrl, function (data) {
@@ -375,30 +375,31 @@ function AutoCompleteTextBox()
 
 function cargargrillaarchivos(id)
 {
+    // Estas dos lineas, son por defecto 
    $.jgrid.defaults.responsive = true;
    $.jgrid.defaults.height = 220;
 
-   var grilla = $("#gridarchivos");
-   var pagergrilla = $("#gridarchivospager");
+   var grilla = $("#gridarchivos"); // define el ID de la grilla 
+   var pagergrilla = $("#gridarchivospager"); // define el paginador 
 
-   var vdataurl = $(grilla).data("dataurl") + "?idorden=" + id;
-
+   var vdataurl = $(grilla).data("dataurl") + "?idorden=" + id; // recoge el URL 
+    //Arma la grilla
    $(grilla).jqGrid({
-     url: vdataurl,
-     datatype: 'json',
-     mtype: 'Get',
-     colNames: ['','Nombre de Archivo','Extensión', 'Acciones'],
-     colModel:
+     url: vdataurl,  // le pasas el URL 
+     datatype: 'json', // el tipo de dato
+     mtype: 'Get', // el metodo 
+     colNames: ['','Nombre de Archivo','Extensión', 'Acciones'], // los nombres que tendran las columnas
+     colModel: // las columnas
      [
          { key: true, hidden: true, name: 'idarchivo', index: 'idarchivo' ,classes:"grid-col"},
          { key: false, hidden: false, name: 'nombrearchivo', index: 'nombrearchivo' ,classes:"grid-col"},
          { key: false, hidden: false, name: 'extension', index: 'extension', align: 'center',classes:"grid-col" ,formatter: formatedit , classes: "grid-col" },
-         { key: false, hidden: false, name: 'idarchivo', index: 'idarchivo',  align: 'center',classes:"grid-col" ,formatter: displayButtonAnular , classes: "grid-col" }
+         { key: false, hidden: false, name: 'idarchivo', index: 'idarchivo',  align: 'center',classes:"grid-col" ,formatter: displayButtonAnular , classes: "grid-col" } // acalos botones ok? ok
      ],
-     pager: $(pagergrilla),
+     pager: $(pagergrilla), // el paginador 
      rowNum: 10,
-     rowList: [10, 20, 30, 40],
-     width: "100%",
+     rowList: [10, 20, 30, 40],  // el resto copias y pegas
+     width: "100%", 
      emptyrecords: 'No se encontraron registros',
      viewrecords: true,
      shrinktofit : true,

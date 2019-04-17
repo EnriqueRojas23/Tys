@@ -182,7 +182,7 @@ function editarcomprobante(idcomprobante) {
 
 function generarNC(idcomprobante) {
 
-   alert('lo hice')
+   
 
 
     var url = UrlHelper.Action("PreNotaCredito", "Facturacion", "Facturacion") + "?idcomprobantepago=" + idcomprobante;

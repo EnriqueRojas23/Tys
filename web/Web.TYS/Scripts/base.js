@@ -261,7 +261,7 @@ function CheckValidationErrorWindowAlert(response) {
         });
         $list.append(errorList);
     });
-    alert($list.html());
+    
 }
 
 function setModalMaxHeight(element) {
