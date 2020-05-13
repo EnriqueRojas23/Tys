@@ -96,6 +96,7 @@
     <Compile Include="Mappings\Seguridad\SistemaRolConfiguration.cs" />
     <Compile Include="Mappings\Seguridad\SistemaRolPaginaConfiguration.cs" />
     <Compile Include="Mappings\Seguridad\SistemaRolUsuarioConfiguration.cs" />
+    <Compile Include="Mappings\Seguridad\AlertaConfiguration.cs" />
     <Compile Include="Mappings\Seguridad\UsuarioClienteConfiguration.cs" />
     <Compile Include="Mappings\Seguridad\UsuarioConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

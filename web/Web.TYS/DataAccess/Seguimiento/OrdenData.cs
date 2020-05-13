@@ -213,7 +213,8 @@ namespace Web.TYS.DataAccess.Seguimiento
             Mapper.CreateMap<ListarOrdenTrabajoDto, OrdenTrabajoModel>();
             return Mapper.Map<IEnumerable<ListarOrdenTrabajoDto>, IEnumerable<OrdenTrabajoModel>>(resultado.Hits);
         }
-        public static IEnumerable<OrdenTrabajoModel> GetListarOrdenesCliente(string numcp, string fecini, string fecfin, string idscliente, string grr)
+        public static IEnumerable<OrdenTrabajoModel> GetListarOrdenesCliente(string numcp
+            , string fecini, string fecfin, string idscliente, string grr, int? idestado, int? iddestino, string docgeneral)
         {
             var parametros = new ListarOrdenTrabajoClienteParameters
             {
@@ -224,7 +225,10 @@ namespace Web.TYS.DataAccess.Seguimiento
                 fecfin = fecfin
                 ,
                 idscliente = idscliente ,
-                grr = grr
+                grr = grr,
+                idestado = idestado,
+                iddestino  = iddestino,
+                docreferencia = docgeneral
             };
             var resultado = (ListarOrdenTrabajoClienteResult)parametros.Execute();
 

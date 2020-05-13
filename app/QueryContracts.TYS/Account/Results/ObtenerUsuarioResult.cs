@@ -32,6 +32,8 @@ namespace QueryContracts.TYS.Account.Results
         public int? Rol_int_id { get; set; }
         public DateTime? Usr_dat_fecvctousuario { get; set; }
         public string usr_str_tipoacceso { get; set; }
+        public string clientes { get; set; }
+
 
         public string respuestamensaje { get; set; }
 

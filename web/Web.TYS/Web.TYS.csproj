@@ -114,10 +114,6 @@
       <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Web.Optimization">
       <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
@@ -189,6 +185,7 @@
     <Compile Include="Areas\Seguridad\Models\Sistemas\ListarSistemasModel.cs" />
     <Compile Include="Areas\Seguridad\Models\Usuarios\AsignarClientesModal.cs" />
     <Compile Include="Areas\Seguridad\Models\Usuarios\AsignarRolesUsuariosModel.cs" />
+    <Compile Include="Areas\Seguridad\Models\Usuarios\InsertarModificarAlertaModel.cs" />
     <Compile Include="Areas\Seguridad\Models\Usuarios\InsertarModificarUsuarioModel.cs" />
     <Compile Include="Areas\Seguridad\Models\Usuarios\ListarUsuariosModel.cs" />
     <Compile Include="Areas\Seguridad\SeguridadAreaRegistration.cs" />
@@ -877,6 +874,7 @@
     <Content Include="Areas\Facturacion\Views\Facturacion\_VistaBoletaEditar.cshtml" />
     <Content Include="Areas\Facturacion\Views\Facturacion\_VistaNCEditar.cshtml" />
     <Content Include="Areas\Seguimiento\Views\Orden\_VistaBoleta.cshtml" />
+    <Content Include="Areas\Seguimiento\Views\Seguimiento\SeguimientoClienteLibre.cshtml" />
     <None Include="Areas\Seguridad\Views\Usuarios\_InsertarModal_" />
     <Content Include="Areas\Seguridad\Views\Paginas\_InsertarPaginaModal.cshtml" />
     <Content Include="Areas\Seguridad\Views\Paginas\_ModificarPaginaModal.cshtml" />
@@ -885,6 +883,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\font-awesome\less\screen-reader.less" />
     <Content Include="fonts\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="Areas\Seguridad\Views\Usuarios\_ConfigurarAlertas.cshtml" />
     <None Include="Properties\PublishProfiles\Toscanos.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\complete.ly.1.0.1.js" />

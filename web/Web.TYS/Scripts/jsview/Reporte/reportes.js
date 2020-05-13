@@ -148,12 +148,15 @@ function reporteProduccionCliente() {
 
 function reportependientexdespachar() {
     var idcliente = $("#idcliente").val();
+    var idestacionorigen = $("#idestacionorigen").val();
+
     var fecinicio = $("#fecinicio").val();
     var fecfin = $("#fecfin").val();
 
     var url = "http://104.36.166.65/webreports/pendientepordespachar.aspx?idcliente=" + idcliente
     + "&fecinicio=" + fecinicio
-    + "&fecfin=" + fecfin;
+    + "&fecfin=" + fecfin
+    + "&idestacionorigen=" + idestacionorigen;
 
     window.open(url);
 }

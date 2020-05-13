@@ -21,6 +21,9 @@ namespace QueryHandlers.TYS.Seguimiento
                 parametros.Add("fecini", dbType: DbType.String, direction: ParameterDirection.Input, value: parameters.fecinicio);
                 parametros.Add("fecfin", dbType: DbType.String, direction: ParameterDirection.Input, value: parameters.fecfin);
                 parametros.Add("grr", dbType: DbType.String, direction: ParameterDirection.Input, value: parameters.grr);
+                parametros.Add("docgeneral", dbType: DbType.String, direction: ParameterDirection.Input, value: parameters.docreferencia);
+                parametros.Add("idestado", dbType: DbType.String, direction: ParameterDirection.Input, value: parameters.idestado);
+                parametros.Add("iddestino", dbType: DbType.String, direction: ParameterDirection.Input, value: parameters.iddestino);
 
                 var resultado = new ListarOrdenTrabajoClienteResult
                 {

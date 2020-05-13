@@ -107,9 +107,6 @@
     <None Include="Service References\tysReference\TYS19.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\tysReference\TYS191.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\tysReference\TYS2.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -125,9 +122,6 @@
     <None Include="Service References\tysReference\TYS23.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\tysReference\TYS231.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\tysReference\TYS24.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -140,16 +134,22 @@
     <None Include="Service References\tysReference\TYS27.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\tysReference\TYS271.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\tysReference\TYS28.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\tysReference\TYS281.xsd">
+    <None Include="Service References\tysReference\TYS29.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\tysReference\TYS3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS30.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\tysReference\TYS32.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\tysReference\TYS4.xsd">
@@ -191,9 +191,6 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\tysReference\TYS.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\app\CommandContracts.TYS\CommandContracts.TYS.csproj">
       <Project>{15f436be-8fa6-473d-967b-efe40213c080}</Project>
       <Name>CommandContracts.TYS</Name>
@@ -230,6 +227,9 @@
       <Project>{9be04c93-bd52-4677-a597-9a4e81cd93e9}</Project>
       <Name>ServiceAgents.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\tysReference\TYS.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

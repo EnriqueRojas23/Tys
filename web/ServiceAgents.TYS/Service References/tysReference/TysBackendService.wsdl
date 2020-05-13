@@ -22,26 +22,26 @@
       <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/CommandContracts.TYS.Pago.Output" />
       <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/CommandContracts.TYS.Seguridad.Output" />
       <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Account.Parameters" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Facturacion.Parameters" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Monitoreo.Parameters" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Seguridad.Parameters" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Configuracion.Parameters" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Pago.Parameters" />
       <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Liquidacion.Parameters" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Pago.Parameters" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Configuracion.Parameters" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd19" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Seguimiento.Parameters" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd20" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Seguridad.Parameters" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd21" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common.Configuracion.Parameters" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd22" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common.Seguridad.Parameters" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd23" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Account.Results" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd24" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Facturacion.Results" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd25" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Seguimiento.Results" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd26" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Monitoreo.Results" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd27" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Liquidacion.Results" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd28" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Pago.Results" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd29" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Configuracion.Results" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd30" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Seguridad.Result" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd31" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common.Configuracion.Results" />
-      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd32" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common.Seguridad.Results" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Monitoreo.Parameters" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Seguimiento.Parameters" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd19" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Facturacion.Parameters" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd20" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Account.Parameters" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd21" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common.Seguridad.Parameters" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd22" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common.Configuracion.Parameters" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd23" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Seguridad.Result" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd24" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Configuracion.Results" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd25" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Pago.Results" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd26" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Liquidacion.Results" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd27" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Monitoreo.Results" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd28" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Seguimiento.Results" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd29" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Facturacion.Results" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd30" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Account.Results" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd31" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common.Seguridad.Results" />
+      <xsd:import schemaLocation="http://localhost:50030/TYS?xsd=xsd32" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common.Configuracion.Results" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IBackendService_ExecuteCommand_InputMessage">

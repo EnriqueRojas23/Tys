@@ -1,4 +1,4 @@
-﻿
+﻿    
 using Data.Common;
 using QueryContracts.Common;
 using QueryContracts.TYS.Seguimiento.Parameters;

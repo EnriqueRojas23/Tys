@@ -10,6 +10,9 @@ namespace QueryContracts.TYS.Seguimiento.Parameters
         public string fecinicio { get; set; }
         public string fecfin { get; set; }
         public string grr { get; set; }
+        public int? idestado { get; set; }
+        public int? iddestino { get; set; }
+        public string docreferencia { get; set; }
 
     }
 }

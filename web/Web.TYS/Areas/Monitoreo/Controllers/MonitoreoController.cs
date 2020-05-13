@@ -1245,6 +1245,9 @@ namespace Web.TYS.Areas.Monitoreo.Controllers
             else
                 listado = MonitoreoData.GetListarEventos(numcp, idmaestroincidencia, idmaestroetapa, null);
 
+
+            
+
             var listadoTotal = listado;
             int pageindex = page - 1;
             int pagesize = rows;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Componentes.Common.CustomAttributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -32,8 +33,11 @@ namespace Web.TYS.Areas.Seguimiento.Models.Seguimiento
     {
         public long? idordentrabajo { get; set; }
         public long? idmanifiesto { get; set; }
+        [Export(Cabecera = "OT", Orden = 1, Tamanio = 25, TipoExportacion = TipoExportacion.ExcelSimple)]
         public string numcp { get; set; }
+
         public int idtipotransporte { get; set; }
+          [Export(Cabecera = "Tipo Transporte", Orden = 3, Tamanio = 25, TipoExportacion = TipoExportacion.ExcelSimple)]
         public string tipotransporte { get; set; }
         public int idestacion { get; set; }
         public int idconceptocobro { get; set; }
@@ -46,6 +50,7 @@ namespace Web.TYS.Areas.Seguimiento.Models.Seguimiento
         public int identregara { get; set; }
         public int idtipomercaderia { get; set; }
         public int idcliente { get; set; }
+          [Export(Cabecera = "Cliente", Orden = 4, Tamanio = 25, TipoExportacion = TipoExportacion.ExcelSimple)]
         public string razonsocial { get; set; }
         public int idclienteconceptocobro { get; set; }
         public int idclientetipounidad { get; set; }
@@ -60,6 +65,7 @@ namespace Web.TYS.Areas.Seguimiento.Models.Seguimiento
         public string direcciondestinatario { get; set; }
         public string razonsocialdestinatario { get; set; }
         public string rucdestinatario { get; set; }
+        [Export(Cabecera = "Destinatario", Orden = 7, Tamanio = 25, TipoExportacion = TipoExportacion.ExcelSimple)]
         public string destinatario { get; set; }
 
         public string dnipersonarecojo { get; set; }
@@ -72,13 +78,17 @@ namespace Web.TYS.Areas.Seguimiento.Models.Seguimiento
         public decimal? pesogeneral { get; set; }
         public decimal? volgeneral { get; set; }
 
+        [Export(Cabecera = "Peso", Orden = 8, Tamanio = 25, TipoExportacion = TipoExportacion.ExcelSimple)]
         public decimal peso { get; set; }
+        [Export(Cabecera = "Volumen", Orden = 9, Tamanio = 25, TipoExportacion = TipoExportacion.ExcelSimple)]
         public decimal volumen { get; set; }
+        [Export(Cabecera = "Bulto", Orden = 10, Tamanio = 25, TipoExportacion = TipoExportacion.ExcelSimple)]
         public int bulto { get; set; }
         public string dni { get; set; }
 
         public decimal? pesovol { get; set; }
         public int? bultogeneral { get; set; }
+        [Export(Cabecera = "Doc Referencia", Orden = 12, Tamanio = 25, TipoExportacion = TipoExportacion.ExcelSimple)]
         public string docgeneral { get; set; }
         public int idvehiculo { get; set; }
         public string chofer { get; set; }
@@ -114,8 +124,9 @@ namespace Web.TYS.Areas.Seguimiento.Models.Seguimiento
         public DateTime? fechafin { get; set; }
         public int _tipoop { get; set; }
         public bool activo { get; set; }
-
+         [Export(Cabecera = "Destino", Orden = 5, Tamanio = 25, TipoExportacion = TipoExportacion.ExcelSimple)]
         public string destino { get; set; }
+           [Export(Cabecera = "Remitente", Orden = 6, Tamanio = 25, TipoExportacion = TipoExportacion.ExcelSimple)]
         public string remitente { get; set; }
         public string tipooperacion { get; set; }
         public int idusuarioregistro { get; set; }
@@ -134,6 +145,7 @@ namespace Web.TYS.Areas.Seguimiento.Models.Seguimiento
         public DateTime? fechadespacho { get; set; }
         public DateTime? fechallegada { get; set; }
         public string horallegada { get; set; }
+         [Export(Cabecera = "Fecha Registro", Orden = 2, Tamanio = 25, TipoExportacion = TipoExportacion.ExcelSimple)]
         public DateTime? fecharegistro { get; set; }
         public DateTime? fechaentregaconciliacion { get; set; }
         public string nummanifiesto { get; set; }
@@ -163,7 +175,21 @@ namespace Web.TYS.Areas.Seguimiento.Models.Seguimiento
         public int idclienteaux { get; set; }
         public int idorigenaux { get; set; }
         public bool facturado { get; set; }
+
+        [Export(Cabecera = "GRR", Orden = 13, Tamanio = 25, TipoExportacion = TipoExportacion.ExcelSimple)]
         public string grr { get; set; }
+
+
+        //public DateTime fechadespacho { get; set; }
+        //public DateTime fechaentrega { get; set; }
+        //public DateTime fecharecojo { get; set; }
+
+        //public decimal peso { get; set; }
+        //public decimal volumen { get; set; }
+        //public int bulto { get; set; }
+
+        [Export(Cabecera = "Estado", Orden = 11, Tamanio = 25, TipoExportacion = TipoExportacion.ExcelSimple)]
+        public string estado { get; set; }
 
 
     }

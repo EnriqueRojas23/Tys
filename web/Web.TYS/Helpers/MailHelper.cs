@@ -36,7 +36,7 @@ public static class MailHelper
                 if (item != "") mail.To.Add(item);
             }
         }
-        mail.From = new MailAddress("sir_serviciotecnico@smartway.com.pe");
+        mail.From = new MailAddress("soporte@tys.com.pe");
         mail.Subject = "TYS: " + subject;
 
         mail.Body = body;
@@ -47,8 +47,9 @@ public static class MailHelper
         mSmtpClient.Host = SMTP_SERVER;
         mSmtpClient.Timeout = 100;
         mSmtpClient.UseDefaultCredentials = true;
-        mSmtpClient.Port = 2525;
-        mSmtpClient.Credentials = new System.Net.NetworkCredential("sir_serviciotecnico@smartway.com.pe", "Root2018");
+        mSmtpClient.Port = 587;
+        mSmtpClient.EnableSsl = true;
+        mSmtpClient.Credentials = new System.Net.NetworkCredential("soporte@tys.com.pe", "soportetys@");
 
         try { mSmtpClient.Send(mail); return true; }
         catch (Exception ex) { return false; }

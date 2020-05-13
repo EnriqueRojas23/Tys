@@ -60,8 +60,11 @@ namespace CommandHandlers.TYS
             }
             else if(command._tipoop == 2) // desvincular comprobante
             {
-                dominio_com = _ComprobanteRepository.Get(x => x.idcomprobantepago == command.idcomprobantepago).LastOrDefault();
+                dominio_com = _ComprobanteRepository.Get(x => x.idpreliquidacion == command.idpreliquidacion).LastOrDefault();
                 dominio_com.idpreliquidacion = null;
+
+                _ComprobanteRepository.SaveChanges();
+                
                     
                 dominio.idestado = command.idestado;
                 dominio.idcomprobantepago = null;

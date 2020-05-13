@@ -155,6 +155,7 @@
     <Compile Include="Seguridad\AsignarRolesUsuariosCommand.cs" />
     <Compile Include="Seguridad\InsertarModificarPaginaCommand.cs" />
     <Compile Include="Seguridad\InsertarModificarRolCommand.cs" />
+    <Compile Include="Seguridad\InsertarModificarAlertaCommand.cs" />
     <Compile Include="Seguridad\InsertarModificarUsuarioCommand.cs" />
     <Compile Include="Seguridad\InsertarModificarSistemaCommand.cs" />
     <Compile Include="Seguridad\Output\AsignarClientesUsuariosOutput.cs" />
@@ -163,6 +164,7 @@
     <Compile Include="Seguridad\Output\InsertarModificarPaginaOutput.cs" />
     <Compile Include="Seguridad\Output\InsertarModificarRolOutput.cs" />
     <Compile Include="Seguridad\Output\InsertarModificarSistemaOutput.cs" />
+    <Compile Include="Seguridad\Output\InsertarModificarAlertaOutput.cs" />
     <Compile Include="Seguridad\Output\InsertarModificarUsuarioOutput.cs" />
     <Compile Include="Seguridad\Output\ResetarPasswordOutput.cs" />
     <Compile Include="Seguridad\ResetarPasswordCommand.cs" />

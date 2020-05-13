@@ -85,6 +85,7 @@ namespace Web.TYS.DataAccess.Seguridad
                 modelo.Usr_bool_bloqueado  = false;
  
             }
+            string[] i =  modelo.idclientes;
             Mapper.CreateMap<InsertarModificarUsuarioModel, InsertarModificarUsuarioCommand>();
             var command = Mapper.Map<InsertarModificarUsuarioModel, InsertarModificarUsuarioCommand>(modelo);
             var res = (InsertarModificarUsuarioOutput)command.Execute(context);
@@ -230,6 +231,18 @@ namespace Web.TYS.DataAccess.Seguridad
             return result.Mensaje;
         }
 
+        public static int InsertarModificarAlerta(InsertarModificarAlertaModel alerta)
+        {
+            var parameter = new InsertarModificarAlertaCommand() { 
+                estados = alerta.estados,
+                idperiodicidad = alerta.idperiodicidad,
+                usr_int_id = alerta.usr_int_id,
+                idmedio = alerta.idmedio
+            };
+            var result = (InsertarModificarAlertaOutput)parameter.Execute();
+            return result.idalerta.Value;
+        }
+
 
         public static string ResetarContraseña(ControllerContext context, int pusr_int_id)
         {
@@ -333,7 +346,7 @@ namespace Web.TYS.DataAccess.Seguridad
             sb.Append("</tbody>");
             sb.Append("</table>");
 
-            bool correo = MailHelper.EnviarMail(res.Correo, "[NOL] Envío de password generado", sb.ToString(), true);
+            bool correo = MailHelper.EnviarMail(res.Correo, "[TYS] Envío de password generado", sb.ToString(), true);
             return res.PasswordClaro;
         }
         public static  CambiarContrasenaResult   CambiarPassword(int idUsuario, string Password)

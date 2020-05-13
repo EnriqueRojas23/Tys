@@ -15,7 +15,9 @@ $(document).ready(function () {
 
     $("html, body").animate({ scrollTop: "100px" });
     inicializandoEventosModalDocumentos();
-
+    $('#btnAgregarArchivo').click(function () {
+        var item = $('#gridordenes').jqGrid('getGridParam', 'selrow'); agregararchivo(item);
+    });
     $('#dtpfechaini .input-group.date').datepicker({
         todayBtn: "linked",
         keyboardNavigation: false,
@@ -146,6 +148,7 @@ function CargaListaots() {
         emptyrecords: 'No se encontraron registros',
         viewrecords: true,
         editable: false,
+        multiselect: false,
 
         jsonReader:
         {
@@ -255,8 +258,9 @@ function editarboleta(idpreliquidacion) {
             .done(function (data) {
                 if (data.res) {
                     var id = data.idcomprobante;
-                    $("#modalcontainerL").modal("hide");
-                    reload();
+                     $("#modalcontainerL").modal("hide");
+
+                     reload();
 
                      var url = "http://104.36.166.65/webreports/facturaelectronica.aspx?idcomprobante=" + String(id) + "&valorigv=" + data.valorigv;
                      window.open(url);
@@ -524,6 +528,12 @@ function editarcomprobante(idpreliquidacion) {
 function displayButtonAnular(cellvalue, options, rowObject) {
     return "<div class='btn-group'><button type='button' class='btn-primary btn btn-xs btn-outline' onclick='downloadFile(" + cellvalue + ");return false;' href='#' > Descargar  <i class='fa fa-download'></i></button>";
 }
+function downloadFile(archivo) {
+
+    var url = UrlHelper.Action("DownloadArchivo", "Liquidacion", "Liquidacion") + "?idarchivo=" + archivo;
+    //var url = $('#tblDocumentos').data("urldwn") + "?archivo=" + archivo;
+    window.location = url;
+}
 function configurarGrillaDetalle() {
 
     var grilladetalle = $("#griddetallefactura");
@@ -693,4 +703,51 @@ function irEliminar(id) {
 
 
 
+}
+
+function agregararchivo(id) {
+    var vUrl = UrlHelper.Action("SubirArchivo", "Liquidacion", "Liquidacion") + "?idorden=" + id;
+    $.get(vUrl, function (data) {
+        $("#modalcontent").html(data);
+        $("#modalcontainer").modal("show");
+        $("#error").hide();
+
+
+        $(function () {
+            $('#frmDocumentacion').submit(function (event) {
+                var dataString;
+                event.preventDefault();
+                var action = $("#frmDocumentacion").attr("action");
+                if ($("#frmDocumentacion").attr("enctype") == "multipart/form-data") {
+                    dataString = new FormData($("#frmDocumentacion").get(0));
+                    contentType = false;
+                    processData = false;
+                }
+                $.ajax({
+                    url: action,
+                    type: 'POST',
+                    dataType: 'json',
+                    data: dataString,
+                    contentType: contentType,
+                    processData: processData,
+                }).done(function (data) {
+                    if (data.res) {
+                        $("#modalcontainer").modal("hide");
+                        swal({
+                            title: "Registro Exitoso",
+                            text: data.msj,
+                            type: "success"
+                        });
+                    }
+                    else {
+                        $("#error").fadeIn(2000).fadeOut(5000);
+                    }
+                }).fail(function () {
+                    console.log("error");
+                }).always(function () {
+                    console.log("complete");
+                });
+            });
+        });
+    });
 }

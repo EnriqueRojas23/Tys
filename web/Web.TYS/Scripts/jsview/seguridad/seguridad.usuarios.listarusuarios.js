@@ -1,9 +1,4 @@
-/*
-archivo: seguridad.usuarios.listarusuarios
-*/
-
 var listarusuario_frmsearch = "#form";
-
 var gridlistausuario = "#gridlistausuario";
 var gridlistausuariopager = "#gridlistausuariopager";
 
@@ -36,6 +31,7 @@ function configurarChosenSelect() {
         $(selector).chosen(config[selector]);
     }
 }
+
 function btnActualizar_onclick(obj, event) {
     var url = $(obj).data("url");
     var dataModelo = $('form').serialize();
@@ -54,12 +50,12 @@ function btnActualizar_onclick(obj, event) {
 
 
 
-    if (tipoacceso == "" || usrred == "" || nombre == "" || apellido == "" ) {
+    if (tipoacceso === "" || usrred === "" || nombre === "" || apellido === "" ) {
                
         swal({ title: "Error", text: "Debe completar todos los datos correctamente", type: "error", confirmButtonText: "Aceptar" });
         if(tipoacceso == 'EX')
         {
-            if(email == ""|| validationEmail($('#Usr_str_email'))==false)
+            if(email == ""|| validationEmail($('#Usr_str_email'))===false)
             {
                swal({ title: "Error", text: "Debe completar todos los datos correctamente", type: "error", confirmButtonText: "Aceptar" });
             }
@@ -274,8 +270,17 @@ function modificarUsuario(obj, id) {
     $.get(url, function (data) {
         $("#modalcontent").html(data);
         $("#modalcontainer").modal("show");
+
+
+
         configurarPopUpEditar();
         configurarChosenSelect();
+
+
+        $("#ddlclientes").val($("#clientes").val().split(','));
+        $("#ddlclientes").trigger('chosen:updated');
+
+
         $('#btnActualizar').click(function (event) { btnActualizar_onclick(this, event); });
     });
 }
@@ -487,10 +492,10 @@ function bottonaAcciones_formatter(cellvalue, options, rowObject)
     $(btnGridM).attr("onclick", "modificarUsuario(this, " + cellvalue + ")");
     $(btnGridM).show();
 
-    //var btnGridR = $("#templatereset").clone(false)[0];
-    //$(btnGridR).attr("id", "btngrid_reset_" + cellvalue);
-    //$(btnGridR).attr("onclick", "resetearPwd(this, " + cellvalue + ")");
-    //$(btnGridR).show();
+    var btnGridR = $("#templatereset").clone(false)[0];
+    $(btnGridR).attr("id", "btngrid_reset_" + cellvalue);
+    $(btnGridR).attr("onclick", "resetearPwd(this, " + cellvalue + ")");
+    $(btnGridR).show();
 
 
     var btnGridT = $("#templatetrash").clone(false)[0];
@@ -505,10 +510,10 @@ function bottonaAcciones_formatter(cellvalue, options, rowObject)
     $(btnGridTD).show();
 
 
-    //var btnGridAS= $("#templateasociar").clone(false)[0];
-    //$(btnGridAS).attr("id", "btngrid_des_" + cellvalue);
-    //$(btnGridAS).attr("onclick", "asociarcliente(this, " + cellvalue + ")");
-    //$(btnGridAS).show();
+    var btnGridAS= $("#templateasociar").clone(false)[0];
+    $(btnGridAS).attr("id", "btngrid_des_" + cellvalue);
+    $(btnGridAS).attr("onclick", "asociarcliente(" + cellvalue + ")");
+    $(btnGridAS).show();
 
 
 
@@ -517,44 +522,32 @@ function bottonaAcciones_formatter(cellvalue, options, rowObject)
 
     acciones.append(control);
     acciones.append(btnGridM.outerHTML);
-    //acciones.append(btnGridR.outerHTML);
+    
     acciones.append(btnGridT.outerHTML);
     acciones.append(btnGridTD.outerHTML);
-    //acciones.append(btnGridAS.outerHTML);
+    acciones.append(btnGridAS.outerHTML);
+    acciones.append(btnGridR.outerHTML);
 
     var htmlcontrol = acciones[0].outerHTML;
-    return htmlcontrol
+    return htmlcontrol;
 }
-function asociarcliente(obj,id)
+function asociarcliente(id)
 {
-    //var vUrl = $(obj).data("url");
-   
+        
+    var grilla = $(gridlistausuario);
+    var url = grilla.data("alertas") + "?id=" + id;
+    //$(window).attr("location", vUrl);
 
-       var vurl = UrlHelper.Action("AsociarCliente", "Usuarios", "seguridad") + "?id=" + id // $("#formsubmit").attr("action");
-        $.get(vurl, function (data) {
+
+    $.get(url, function (data) {
         $("#modalcontent").html(data);
         $("#modalcontainer").modal("show");
-
-        var dlbAccesorios = $('select[name="ClientesSeleccionados"]').bootstrapDualListbox({
-
-            nonSelectedListLabel: 'Disponibles',
-            selectedListLabel: 'Seleccionados',
-            showFilterInputs: true,
-            moveOnSelect: true,
-        });
-
-        $(formsubmit).on('submit', function (event) {
-            // var ids = $(gridrolesasignados).jqGrid('getDataIDs');
-            // $("#idsRolesDestino").val(ids);
-        });
-        //configurarPopUpNuevo();
-        //$('#btnRegistrar').click(function (event) { btnRegistrar_onclick(this, event); });
+        configurarPopUpEditar();
+        configurarChosenSelect();
+        $('#btnActualizarAlerta').click(function (event) { btnActualizarAlerta_onclick(this, event); });
     });
 
 
-
-
-       alert(vUrl);
 }
 
 function configurarGrilla_RolesDisponibles()
@@ -774,4 +767,73 @@ function recargar()
     var dataModelo = $('form').serialize();
     var vdataurl = $(grilla).data("dataurl");
     $(grilla).jqGrid('setGridParam', { url: vdataurl, postData:getDataForm()  }).trigger('reloadGrid');
+}
+
+function btnActualizarAlerta_onclick(obj, event) {
+
+    var url = $(obj).data("url");
+    
+    var dataModelo = $('form').serialize();
+
+
+
+    //validation($('#Usr_str_email'));
+    //validation($('#Usr_str_red'));
+    //validation($('#Usr_str_nombre'));
+    //validation($('#Usr_str_apellidos'));
+
+
+
+    //if (tipoacceso === "" || usrred === "" || nombre === "" || apellido === "") {
+
+    //    swal({ title: "Error", text: "Debe completar todos los datos correctamente", type: "error", confirmButtonText: "Aceptar" });
+    //    if (tipoacceso == 'EX') {
+    //        if (email == "" || validationEmail($('#Usr_str_email')) === false) {
+    //            swal({ title: "Error", text: "Debe completar todos los datos correctamente", type: "error", confirmButtonText: "Aceptar" });
+    //        }
+    //    }
+    //}
+    //else {
+
+
+        swal({
+            title: "Actualizar Alerta",
+            text: "¿Está seguro que desea actualizar esta Alerta?",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: 'Actualizar',
+            closeOnConfirm: false,
+            closeOnCancel: true
+        },
+
+        function (isConfirm) {
+            if (isConfirm) {
+                $.ajax(
+                        {
+                            type: "POST",
+                            async: true,
+                            url: url,
+                            data: dataModelo,
+                            success: function (data) {
+                                if (data.res == "3") {
+                                    swal({ title: "Error!", text: "El usuario ya existe", type: "error", confirmButtonText: "Aceptar" });
+                                }
+                                else if (data.res == "1") {
+                                    swal({ title: "Correcto", text: "Se actualizó correctamente", type: "success", confirmButtonText: "Aceptar" });
+                                    $("#modalcontainer").modal("hide");
+                                    reload();
+
+                                }
+                            },
+                            error: function (request, status, error) {
+                                console.log(error.toString());
+                                swal({ title: "Error!", text: "Ha ocurrido un error.", type: "error", confirmButtonText: "Aceptar" });
+                            }
+                        });
+            }
+        });
+  //  }
+
 }

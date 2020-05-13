@@ -31,7 +31,7 @@
 <button id="templateasociar" style="display:none" title="Asociar Cliente" data-url="@Url.Action("AsociarCliente", "Usuarios", new { area = "seguridad" })" class="btn btn-success btn-xs btn-outline"><i class="fa fa-user-plus"></i></button>
 @*<form id="formUsuario" role="form" method="post" >*@
     <div class="row wrapper border-bottom white-bg page-heading">
-        <div class="col-lg-5">
+        <div class="col-lg-10">
             <h2>@ViewBag.Title</h2>
             <ol class="breadcrumb">
               
@@ -46,83 +46,88 @@
     </div>
 
     <div class="wrapper wrapper-content animated fadeInRight">
-    <div class="row">
-        
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <a class="collapse-link">
-                        <i class="fa fa-chevron-up"></i>
-                    </a><strong><small>Acciones y Búsqueda</small></strong>
-                    <div class="ibox-tools">
-                       
-                    </div>
-                </div>
-                <div class="ibox-content">
-                    <div class="row">
-                        <div class="form-group">
-                       
+        <div class="row">
+            <div class="col-md-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a><strong><small>Acciones y Búsqueda</small></strong>
+                        <div class="ibox-tools">
+
                         </div>
                     </div>
-                    <br />
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                @*  @Html.Partial("_ListarUsuariosBusqueda", Model)*@
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="form-group">
 
-                                <label class="col-md-1 control-label">Nombres:</label>
-                                <div class="col-md-3">
-                                    @Html.TextBoxFor(model => model.NombreCompleto, new { @class = "form-control" })
-                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label class="col-md-1 control-label">Nombres:</label>
+                                    <div class="col-md-3">
+                                        @Html.TextBoxFor(model => model.NombreCompleto, new { @class = "form-control" })
+                                    </div>
 
-                                <label class="col-md-1 control-label">Tipo:</label>
-                                <div class="col-md-3">
-                                    @Html.DropDownListFor(model => model.idtipo, (SelectList)ViewData["ListadoTipos"], "[Todos los Tipos]", new { @class = "form-control" })
-                                </div>
-                                <label class="col-md-1 control-label">Cliente:</label>
-                                <div class="col-md-3">
-                                    @Html.DropDownListFor(model => model.idcliente, (SelectList)ViewData["ListadoClientes"], "[Todos los Clientes]", new { @class = "form-control" })
-                                </div>
-                                @*<div class="col-md-3">
+                                    <label class="col-md-1 control-label">Tipo:</label>
+                                    <div class="col-md-3">
+                                        @Html.DropDownListFor(model => model.idtipo, (SelectList)ViewData["ListadoTipos"], "[Todos los Tipos]", new { @class = "form-control" })
+                                    </div>
+                                    <label class="col-md-1 control-label">Cliente:</label>
+                                    <div class="col-md-3">
+                                        @Html.DropDownListFor(model => model.idcliente, (SelectList)ViewData["ListadoClientes"], "[Todos los Clientes]", new { @class = "form-control" })
+                                    </div>
+                                    @*<div class="col-md-3">
                                     @Html.DropDownListFor(model => model.IdRol, Model.ListaRoles, "[Todos los Roles]", new { @class = "form-control" })
                                 </div>*@
-                                <div class="col-md-4">
-                                    <button id='btnBuscar' type="button" onclick="buscarusuarios()" class="btn btn-primary">   Buscar </button>
-                                        
+                                    <div class="col-md-4">
+                                        <button id='btnBuscar' type="button" onclick="buscarusuarios()" class="btn btn-primary">   Buscar </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a><strong><small>Listado de Usuarios</small></strong>
+                                <div class="ibox-tools">
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button id='btnNuevo' type="button" data-url="@Url.Action("InsertarModal", "Usuarios", new { area = "seguridad" })" class="btn btn-primary">      <i class="fa fa-user"></i>        Nuevo Usuario</button>
+                                    </div>
+                                    <div class="col-md-12">
+
+                                        <div class="form-group">
+                                            <div class="jqGrid_wrapper">
+                                                <table id="gridlistausuario" data-edit="@Url.Action("ModificarModal", "Usuarios", new { area = "seguridad" })" data-dataurl="@Url.Action("JsonListarUsuarios", "Usuarios", new { area = "Seguridad" })" data-datamodel="@Url.Action("ListarUsuariosModel", "Usuarios", new { area = "Seguridad" })"
+                                                       data-urlasig="@Url.Action("AsignarRolesModal", "Usuarios", new { area = "Seguridad" })"
+                                                       data-alertas="@Url.Action("ConfigurarAlertasModal", "Usuarios", new { area = "Seguridad" })"></table>
+                                                <div id="gridlistausuariopager"></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-                    </div>
+                </div>
             </div>
 
+        </div>
     </div>
-    <div class="row">
-        <div class="ibox float-e-margins">
-            <div class="ibox-title">
-                <a class="collapse-link">
-                    <i class="fa fa-chevron-up"></i>
-                </a><strong><small>Listado de Usuarios</small></strong>
-                <div class="ibox-tools">
-                </div>
-            </div>
-            <div class="ibox-content">
-                <div class="row">
-                    <div class="col-md-12">
-                        <button id='btnNuevo' type="button" data-url="@Url.Action("InsertarModal", "Usuarios", new { area = "seguridad" })" class="btn btn-primary">      <i class="fa fa-user"></i>        Nuevo Usuario</button>
-                    </div>
-                    <div class="col-md-12">
-
-                        <div class="form-group">
-                            <div class="jqGrid_wrapper">
-                                <table id="gridlistausuario" data-edit="@Url.Action("ModificarModal", "Usuarios", new { area = "seguridad" })" data-dataurl="@Url.Action("JsonListarUsuarios", "Usuarios", new { area = "Seguridad" })" data-datamodel="@Url.Action("ListarUsuariosModel", "Usuarios", new { area = "Seguridad" })" data-urlasig="@Url.Action("AsignarRolesModal", "Usuarios", new { area = "Seguridad" })" ></table>
-                                <div id="gridlistausuariopager"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-</div>

@@ -2934,7 +2934,6 @@ namespace Web.TYS.Areas.Seguimiento.Controllers
 
                 numero = numero + 1;
             }
-
             return Json(new { res = true, guias = guias.ToArray() }, JsonRequestBehavior.AllowGet);
         }
 
@@ -3379,7 +3378,24 @@ namespace Web.TYS.Areas.Seguimiento.Controllers
 
         public ActionResult Vehiculo()
         {
+
+            //var estados_aux = new List<ListarEstadoDto> ord;
+
             var estados = DataAccess.Seguimiento.SeguimientoData.GetListarEstados(Convert.ToInt16(Constantes.MaestroTablas.Vehiculo));
+
+
+ //           estados.ForEach(x =>
+ //           {
+ //               if (x.idestado == (Int32)Constantes.EstadoOT.PendienteProgramacion
+ //                   || x.idestado == (Int32)Constantes.EstadoOT.PendienteInicioCarga
+ //                   || x.idestado == (Int32)Constantes.EstadoOT.PendienteDespacho
+ //                   || x.idestado == (Int32)Constantes.EstadoOT.PendienteRecepcionIntermedia
+ //)
+ //               {
+
+ //               }
+ //           });
+
             var listaestados = new SelectList(
                 estados,
                 "idestado",
@@ -3860,14 +3876,87 @@ namespace Web.TYS.Areas.Seguimiento.Controllers
         #endregion Chofer
 
         #region SeguimientoCliente
+        [AllowAnonymous]
+        public ActionResult SeguimientoClienteLibre()
+        {
+
+            
+            
+      
+
+
+
+
+
+            var estacion = DataAccess.Seguimiento.SeguimientoData.GetListarEstacionOrigen().ToList();
+            var listaestacion = new SelectList(
+               estacion,
+               "idestacion",
+               "estacionorigen");
+            ViewData["ListaEstacion"] = listaestacion;
+
+            OrdenTrabajoModel model = new OrdenTrabajoModel();
+
+
+
+       
+
+            model.fechainicio = DateTime.Now.Subtract(TimeSpan.FromDays(31));
+            model.fechafin = DateTime.Now;
+
+            return View(model);
+        }
+
         public ActionResult SeguimientoCliente()
         {
-            var clientes = GetListarClientes_Cache();
-            var listaclientes = new SelectList(
-                clientes,
-                "idcliente"
-                , "razonsocial"
+
+            //      var usuario = DataAccess.Seguridad.UsuariosData.ObtenerUsuario(Usuario.Idusuario);
+            var estados = new List<ListarEstadoDto>();
+
+            estados.Add(new ListarEstadoDto() { idestado = 1, estado = "Por Despachar" });
+            estados.Add(new ListarEstadoDto() { idestado = 2, estado = "Por Entregar" });
+            estados.Add(new ListarEstadoDto() { idestado = 3, estado = "Entregado" });
+
+          //  var estados = DataAccess.Seguimiento.SeguimientoData.GetListarEstados((Int32)Constantes.MaestroTablas.OT);
+            var listaestados = new SelectList(
+                estados,
+                "idestado"
+                , "estado"
                 );
+            ViewData["ListaEstados"] = listaestados;
+
+
+            var ubigeos = DataAccess.Seguimiento.SeguimientoData.GetListarUbigeo();
+            var listaUbigeos = new SelectList(
+             ubigeos,
+             "iddistrito",
+             "ubigeo");
+            ViewData["ListaUbigeo"] = listaUbigeos;
+
+
+            var usuario = DataAccess.Seguridad.UsuariosData.ObtenerUsuario(Convert.ToInt32(Usuario.Idusuario));
+            string idscliente = "62,63";
+            idscliente = usuario.idclientes;
+            string[] rpm = idscliente.Split(',');
+
+            List<ClienteModel> finalclientes = new List<ClienteModel>();
+
+            var clientes = GetListarClientes_Cache();
+
+
+           
+
+            foreach (var cliente in rpm)
+	        {
+		            finalclientes.Add(clientes.Where(x=>x.idcliente == Convert.ToInt32(cliente)).Single());
+	        }
+
+            var listaclientes = new SelectList(
+               finalclientes,
+               "idcliente"
+               , "razonsocial"
+               );
+
             ViewData["ListaClientes"] = listaclientes;
 
             var estacion = DataAccess.Seguimiento.SeguimientoData.GetListarEstacionOrigen().ToList();
@@ -3879,7 +3968,7 @@ namespace Web.TYS.Areas.Seguimiento.Controllers
 
             OrdenTrabajoModel model = new OrdenTrabajoModel();
 
-            var usuario = DataAccess.Seguridad.UsuariosData.ObtenerUsuario(Convert.ToInt32(Usuario.Idusuario));
+           
 
             if (usuario.idestacionorigen != null)
                 model.idestacion = usuario.idestacionorigen.Value;
@@ -3891,15 +3980,105 @@ namespace Web.TYS.Areas.Seguimiento.Controllers
         }
 
         public JsonResult JsonGetListarOrdenes(string numcp, string fecinicio
-          , string fecfin,string grr, string sidx, string sord, int page, int rows)
+          , string fecfin, string grr, int? idcliente, int? idestado, int? iddestino, string docgeneral, string sidx, string sord, int page, int rows)
         {
             if (numcp == string.Empty) numcp = null;
             if (fecinicio == string.Empty) fecinicio = null;
             if (fecfin == string.Empty) fecfin = null;
 
-            string idscliente = "62,63";
 
-            var listado = OrdenData.GetListarOrdenesCliente(numcp, fecinicio, fecfin, idscliente,grr);
+            var usuario = DataAccess.Seguridad.UsuariosData.ObtenerUsuario(Usuario.Idusuario);
+
+            string idscliente = "62,63";
+            if (idcliente == null)
+            {
+                idscliente = usuario.idclientes;
+            }
+            else
+            {
+                idscliente = idcliente.ToString();
+            }
+
+            var listado = OrdenData.GetListarOrdenesCliente(numcp, fecinicio, fecfin, idscliente, grr, idestado, iddestino, docgeneral);
+
+            var listadoTotal = listado;
+            int pageindex = page - 1;
+            int pagesize = rows;
+
+            int totalrecord = listadoTotal.Count();
+            var totalpage = (int)Math.Ceiling((float)totalrecord / (float)rows);
+
+            if (sidx != "" && sord != "")
+            {
+                sidx = sidx.Split(' ')[0];
+                if (sord.ToUpper() == "DESC")
+                {
+                    var parametro = sidx;
+                    var propertyInfo = typeof(OrdenTrabajoModel).GetProperty(parametro);
+                    listado = listado.OrderByDescending(x => propertyInfo.GetValue(x, null)).ToList();
+                }
+                else
+                {
+                    var parametro = sidx;
+                    var propertyInfo = typeof(OrdenTrabajoModel).GetProperty(parametro);
+                    listado = listado.OrderBy(x => propertyInfo.GetValue(x, null)).ToList();
+                }
+            }
+
+            listado = listado.Skip(pageindex * pagesize).Take(pagesize).ToList();
+
+            var jsonData = new
+            {
+                total = totalpage,
+                page,
+                records = totalrecord,
+                rows = listado
+            };
+
+            return Json(jsonData, JsonRequestBehavior.AllowGet);
+        }
+
+
+        public ActionResult ExportarOrdenes(string numcp, string fecinicio
+          , string fecfin, string grr, int? idcliente, int? idestado, int? iddestino, string docgeneral)
+        {
+
+            var usuario = DataAccess.Seguridad.UsuariosData.ObtenerUsuario(Usuario.Idusuario);
+
+            if (numcp == string.Empty) numcp = null;
+            if (fecinicio == string.Empty) fecinicio = null;
+            if (fecfin == string.Empty) fecfin = null;
+
+            string idscliente = "62,63";
+            if (idcliente == null)
+            {
+                idscliente = usuario.idclientes;
+            }
+            else
+            {
+                idscliente = idcliente.ToString();
+            }
+            //var result = DataAccess.Liquidacion.LiquidacionData.GetListarLiquidacionOperaciones(idcliente, iddestinatario, numcp, grr, fechainicio, fechafin, diastranscurridos);
+            var result = OrdenData.GetListarOrdenesCliente(numcp, fecinicio, fecfin, idscliente, grr, idestado, iddestino,docgeneral);
+            var output = Utilidades.Exportar<OrdenTrabajoModel>(result);
+            return File(output.ToArray(), "application/vnd.ms-excel", "ListadoOrdenes_" + DateTime.Now.ToString("yyyyMMddhhmmss") + ".xls");
+        }
+
+        [AllowAnonymous]
+        public JsonResult JsonGetListarOrdenesLibre(string numcp, string sidx, string sord, int page, int rows)
+        {
+          
+
+
+            //var usuario = DataAccess.Seguridad.UsuariosData.ObtenerUsuario(Usuario.Idusuario);
+
+            string fecini = null;
+            if(numcp == string.Empty)
+            {
+                fecini = "";
+            }
+
+            var listado = OrdenData.GetListarOrdenesCliente(numcp, null, null, fecini, null, null, null, null);
 
             var listadoTotal = listado;
             int pageindex = page - 1;

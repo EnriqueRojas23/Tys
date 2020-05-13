@@ -43,7 +43,13 @@ namespace Web.TYS.Areas.Seguridad.Models.Usuarios
 
         [Display(Name = "Tipo de Acceso:")]
         public string usr_str_tipoacceso { get; set; }
+        
+        
         public int? idcliente { get; set; }
+
+        public string[] idclientes { get; set; }
+        public string clientes { get; set; }
+
         public int? idproveedor { get; set; }
         public int? idprovincia { get; set; }
         public int? idestacionorigen { get; set; }
@@ -92,6 +98,8 @@ namespace Web.TYS.Areas.Seguridad.Models.Usuarios
                 return lista;
             }
         }
+   
+
 
 
         public SelectList ListaSistemasActivos

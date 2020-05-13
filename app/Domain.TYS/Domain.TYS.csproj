@@ -97,6 +97,7 @@
     <Compile Include="Seguridad\SistemaRol.cs" />
     <Compile Include="Seguridad\SistemaRolPagina.cs" />
     <Compile Include="Seguridad\SistemaRolUsuario.cs" />
+    <Compile Include="Seguridad\Alerta.cs" />
     <Compile Include="Seguridad\Usuario.cs" />
     <Compile Include="Seguridad\UsuarioCliente.cs" />
   </ItemGroup>

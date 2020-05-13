@@ -110,6 +110,7 @@
     <Compile Include="Seguridad\InsertarModificarPaginaHandler.cs" />
     <Compile Include="Seguridad\InsertarModificarRolHandler.cs" />
     <Compile Include="Seguridad\InsertarModificarSistemaHandler.cs" />
+    <Compile Include="Seguridad\InsertarModificarAlertaHandler.cs" />
     <Compile Include="Seguridad\InsertarModificarUsuarioHandler.cs" />
     <Compile Include="Seguridad\ResetarPasswordHandler.cs" />
   </ItemGroup>

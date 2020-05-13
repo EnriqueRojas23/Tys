@@ -2,11 +2,9 @@
 using AutoMapper;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Web.Common.Controllers;
 using Web.Common.Extensions;
-using Web.Common.HtmlHelpers;
 using Web.TYS.Areas.Seguridad.Models.Usuarios;
 using Web.TYS.DataAccess;
 using Componentes.Common.Utilidades;
@@ -14,7 +12,7 @@ using Web.TYS.DataAccess.Seguridad;
 using QueryContracts.TYS.Seguridad.Result;
 using System.Configuration;
 using QueryContracts.TYS.Account.Results;
-using Web.TYS.Areas.Facturacion.Models;
+
 
 
 
@@ -186,9 +184,25 @@ namespace Web.TYS.Areas.Seguridad.Controllers
 
  
         }
-       
 
         public ActionResult Modificar(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                this.Error(new ArgumentNullException("No se ha ingresado el id del usuario"));
+                return RedirectToAction("ListarUsuarios", "Usuarios");
+            }
+            if (!Utilidades.IsNumeric(id))
+            {
+                this.Error(new InvalidCastException("El id ingresado no cumple el formato numerico requerido"));
+                return RedirectToAction("ListarUsuarios", "Usuarios");
+            }
+
+            return View(GetInsertarModificarUsuarioModel(int.Parse(id)));
+        }
+
+
+        public ActionResult InsertarModificarAlerta(string id)
         {
             if (string.IsNullOrEmpty(id))
             {
@@ -254,6 +268,8 @@ namespace Web.TYS.Areas.Seguridad.Controllers
                 var resusuario = AccountData.ObtenerUsuario(id.Value, ref res);
                 Mapper.CreateMap<ObtenerUsuarioResult, InsertarModificarUsuarioModel>();
                 modelo = Mapper.Map<ObtenerUsuarioResult, InsertarModificarUsuarioModel>(resusuario);
+              
+                
             }
             else
             {
@@ -333,7 +349,78 @@ namespace Web.TYS.Areas.Seguridad.Controllers
             List<SelectListItem> ListaAccesorios = new List<SelectListItem>();
             return ListaAccesorios.AsEnumerable();
         }
-     
+        public PartialViewResult ConfigurarAlertasModal(int? id)
+        {
+
+            var clientes = DataAccess.Seguimiento.SeguimientoData.GetListarClientes(null, false).ToList();
+            var listaclientes = new SelectList(
+                   clientes,
+                   "idcliente",
+                   "razonsocial");
+            ViewData["ListadoClientes"] = listaclientes;
+
+
+            var provincias = DataAccess.Seguimiento.SeguimientoData.GetListarProvincia(null).ToList();
+            var listaprovincias = new SelectList(
+                   provincias,
+                   "idprovincia",
+                   "provincia");
+            ViewData["ListadoProvincias"] = listaprovincias;
+
+
+            var estacion = DataAccess.Seguimiento.SeguimientoData.GetListarEstacionOrigen().ToList();
+            var listaestacion = new SelectList(
+               estacion,
+               "idestacion",
+               "estacionorigen");
+            ViewData["ListaEstacion"] = listaestacion;
+
+            var modelo = new InsertarModificarAlertaModel();
+            //mapeando valores en el modelo
+            if (id != null)
+            {
+                var result = DataAccess.Seguridad.UsuariosData.ObtenerUsuario(id);
+               
+                modelo.Usr_str_red = result.usr_str_red;
+                modelo.usr_int_id = result.usr_int_id;
+          
+
+            }
+
+            return PartialView("_ConfigurarAlertas", modelo);
+        }
+
+        [HttpPost]
+        public ActionResult InsertarModificarAlerta(InsertarModificarAlertaModel modelo)
+        {
+            modelo.estados = string.Empty;
+
+            if (ModelState.IsValid)
+            {
+
+                if (modelo.Cerrado) 
+                    modelo.estados = modelo.estados + (int) Constantes.EstadoOT.Cerrado; 
+                if(modelo.EnRuta)
+                    modelo.estados = modelo.estados + "," + (int)Constantes.EstadoOT.PendienteEntrega;
+                if (modelo.Facturado)
+                    modelo.estados = modelo.estados + "," + (int)Constantes.EstadoOT.Facturado;
+                if (modelo.pendienteDespacho)
+                    modelo.estados = modelo.estados + "," + (int)Constantes.EstadoOT.PendienteDespacho;
+                if (modelo.Entregado)
+                    modelo.estados = modelo.estados + "," + (int)Constantes.EstadoOT.PendienteRetornoDocumentario;
+                if (modelo.pendienteInicioCarga)
+                    modelo.estados = modelo.estados + "," + (int)Constantes.EstadoOT.PendienteInicioCarga;
+                if (modelo.Liquidado)
+                    modelo.estados = modelo.estados + "," + (int)Constantes.EstadoOT.PendienteFacturacion;
+                if (modelo.pendienteProgramacion)
+                    modelo.estados = modelo.estados + "," + (int)Constantes.EstadoOT.PendienteProgramacion;
+ 
+
+                var res = UsuariosData.InsertarModificarAlerta(modelo);
+                return Json(new { res = true }, JsonRequestBehavior.AllowGet);
+            }
+            return View(modelo);
+        }
         public PartialViewResult ModificarModal(int? id)
         {
 
@@ -365,6 +452,22 @@ namespace Web.TYS.Areas.Seguridad.Controllers
             if (id != null)
             {
                 var result = DataAccess.Seguridad.UsuariosData.ObtenerUsuario(id);
+
+                if(result.idclientes != null)
+                {
+                    string[] ids = result.idclientes.Split(',');
+
+                    modelo.idclientes = new string[ids.Length];
+                    int index = 0;
+                    foreach (var item in ids)
+                    {
+                        modelo.idclientes[index] = item;
+                        index++;
+                    }
+                }
+
+       
+                modelo.clientes = result.idclientes;
                 modelo.Usr_str_nombre = result.usr_str_nombre;
                 modelo.Usr_str_apellidos = result.usr_str_apellidos;
                 modelo.Usr_str_email = result.usr_str_email;

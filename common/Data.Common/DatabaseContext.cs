@@ -15,11 +15,13 @@
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            modelBuilder.Conventions.Remove<IncludeMetadataConvention>();
+            //modelBuilder.Conventions.Remove<IncludeMetadataConvention>();
             modelBuilder.Conventions.Remove<ColumnTypeCasingConvention>();
            
             RegisterEntitiesFromAssembly(modelBuilder, AppDomain.CurrentDomain.LoadFromModule("Data"));
             RegisterEntitiesFromAssembly(modelBuilder, AppDomain.CurrentDomain.Load("Data.Common"));
+            
+            
         }
 
         private static void RegisterEntitiesFromAssembly(DbModelBuilder modelBuilder, Assembly assembly)

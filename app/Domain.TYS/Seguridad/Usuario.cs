@@ -10,7 +10,7 @@ namespace Domain.TYS.Seguridad
 
         public string usr_str_red { get; set; }
         public string usr_str_recordarpwd { get; set; }
-        //public string usr_str_password { get; set; }
+        
         public string usr_str_nombre { get; set; }
         public string usr_str_email	 { get; set; }
         public string usr_str_apellidos { get; set; }
@@ -28,7 +28,8 @@ namespace Domain.TYS.Seguridad
         public int? idcliente { get; set; }
         public int? idproveedor { get; set; }
         public int? idestacionorigen { get; set; }
-        public int? idprovincia { get; set; }   
+        public int? idprovincia { get; set; }
+        public string idclientes { get; set; }
 
     }
 }

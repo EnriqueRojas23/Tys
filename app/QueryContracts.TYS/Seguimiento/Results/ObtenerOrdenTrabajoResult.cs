@@ -58,7 +58,6 @@ namespace QueryContracts.TYS.Seguimiento.Results
         public string chofer {get;set;}
         public string placa { get; set;  }
         public int bulto { get; set; }
-
         public int? idtipooperacion { get; set; }
         public int? idagencia { get; set; }
         public int? idestaciondestino { get; set; }

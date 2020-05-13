@@ -27,10 +27,6 @@ namespace CommandHandlers.TYS.Seguridad
             if (dominio_usuario == null) throw new UsuarioException("No se encontro el usuario");
 
             dominio_usuario.usr_dat_fecvctopwd = DateTime.Now.AddDays(30);
-            //dominio_usuario.usr_dat_ultfecbloqueo = 1;
-           // dominio_usuario.usr_int_aprobado = 1;
-            //dominio_usuario.usr_int_bloqueado = 0;
-          //  dominio_usuario.usr_int_cambiarpwd = 1;
             dominio_usuario.usr_int_numintentos = 0;
 
             var nuevopassword = GenerarCadena();
@@ -55,7 +51,7 @@ namespace CommandHandlers.TYS.Seguridad
     	    string posibles = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 	        int longitud = posibles.Length;
 	        char letra;
-	        int longitudnuevacadena = 10;
+	        int longitudnuevacadena = 6;
 	        string nuevacadena = "";
 	
             for (int i = 0; i < longitudnuevacadena; i++)

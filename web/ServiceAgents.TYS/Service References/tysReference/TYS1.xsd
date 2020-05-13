@@ -90,12 +90,26 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="InsertarModificarRolCommand" nillable="true" type="tns:InsertarModificarRolCommand" />
-  <xs:complexType name="InsertarModificarUsuarioCommand">
+  <xs:complexType name="InsertarModificarAlertaCommand">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q8:Command">
         <xs:sequence>
+          <xs:element minOccurs="0" name="estados" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="idalerta" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idperiodicidad" type="xs:int" />
+          <xs:element minOccurs="0" name="usr_int_id" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarModificarAlertaCommand" nillable="true" type="tns:InsertarModificarAlertaCommand" />
+  <xs:complexType name="InsertarModificarUsuarioCommand">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q9:Command">
+        <xs:sequence>
           <xs:element minOccurs="0" name="idcliente" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="idestacionorigen" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idprovincia" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="usr_dat_fecvctopwd" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="usr_dat_fecvctousuario" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="usr_dat_ultfecbloqueo" nillable="true" type="xs:dateTime" />
@@ -116,7 +130,7 @@
   <xs:element name="InsertarModificarUsuarioCommand" nillable="true" type="tns:InsertarModificarUsuarioCommand" />
   <xs:complexType name="InsertarModificarSistemaCommand">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q9:Command">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q10:Command">
         <xs:sequence>
           <xs:element minOccurs="0" name="sis_bit_activo" type="xs:boolean" />
           <xs:element minOccurs="0" name="sis_int_id" nillable="true" type="xs:int" />
@@ -133,7 +147,7 @@
   <xs:element name="InsertarModificarSistemaCommand" nillable="true" type="tns:InsertarModificarSistemaCommand" />
   <xs:complexType name="ResetarPasswordCommand">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q10:Command">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q11:Command">
         <xs:sequence>
           <xs:element minOccurs="0" name="usr_int_id" type="xs:int" />
         </xs:sequence>

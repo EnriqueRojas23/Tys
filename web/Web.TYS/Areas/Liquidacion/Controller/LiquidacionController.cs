@@ -289,7 +289,7 @@ namespace Web.TYS.Areas.Liquidacion.Controller
 
             return PartialView("_EditarLiquidacion", model);
         }
-
+        [AllowAnonymous]
         public PartialViewResult ListarArchivos(long idorden)
         {
             return PartialView("_VerArchivos");

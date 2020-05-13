@@ -22,6 +22,18 @@ namespace QueryContracts.TYS.Seguimiento.Results
         public long idpreliquidacion { get; set; }
         public DateTime fecharegistro { get; set; }
 
+        public DateTime? fechadespacho { get; set; }
+        public DateTime? fechaentrega { get; set; }
+        public DateTime? fecharecojo { get; set; }
+
+        public decimal peso { get; set; }
+        public decimal volumen { get; set; }
+        public int bulto{ get; set; }
+        public string docgeneral { get; set; }
+
+        public string GRR { get; set; }
+        public string estado { get; set; }
+
     }
 }
 

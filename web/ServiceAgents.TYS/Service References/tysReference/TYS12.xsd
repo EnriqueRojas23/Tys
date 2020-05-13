@@ -1,30 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CommandContracts.Common" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CommandContracts.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="Command">
-    <xs:sequence />
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CommandContracts.TYS.Pago.Output" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CommandContracts.TYS.Pago.Output" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50030/TYS?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommandContracts.Common" />
+  <xs:complexType name="InsertarAsignacionOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q1:CommandResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idasignacion" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
-  <xs:element name="Command" nillable="true" type="tns:Command" />
-  <xs:complexType name="CommandResult">
-    <xs:sequence />
+  <xs:element name="InsertarAsignacionOutput" nillable="true" type="tns:InsertarAsignacionOutput" />
+  <xs:complexType name="InsertarComprobanteDetalleOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q2:CommandResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idcomprobantedetalle" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
-  <xs:element name="CommandResult" nillable="true" type="tns:CommandResult" />
-  <xs:complexType name="CommandFault">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CommandErrors" nillable="true" type="tns:ArrayOfCommandError" />
-    </xs:sequence>
+  <xs:element name="InsertarComprobanteDetalleOutput" nillable="true" type="tns:InsertarComprobanteDetalleOutput" />
+  <xs:complexType name="InsertarComprobanteOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q3:CommandResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idcomprobante" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
-  <xs:element name="CommandFault" nillable="true" type="tns:CommandFault" />
-  <xs:complexType name="ArrayOfCommandError">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommandError" nillable="true" type="tns:CommandError" />
-    </xs:sequence>
+  <xs:element name="InsertarComprobanteOutput" nillable="true" type="tns:InsertarComprobanteOutput" />
+  <xs:complexType name="InsertarEtapaOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q4:CommandResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idetapa" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
-  <xs:element name="ArrayOfCommandError" nillable="true" type="tns:ArrayOfCommandError" />
-  <xs:complexType name="CommandError">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PropertyName" nillable="true" type="xs:string" />
-    </xs:sequence>
+  <xs:element name="InsertarEtapaOutput" nillable="true" type="tns:InsertarEtapaOutput" />
+  <xs:complexType name="InsertarMonedaOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q5:CommandResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idmoneda" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
-  <xs:element name="CommandError" nillable="true" type="tns:CommandError" />
+  <xs:element name="InsertarMonedaOutput" nillable="true" type="tns:InsertarMonedaOutput" />
+  <xs:complexType name="InsertarProveedorOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q6:CommandResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idproveedor" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarProveedorOutput" nillable="true" type="tns:InsertarProveedorOutput" />
+  <xs:complexType name="InsertarTipoComprobanteOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q7:CommandResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idtipocomprobante" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarTipoComprobanteOutput" nillable="true" type="tns:InsertarTipoComprobanteOutput" />
+  <xs:complexType name="InsertarTipoTransporteOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/CommandContracts.Common" base="q8:CommandResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idtipotransporte" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsertarTipoTransporteOutput" nillable="true" type="tns:InsertarTipoTransporteOutput" />
 </xs:schema>

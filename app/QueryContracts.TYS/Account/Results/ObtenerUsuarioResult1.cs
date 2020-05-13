@@ -16,6 +16,7 @@ namespace QueryContracts.TYS.Account.Results
         public int? idcliente { get; set; }
         public int? iddistrito { get; set; }
         public int? idprovincia { get; set; }
+        public string idclientes { get; set; }
 
     }
 }

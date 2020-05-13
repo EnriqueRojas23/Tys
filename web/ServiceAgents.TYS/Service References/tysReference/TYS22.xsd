@@ -1,160 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Facturacion.Parameters" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Facturacion.Parameters" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Account.Results" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/QueryContracts.TYS.Account.Results" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:50030/TYS?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/QueryContracts.Common" />
-  <xs:complexType name="ListarComprobanteDetallesParameters">
+  <xs:complexType name="ObtenerUsuarioResult">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q1:QueryParameter">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q1:QueryResult">
         <xs:sequence>
-          <xs:element minOccurs="0" name="idcomprobante" type="xs:long" />
+          <xs:element minOccurs="0" name="ListaRoles" nillable="true" type="tns:ArrayOfRolDto" />
+          <xs:element minOccurs="0" name="Rol_int_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Sis_int_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Usr_dat_fecregistro" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Usr_dat_fecvctopwd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Usr_dat_fecvctousuario" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Usr_dat_ultfecbloqueo" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Usr_dat_ultfeclogin" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Usr_int_aprobado" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Usr_int_bloqueado" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Usr_int_cambiarpwd" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Usr_int_id" type="xs:int" />
+          <xs:element minOccurs="0" name="Usr_int_numintentos" type="xs:int" />
+          <xs:element minOccurs="0" name="Usr_int_online" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Usr_str_apellidos" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Usr_str_email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Usr_str_nombre" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Usr_str_red" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="respuestamensaje" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="usr_str_tipoacceso" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="ListarComprobanteDetallesParameters" nillable="true" type="tns:ListarComprobanteDetallesParameters" />
-  <xs:complexType name="ListarPreliquidacionParameters">
+  <xs:element name="ObtenerUsuarioResult" nillable="true" type="tns:ObtenerUsuarioResult" />
+  <xs:complexType name="ArrayOfRolDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RolDto" nillable="true" type="tns:RolDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRolDto" nillable="true" type="tns:ArrayOfRolDto" />
+  <xs:complexType name="RolDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Rol_int_id" type="xs:int" />
+      <xs:element minOccurs="0" name="Rol_str_alias" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rol_str_descrip" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RolDto" nillable="true" type="tns:RolDto" />
+  <xs:complexType name="ObtenerUsuarioResult1">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q2:QueryParameter">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q2:QueryResult">
         <xs:sequence>
           <xs:element minOccurs="0" name="idcliente" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="idestado" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="idtipocomprobante" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="numerocomprobante" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="numeroliquidacion" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="ListarPreliquidacionParameters" nillable="true" type="tns:ListarPreliquidacionParameters" />
-  <xs:complexType name="ListarDocumentosParameters">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q3:QueryParameter">
-        <xs:sequence>
+          <xs:element minOccurs="0" name="iddistrito" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="idestacionorigen" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="idtipocomprobante" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="idusuario" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="idprovincia" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="usr_bit_aprobado" type="xs:int" />
+          <xs:element minOccurs="0" name="usr_int_bloqueado" type="xs:int" />
+          <xs:element minOccurs="0" name="usr_int_id" type="xs:int" />
+          <xs:element minOccurs="0" name="usr_str_apellidos" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="usr_str_email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="usr_str_nombre" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="usr_str_red" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="usr_str_tipoacceso" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="ListarDocumentosParameters" nillable="true" type="tns:ListarDocumentosParameters" />
-  <xs:complexType name="ListarComprobantesParameters">
+  <xs:element name="ObtenerUsuarioResult1" nillable="true" type="tns:ObtenerUsuarioResult1" />
+  <xs:complexType name="ValidarUsuarioResult">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q4:QueryParameter">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q3:QueryResult">
         <xs:sequence>
-          <xs:element minOccurs="0" name="idcliente" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="idestado" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="idtipocomprobante" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="numerocomprobante" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="numeroliquidacion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Usr_dat_fecvctopwd" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Usr_dat_ultfeclogin" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Usr_int_aprobado" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Usr_int_bloqueado" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Usr_int_id" type="xs:int" />
+          <xs:element minOccurs="0" name="Usr_int_numintentos" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Usr_int_pwdvalido" type="xs:int" />
+          <xs:element minOccurs="0" name="Usr_int_rolinvalido" type="xs:int" />
+          <xs:element minOccurs="0" name="Usr_str_recordarpwd" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Usr_str_red" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="ListarComprobantesParameters" nillable="true" type="tns:ListarComprobantesParameters" />
-  <xs:complexType name="ListarOTSxIdsParameters">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q5:QueryParameter">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="ots" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="ListarOTSxIdsParameters" nillable="true" type="tns:ListarOTSxIdsParameters" />
-  <xs:complexType name="ListarCompletadoPreliquidacionParameters">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q6:QueryParameter">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="idpreliquidacion" type="xs:long" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="ListarCompletadoPreliquidacionParameters" nillable="true" type="tns:ListarCompletadoPreliquidacionParameters" />
-  <xs:complexType name="ObtenerNumeroComprobanteParameters">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q7:QueryParameter">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="idestacionorigen" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="idnumerodocumento" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="idtipocomprobante" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="idusuario" nillable="true" type="xs:int" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="ObtenerNumeroComprobanteParameters" nillable="true" type="tns:ObtenerNumeroComprobanteParameters" />
-  <xs:complexType name="ObtenerComprobanteParameters">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q8:QueryParameter">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="idcomprobante" nillable="true" type="xs:long" />
-          <xs:element minOccurs="0" name="idpreliquidacion" nillable="true" type="xs:long" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="ObtenerComprobanteParameters" nillable="true" type="tns:ObtenerComprobanteParameters" />
-  <xs:complexType name="ObtenerFactElectronicaParameters">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q9:QueryParameter">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="DocEnty" type="xs:long" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="ObtenerFactElectronicaParameters" nillable="true" type="tns:ObtenerFactElectronicaParameters" />
-  <xs:complexType name="ObtenerUltimaPreliquidacionParameters">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q10:QueryParameter">
-        <xs:sequence />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="ObtenerUltimaPreliquidacionParameters" nillable="true" type="tns:ObtenerUltimaPreliquidacionParameters" />
-  <xs:complexType name="ObtenerPreliquidacionParameters">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q11:QueryParameter">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="idpreliquidacion" type="xs:long" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="ObtenerPreliquidacionParameters" nillable="true" type="tns:ObtenerPreliquidacionParameters" />
-  <xs:complexType name="ActualizarOTComprobanteParameters">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q12:QueryParameter">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="fechacomprobante" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="idsordentrabajo" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="ActualizarOTComprobanteParameters" nillable="true" type="tns:ActualizarOTComprobanteParameters" />
-  <xs:complexType name="VincularPreliquidacionOTParameters">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q13:QueryParameter">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="idpreliquidacion" nillable="true" type="xs:long" />
-          <xs:element minOccurs="0" name="idsordentrabajo" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="VincularPreliquidacionOTParameters" nillable="true" type="tns:VincularPreliquidacionOTParameters" />
-  <xs:complexType name="ListarPendientePreliquidacionParameters">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/QueryContracts.Common" base="q14:QueryParameter">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="idcliente" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="iddestino" nillable="true" type="xs:int" />
-          <xs:element minOccurs="0" name="numcp" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="ListarPendientePreliquidacionParameters" nillable="true" type="tns:ListarPendientePreliquidacionParameters" />
+  <xs:element name="ValidarUsuarioResult" nillable="true" type="tns:ValidarUsuarioResult" />
 </xs:schema>

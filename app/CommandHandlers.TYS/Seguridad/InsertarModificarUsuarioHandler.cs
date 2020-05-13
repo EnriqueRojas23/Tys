@@ -44,7 +44,20 @@ namespace CommandHandlers.TYS.Seguridad
             dominio_usuario.idcliente = command.idcliente;
             dominio_usuario.idestacionorigen = command.idestacionorigen;
             dominio_usuario.idprovincia = command.idprovincia;
-        
+            string clientes = string.Empty;
+
+            foreach (var cliente in command.idclientes)
+            {
+                clientes += "," + cliente.ToString();
+            }
+
+            if (clientes.Length > 0)
+            {
+                dominio_usuario.idclientes = clientes.Substring(1, clientes.Length - 1); ;
+            }
+
+
+          
 
             if (!command.usr_int_id.HasValue) {
                 dominio_usuario.usr_dat_fecregistro = DateTime.Now;

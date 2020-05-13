@@ -1,7 +1,7 @@
 const btnNuevo = "#btnNuevo";
 const gridlistaots = "#gridguias";
 const gridlistaotspager = "#gridguiaspager";
-const $btnVolver = $("#btnVolver")
+const $btnVolver = $("#btnVolver");
 
 $(document).ready(function () {
     $("html, body").animate({ scrollTop: "100px" });
@@ -35,6 +35,7 @@ $(document).ready(function () {
         }
     });
     CargaListaots();
+    CargaListaotsLibre();
     $("#cantidad").keypress(function (event) {
         if (event.which == 13) {
             cargarguias();
@@ -42,6 +43,10 @@ $(document).ready(function () {
     });
     $btnVolver.click(function (event) {
         $("html, body").animate({ scrollTop: "100px" });
+    })
+    $('#btnExportar').click(function () {
+        imprimir();
+
     })
 });
 
@@ -54,15 +59,22 @@ function reload() {
     var fecinicio = $('#fechainicio').val();
     var fecfin = $('#fechafin').val();
     var idcliente = $('#idcliente').val();
+    var idestado = $('#idestado').val();
     var idestacion = $('#idestacion').val();
     var grr = $("#grr").val()
+    var docgeneral = $("#docgeneral").val()
+    var iddestino = $('#iddestino').val();
 
     if (fecinicio == '' || fecfin == '') {
         swal("OT", "Debe ingresar un rango de fechas", "warning")
         return
     }
 
-    var vdataurl = $("#gridordenes").data("dataurl") + "?numcp=" + numcp + "&fecinicio=" + fecinicio + "&fecfin=" + fecfin + "&idcliente=" + idcliente + "&grr=" + grr
+    var vdataurl = $("#gridordenes").data("dataurl") + "?numcp=" + numcp + "&fecinicio="
+        + fecinicio + "&fecfin=" + fecfin + "&idcliente=" + idcliente + "&grr=" + grr + "&docgeneral="
+        + docgeneral + "&idestado=" + idestado
+          + "&iddestino=" + iddestino;
+
     $("#gridordenes").jqGrid('setGridParam', { url: vdataurl }).trigger('reloadGrid');
 }
 
@@ -100,11 +112,11 @@ function formatedit(cellvalue, options, rowObject) {
 
 function CargaListaots() {
     $.jgrid.defaults.width = 200;
-    $.jgrid.defaults.height = 450;
+    $.jgrid.defaults.height = 1050;
 
     var grilla = $("#gridordenes");
     var pagergrilla = $("#gridordenespager");
-
+ 
     var numcp = $('#numcp').val();
     var fecinicio = $('#fechainicio').val();
     var fecfin = $('#fechafin').val();
@@ -117,31 +129,39 @@ function CargaListaots() {
         url: vdataurl,
         datatype: 'json',
         mtype: 'Get',
-        colNames: ['', 'O/T', 'Fec. Registro', 'Cliente', 'T.Transporte', 'Concepto Cobro', 'Destino', 'Remitente', 'Destinatario', 'idpreliquidacion', 'GRR', 'Files', 'Eventos'],
+        colNames: ['', 'O/T', 'Fec. Registro', 'Cliente', 'Doc.Referencia', 'T.Transporte', 'Estado', 'Fecha Recojo', 'Fecha Despacho', 'Fecha Entrega', 'Destino', 'Remitente', 'Destinatario', 'idpreliquidacion', 'GRR', 'Files'],
         colModel:
         [
             { key: true, hidden: true, name: 'idordentrabajo', index: 'idordentrabajo', classes: "grid-col" },
             { key: false, hidden: false, editable: false, name: 'numcp', index: 'numcp', width: '40', align: 'center', classes: "grid-col", formatter: semaforo, classes: "grid-col" },
             { key: false, hidden: false, editable: false, name: 'fecharegistro', index: 'fecharegistro', width: '40', align: 'center', classes: "grid-col", formatter: 'date', formatoptions: { srcformat: "ISO8601Long", newformat: "d/m/Y" }, classes: "grid-col" },
-            { key: false, hidden: false, editable: false, name: 'razonsocial', index: 'razonsocial', width: '100', align: 'left', classes: "grid-col", formatter: formatedit, classes: "grid-col" },
+            { key: false, hidden: false, editable: false, name: 'razonsocial', index: 'razonsocial', width: '80', align: 'left', classes: "grid-col", formatter: formatedit, classes: "grid-col" },
+            { key: false, hidden: false, editable: false, name: 'docgeneral', index: 'docgeneral', width: '80', align: 'left', classes: "grid-col", formatter: formatedit, classes: "grid-col" },
             { key: false, hidden: false, editable: false, name: 'tipotransporte', index: 'tipotransporte', width: '40', align: 'center', classes: "grid-col", formatter: formatedit, classes: "grid-col" },
-            { key: false, hidden: false, editable: false, name: 'conceptocobro', index: 'conceptocobro', width: '40', align: 'center', classes: "grid-col", formatter: formatedit, classes: "grid-col" },
+
+            { key: false, hidden: false, editable: false, name: 'estado', index: 'estado', width: '40', align: 'center', classes: "grid-col", formatter: formatedit, classes: "grid-col" },
+
+            { key: false, hidden: false, editable: false, name: 'fecharecojo', index: 'fecharecojo', width: '40', align: 'center', classes: "grid-col", formatter: 'date', formatoptions: { srcformat: "ISO8601Long", newformat: "d/m/Y" }, classes: "grid-col" },
+            { key: false, hidden: false, editable: false, name: 'fechadespacho', index: 'fechadespacho', width: '40', align: 'center', classes: "grid-col", formatter: 'date', formatoptions: { srcformat: "ISO8601Long", newformat: "d/m/Y" }, classes: "grid-col" },
+            { key: false, hidden: false, editable: false, name: 'fechaentrega', index: 'fechaentrega', width: '40', align: 'center', classes: "grid-col", formatter: 'date', formatoptions: { srcformat: "ISO8601Long", newformat: "d/m/Y" }, classes: "grid-col" },
+
+
             { key: false, hidden: false, editable: false, name: 'destino', index: 'destino', width: '40', align: 'center', classes: "grid-col", formatter: formatedit, classes: "grid-col" },
             { key: false, hidden: false, editable: false, name: 'remitente', index: 'remitente', width: '60', align: 'center', classes: "grid-col", formatter: formatedit, classes: "grid-col" },
             { key: false, hidden: false, editable: false, name: 'destinatario', index: 'destinatario', width: '60', align: 'center', classes: "grid-col", formatter: formatedit, classes: "grid-col" },
             { key: false, hidden: true, editable: false, name: 'idpreliquidacion', index: 'idpreliquidacion', width: '60', align: 'center', classes: "grid-col", formatter: formatedit, classes: "grid-col" },
             { key: false, hidden: false, editable: false, name: 'idordentrabajo', width: '30', index: 'idordentrabajo', align: 'center', formatter: displayButtonGRR, classes: "grid-col" },
             { key: false, hidden: false, editable: false, name: 'idordentrabajo', width: '30', index: 'idordentrabajo', align: 'center', formatter: displayButtonFiles, classes: "grid-col" },
-            { key: false, hidden: false, editable: false, name: 'idordentrabajo', width: '30', index: 'idordentrabajo', align: 'center', formatter: displayButtonOrdenes, classes: "grid-col" }
+           // { key: false, hidden: false, editable: false, name: 'idordentrabajo', width: '30', index: 'idordentrabajo', align: 'center', formatter: displayButtonOrdenes, classes: "grid-col" }
         ],
         pager: $(pagergrilla),
-        rowNum: 30,
-        rowList: [30, 60, 90, 120],
+        rowNum: 60,
+        rowList: [ 60, 120, 180],
         autowidth: true,
         emptyrecords: 'No se encontraron registros',
         viewrecords: true,
         editable: false,
-
+        height: 1520,
         jsonReader:
         {
             root: "rows",
@@ -335,4 +355,94 @@ function configurarGrillaEventos() {
     });
 
 
+}
+
+function imprimir() {
+    var numcp = $('#numcp').val();
+    var fecinicio = $('#fechainicio').val();
+    var fecfin = $('#fechafin').val();
+    var idcliente = $('#idcliente').val();
+    var idestacion = $('#idestacion').val();
+    var idestado = $('#idestado').val();
+
+    var url = UrlHelper.Action("ExportarOrdenes", "Seguimiento", "Seguimiento") + "?numcp=" + numcp + "&fecinicio=" + fecinicio + "&fecfin=" + fecfin + "&idcliente=" + idcliente + "&idestacion=" + idestacion + "&idestado=" + idestado;;
+
+
+    $(window).attr("location", url);
+
+}
+
+function CargaListaotsLibre() {
+    $.jgrid.defaults.width = 200;
+    $.jgrid.defaults.height = 450;
+
+    var grilla = $("#gridordenes");
+    var pagergrilla = $("#gridordenespager");
+
+    var numcp = $('#numcp').val();
+
+
+    var vdataurl = UrlHelper.Action("JsonGetListarOrdenesLibre", "Seguimiento", "Seguimiento") + "?numcp=" + numcp;
+
+
+    $(grilla).jqGrid({
+        url: vdataurl,
+        datatype: 'json',
+        mtype: 'Post',
+        colNames: ['', 'O/T', 'Fec. Registro', 'Cliente', 'T.Transporte', 'Concepto Cobro', 'Destino', 'Remitente', 'Destinatario', 'idpreliquidacion', 'GRR', 'Files', 'Eventos'],
+        colModel:
+        [
+            { key: true, hidden: true, name: 'idordentrabajo', index: 'idordentrabajo', classes: "grid-col" },
+            { key: false, hidden: false, editable: false, name: 'numcp', index: 'numcp', width: '40', align: 'center', classes: "grid-col", formatter: semaforo, classes: "grid-col" },
+            { key: false, hidden: false, editable: false, name: 'fecharegistro', index: 'fecharegistro', width: '40', align: 'center', classes: "grid-col", formatter: 'date', formatoptions: { srcformat: "ISO8601Long", newformat: "d/m/Y" }, classes: "grid-col" },
+            { key: false, hidden: false, editable: false, name: 'razonsocial', index: 'razonsocial', width: '100', align: 'left', classes: "grid-col", formatter: formatedit, classes: "grid-col" },
+            { key: false, hidden: false, editable: false, name: 'tipotransporte', index: 'tipotransporte', width: '40', align: 'center', classes: "grid-col", formatter: formatedit, classes: "grid-col" },
+            { key: false, hidden: false, editable: false, name: 'conceptocobro', index: 'conceptocobro', width: '40', align: 'center', classes: "grid-col", formatter: formatedit, classes: "grid-col" },
+            { key: false, hidden: false, editable: false, name: 'destino', index: 'destino', width: '40', align: 'center', classes: "grid-col", formatter: formatedit, classes: "grid-col" },
+            { key: false, hidden: false, editable: false, name: 'remitente', index: 'remitente', width: '60', align: 'center', classes: "grid-col", formatter: formatedit, classes: "grid-col" },
+            { key: false, hidden: false, editable: false, name: 'destinatario', index: 'destinatario', width: '60', align: 'center', classes: "grid-col", formatter: formatedit, classes: "grid-col" },
+            { key: false, hidden: true, editable: false, name: 'idpreliquidacion', index: 'idpreliquidacion', width: '60', align: 'center', classes: "grid-col", formatter: formatedit, classes: "grid-col" },
+            { key: false, hidden: false, editable: false, name: 'idordentrabajo', width: '30', index: 'idordentrabajo', align: 'center', formatter: displayButtonGRR, classes: "grid-col" },
+            { key: false, hidden: false, editable: false, name: 'idordentrabajo', width: '30', index: 'idordentrabajo', align: 'center', formatter: displayButtonFiles, classes: "grid-col" },
+            { key: false, hidden: false, editable: false, name: 'idordentrabajo', width: '30', index: 'idordentrabajo', align: 'center', formatter: displayButtonOrdenes, classes: "grid-col" }
+        ],
+        pager: $(pagergrilla),
+        rowNum: 30,
+        rowList: [30, 60, 90, 120],
+        autowidth: true,
+        emptyrecords: 'No se encontraron registros',
+        viewrecords: true,
+        editable: false,
+
+        jsonReader:
+        {
+            root: "rows",
+            page: "page",
+            total: "total",
+            records: "records",
+            repeatitems: false,
+            id: 0
+        },
+        loadComplete: function (data) {
+            // setStyleCheckBoxGrid(this);
+
+            // for (var i = 0; i < idsOfSelectedRows.length; i++){
+            //       $("#gridcargas").setSelection(idsOfSelectedRows[i], true);
+            // }
+            // var numerofilas = $(this).getGridParam("records");
+            //
+        },
+        beforeSelectRow: function (rowid, e) {
+            jQuery("#gridordenes").jqGrid('resetSelection');
+            return (true);
+        }
+    });
+
+    $(grilla).setGridParam({ sortname: 'fecharegistro', sortorder: 'desc' }).trigger('reloadGrid');
+}
+function downloadFile(archivo) {
+
+    var url = UrlHelper.Action("DownloadArchivo", "Liquidacion", "Liquidacion") + "?idarchivo=" + archivo;
+    //var url = $('#tblDocumentos').data("urldwn") + "?archivo=" + archivo;
+    window.location = url;
 }

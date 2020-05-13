@@ -23,6 +23,7 @@ using Web.TYS.DataAccess.Seguridad;
 using Web.TYS.Areas.Pago.Models;
 using Web.TYS.DataAccess.Facturacion;
 using Web.TYS.DataAccess.Monitoreo;
+using QueryContracts.TYS.Account.Results;
 
 namespace Web.TYS.Areas.Seguimiento.Controllers
 {
@@ -31,9 +32,11 @@ namespace Web.TYS.Areas.Seguimiento.Controllers
         private const string LISTAPROVEEDOR = "ListaProveedor";
 
         #region ResultViews
-
+       
         public ActionResult Ordenes()
         {
+            ObtenerUsuarioResult1 usr;
+
             var clientes = GetListarClientes_Cache();
             var listaclientes = new SelectList(
                 clientes,
@@ -51,10 +54,19 @@ namespace Web.TYS.Areas.Seguimiento.Controllers
 
             OrdenTrabajoModel model = new OrdenTrabajoModel();
 
-            var usuario = DataAccess.Seguridad.UsuariosData.ObtenerUsuario(Convert.ToInt32(Usuario.Idusuario));
+            if (Usuario == null)
+            {
+                usr = new ObtenerUsuarioResult1();
+                usr.idestacionorigen = 1;
+                
+            }
+            else
+            {
+                 usr = DataAccess.Seguridad.UsuariosData.ObtenerUsuario(Convert.ToInt32(Usuario.Idusuario));
+            }
 
-            if (usuario.idestacionorigen != null)
-                model.idestacion = usuario.idestacionorigen.Value;
+            if (usr.idestacionorigen != null)
+                model.idestacion = usr.idestacionorigen.Value;
 
             model.fechainicio = DateTime.Now.Subtract(TimeSpan.FromDays(31));
             model.fechafin = DateTime.Now;
@@ -2836,6 +2848,7 @@ namespace Web.TYS.Areas.Seguimiento.Controllers
 
             return PartialView("_VistaFactura", liquidacion);
         }
+
         public PartialViewResult PreBoleta(long idpreliquidacion)
         {
             string descripcion = "";

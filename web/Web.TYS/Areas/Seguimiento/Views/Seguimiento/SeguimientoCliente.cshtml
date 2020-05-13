@@ -62,40 +62,69 @@
                 </div>
                 <div class="ibox-content">
                     <div class="form-horizontal">
+                     
+                            
                         <div class="form-group">
                             <div class="col-md-2">
-                                <label class="control-label"> Número Orden :</label>
-                                @Html.TextBoxFor(model => model.numcp, "", new { @class = "form-control", @placeholder = "Número de OT", @required = "False" })
+                                <label class="control-label">Cliente :</label>
+                                @Html.DropDownListFor(m => m.idcliente, (SelectList)ViewData["ListaClientes"], "[---]", new { @class = "chosen-select form-control input-sm", @required = "true" })
                             </div>
-                            <div class="col-md-2">
-                                <label class="control-label">GRR:</label>
-                                @Html.TextBoxFor(x => x.grr, new { @class = "form-control", @required = "false" })
-                            </div>
-                            <div class="col-md-2">
-                                <label class="control-label"> Fecha Inicio:</label>
 
-                                <div class="input-group date" id='dtpfechaini'>
-                                    <div class="input-group date">
-                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                        @Html.TextBoxFor(model => model.fechainicio, "{0:dd/MM/yyyy}", new { @placeholder = "Desde", @class = "form-control", @required = "False" })
+                           
+
+                                <div class="col-md-2">
+                                    <label class="control-label"> Número Orden :</label>
+                                    @Html.TextBoxFor(model => model.numcp, "", new { @class = "form-control", @placeholder = "Número de OT", @required = "False" })
+                                </div>
+                            <div class="col-md-2">
+                                <label class="control-label"> Doc Referencia :</label>
+                                @Html.TextBoxFor(model => model.docgeneral, "", new { @class = "form-control", @placeholder = "Doc Referencia", @required = "False" })
+                            </div>
+                                <div class="col-md-2">
+                                    <label class="control-label">GRR:</label>
+                                    @Html.TextBoxFor(x => x.grr, new { @class = "form-control", @required = "false" })
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="control-label"> Fecha Inicio:</label>
+
+                                    <div class="input-group date" id='dtpfechaini'>
+                                        <div class="input-group date">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            @Html.TextBoxFor(model => model.fechainicio, "{0:dd/MM/yyyy}", new { @placeholder = "Desde", @class = "form-control", @required = "False" })
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-2">
-                                <label class="control-label"> Fecha Fin:</label>
+                                <div class="col-md-2">
+                                    <label class="control-label"> Fecha Fin:</label>
 
-                                <div class="input-group date" id='dtpfechafin'>
-                                    <div class="input-group date">
-                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                        @Html.TextBoxFor(model => model.fechafin, "{0:dd/MM/yyyy}", new { @placeholder = "Hasta", @class = "form-control", @required = "False" })
+                                    <div class="input-group date" id='dtpfechafin'>
+                                        <div class="input-group date">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            @Html.TextBoxFor(model => model.fechafin, "{0:dd/MM/yyyy}", new { @placeholder = "Hasta", @class = "form-control", @required = "False" })
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             <div class="col-md-2">
-                                <button type="button" id='btnBuscar' class="btn  btn-line btn-block btn-sm btn-github"><i class="fa fa-search"></i> Buscar </button>
+                                <label class=" control-label">Destino:</label>
+                                @Html.DropDownListFor(m => m.iddestino, (SelectList)ViewData["ListaUbigeo"], "[Destino]", new { @class = "chosen-select form-control", @required = "true" })
                             </div>
+                                <div class="col-md-3">
+                                    <label class="control-label">Estado</label>
+                                    @Html.DropDownListFor(m => m.idestado, (SelectList)ViewData["listaestados"], "[ --Todos-- ]", new { @class = "chosen-select form-control", @required = "true" })
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    <button type="button" id='btnBuscar' class="btn  btn-line btn-block btn-sm btn-github"><i class="fa fa-search"></i> Buscar </button>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" id='btnExportar' class="btn  btn-sm btn-primary"><i class="fa fa-external-link-square"></i> Exportar </button>
+
+                                </div>
+
+                                </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -126,7 +155,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    @*<div class="row">
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
@@ -155,5 +184,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 </div>
